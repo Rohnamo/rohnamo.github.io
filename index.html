@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Rohnamo — Транспорт Душанбе</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   MATERIAL YOU TOKENS — LIGHT
+═══════════════════════════════════════════ */
+:root {
+  --pri:#FF6D00; --on-pri:#fff;
+  --pri-con:#FFE0CC; --on-pri-con:#331200;
+  --sec:#1565C0; --sec-con:#D6E4FF; --on-sec-con:#001847;
+  --ter:#2E7D32; --ter-con:#C8F0CA; --on-ter-con:#002106;
+  --err:#BA1A1A; --err-con:#FFDAD6;
+  --surf:#FFF8F5; --surf1:#FFF1EA; --surf2:#FDEADF; --surf3:#FBDED0;
+  --on-surf:#1C1B1F; --on-surf-v:#49454F;
+  --out:#857470; --out-v:#E0CEC8;
+  --bus:#B71C1C; --bus-con:#FFEBEE;
+  --min:#1565C0; --min-con:#E3F2FD;
+  --trl:#1B5E20; --trl-con:#E8F5E9;
+  --card-bg:#ffffff;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:50px;
+  --e1:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.08);
+  --e2:0 2px 8px rgba(0,0,0,.1),0 1px 4px rgba(0,0,0,.06);
+  --e3:0 4px 16px rgba(0,0,0,.1),0 2px 8px rgba(0,0,0,.06);
+}
+/* ─── DARK OVERRIDES ─── */
+[data-theme="dark"] {
+  --pri:#FFB74D; --on-pri:#1A0900;
+  --pri-con:#7A3800; --on-pri-con:#FFD8B8;
+  --sec:#90CAF9; --sec-con:#0D3A6B; --on-sec-con:#BBDEFB;
+  --ter:#81C784; --ter-con:#1B3D1C; --on-ter-con:#C8E6C9;
+  --err:#FFB4AB; --err-con:#690005;
+  --surf:#1A1210; --surf1:#231916; --surf2:#2C201C; --surf3:#352722;
+  --on-surf:#EDE0DB; --on-surf-v:#BAB0AB;
+  --out:#9E8D88; --out-v:#53433E;
+  --bus:#FF8A80; --bus-con:#4D0000;
+  --min:#90CAF9; --min-con:#0D2A4D;
+  --trl:#81C784; --trl-con:#1B3D1C;
+  --card-bg:#231916;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--surf);color:var(--on-surf);font-family:'Noto Sans',sans-serif;max-width:480px;margin:0 auto;overflow-x:hidden;transition:background .3s,color .3s}
+
+/* ════════════════ TOP BAR ════════════════ */
+.top-bar{
+  position:sticky;top:0;z-index:100;
+  background:var(--surf);border-bottom:1px solid var(--out-v);
+  height:64px;padding:0 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:var(--e1);transition:background .3s,border-color .3s;
+}
+.top-brand{display:flex;align-items:center;gap:10px}
+.top-logo{width:36px;height:36px;background:var(--pri);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 2px 8px rgba(255,109,0,.4);transition:background .3s}
+.top-name{font-family:'Noto Sans Display',sans-serif;font-size:20px;font-weight:900;color:var(--pri);letter-spacing:-.3px;transition:color .3s}
+.top-right{display:flex;align-items:center;gap:8px}
+/* Language switcher */
+.lang-switch{display:flex;gap:2px;background:var(--surf2);border-radius:var(--r-full);padding:3px;transition:background .3s}
+.ls-btn{padding:5px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700;border:none;cursor:pointer;background:transparent;color:var(--on-surf-v);transition:all .2s;font-family:'Noto Sans',sans-serif}
+.ls-btn.active{background:var(--pri);color:var(--on-pri);box-shadow:var(--e1)}
+/* Theme toggle */
+.theme-btn{width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;background:var(--surf2);color:var(--on-surf);font-size:18px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.theme-btn:active{transform:scale(.92)}
+
+/* ════════════════ HERO ════════════════ */
+.hero{
+  background:linear-gradient(155deg,#FF6D00 0%,#E65100 50%,#BF360C 100%);
+  padding:40px 20px 40px;position:relative;overflow:hidden;
+}
+[data-theme="dark"] .hero{background:linear-gradient(155deg,#7A3800 0%,#5D2A00 50%,#3D1C00 100%)}
+.hero::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08);top:-80px;right:-60px;pointer-events:none}
+.hero::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);bottom:-50px;left:-30px;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;padding:6px 14px;border-radius:var(--r-full);font-size:12px;font-weight:600;letter-spacing:.4px;margin-bottom:16px;animation:fadeDown .8s ease both}
+.hero-title{font-family:'Noto Sans Display',sans-serif;font-size:34px;font-weight:900;color:#fff;line-height:1.12;margin-bottom:14px;animation:fadeDown .8s .1s ease both}
+.hero-title span{opacity:.65}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:28px;animation:fadeUp .8s .2s ease both}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn-w{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--pri);font-size:14px;font-weight:700;padding:14px 24px;border-radius:var(--r-full);text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .15s}
+.btn-w:active{transform:scale(.96)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);color:#fff;font-size:14px;font-weight:600;padding:14px 22px;border-radius:var(--r-full);text-decoration:none;border:1.5px solid rgba(255,255,255,.4);transition:background .15s}
+.btn-o:active{background:rgba(255,255,255,.28)}
+
+/* ════════════════ STATS ════════════════ */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px}
+.stat-c{background:var(--card-bg);border-radius:var(--r-xl);padding:16px 10px;text-align:center;border:1px solid var(--out-v);box-shadow:var(--e1);display:flex;flex-direction:column;align-items:center;gap:3px;transition:background .3s,border-color .3s}
+.stat-ic{font-size:22px;margin-bottom:2px}
+.stat-n{font-family:'Noto Sans Display',sans-serif;font-size:30px;font-weight:900;line-height:1}
+.stat-n.r{color:var(--bus)} .stat-n.b{color:var(--sec)} .stat-n.g{color:var(--ter)}
+.stat-l{font-size:11px;color:var(--on-surf-v);font-weight:500;line-height:1.35}
+
+/* ════════════════ OFFLINE ════════════════ */
+.offline{margin:0 16px;background:linear-gradient(135deg,#FF8F00,#E65100);border-radius:var(--r-xl);padding:22px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 20px rgba(255,109,0,.35);color:#fff;transition:background .3s}
+[data-theme="dark"] .offline{background:linear-gradient(135deg,#5D3A00,#3D2000)}
+.offline-ic{font-size:44px;flex-shrink:0}
+.offline-t{font-family:'Noto Sans Display',sans-serif;font-size:17px;font-weight:800;margin-bottom:4px}
+.offline-d{font-size:13px;opacity:.85;line-height:1.55}
+
+/* ════════════════ SECTION HEADER ════════════════ */
+.sh{padding:28px 16px 4px}
+.sh-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pri);margin-bottom:6px;transition:color .3s}
+.sh-label::before{content:'';width:16px;height:3px;background:var(--pri);border-radius:2px;transition:background .3s}
+.sh-title{font-family:'Noto Sans Display',sans-serif;font-size:22px;font-weight:800;line-height:1.25;color:var(--on-surf);transition:color .3s}
+.sh-desc{font-size:14px;color:var(--on-surf-v);line-height:1.6;margin-top:6px;transition:color .3s}
+
+/* ════════════════ TRANSPORT ════════════════ */
+.t-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:10px}
+.tc{border-radius:var(--r-xl);padding:18px;border:1.5px solid;box-shadow:var(--e1);transition:transform .15s,background .3s}
+.tc:active{transform:scale(.98)}
+.tc.bus{background:var(--bus-con);border-color:var(--bus-con)}
+.tc.min{background:var(--min-con);border-color:var(--min-con)}
+.tc.trl{background:var(--trl-con);border-color:var(--trl-con)}
+.tc-top{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+.tc-icon{width:50px;height:50px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.tc.bus .tc-icon{background:rgba(183,28,28,.15)}
+.tc.min .tc-icon{background:rgba(21,101,192,.15)}
+.tc.trl .tc-icon{background:rgba(27,94,32,.15)}
+.tc-info{flex:1}
+.tc-name{font-family:'Noto Sans Display',sans-serif;font-size:18px;font-weight:800;margin-bottom:2px}
+.tc.bus .tc-name{color:var(--bus)} .tc.min .tc-name{color:var(--min)} .tc.trl .tc-name{color:var(--ter)}
+.tc-meta{font-size:13px;color:var(--on-surf-v)}
+.tc-badge{align-self:flex-start;padding:4px 12px;border-radius:var(--r-full);font-family:'Noto Sans Display',sans-serif;font-size:15px;font-weight:900}
+.tc.bus .tc-badge{background:rgba(183,28,28,.18);color:var(--bus)}
+.tc.min .tc-badge{background:rgba(21,101,192,.18);color:var(--min)}
+.tc.trl .tc-badge{background:rgba(27,94,32,.18);color:var(--ter)}
+.tc-rl{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--on-surf-v);margin-bottom:7px}
+.tc-chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{padding:5px 11px;border-radius:var(--r-full);font-size:12px;font-weight:700;font-family:'Noto Sans Display',sans-serif}
+.tc.bus .chip{background:rgba(183,28,28,.15);color:var(--bus)}
+.tc.min .chip{background:rgba(21,101,192,.15);color:var(--min)}
+.tc.trl .chip{background:rgba(27,94,32,.15);color:var(--ter)}
+.chip.more{opacity:.55}
+
+/* ════════════════ STOP PREVIEW ════════════════ */
+.stop-card{margin:0 16px;background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);box-shadow:var(--e2);overflow:hidden;transition:background .3s,border-color .3s}
+.stop-hdr{background:var(--surf1);padding:14px 18px;border-bottom:1px solid var(--out-v);display:flex;align-items:center;gap:10px;transition:background .3s,border-color .3s}
+.stop-name{font-size:15px;font-weight:700}
+.stop-body{padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.stop-row{display:flex;align-items:center;gap:10px}
+.stop-type{font-size:12px;font-weight:700;color:var(--on-surf-v);width:90px;flex-shrink:0}
+.stop-chips{display:flex;flex-wrap:wrap;gap:5px}
+
+/* ════════════════ FEATURES ════════════════ */
+.feat-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:10px}
+.fi{background:var(--card-bg);border-radius:var(--r-xl);padding:18px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--out-v);box-shadow:var(--e1);transition:transform .15s,background .3s,border-color .3s}
+.fi:active{transform:scale(.98)}
+.fi-ic{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--pri-con);transition:background .3s}
+.fi-ic.b{background:var(--sec-con)} .fi-ic.g{background:var(--ter-con)} .fi-ic.r{background:var(--err-con)}
+.fi-body{flex:1}
+.fi-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.fi-desc{font-size:13px;color:var(--on-surf-v);line-height:1.6}
+.fi-tag{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700;background:var(--pri-con);color:var(--on-pri-con);transition:background .3s,color .3s}
+.fi-tag.b{background:var(--sec-con);color:var(--on-sec-con)}
+.fi-tag.r{background:var(--err-con);color:var(--err)}
+
+/* ════════════════ STEPPER ════════════════ */
+.stepper{padding:0 16px 4px}
+.si{display:flex;gap:14px}
+.si-spine{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:40px}
+.si-circle{width:40px;height:40px;border-radius:50%;background:var(--pri);color:var(--on-pri);font-family:'Noto Sans Display',sans-serif;font-size:17px;font-weight:900;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(255,109,0,.3);flex-shrink:0;transition:background .3s}
+.si-line{width:2px;flex:1;min-height:28px;background:linear-gradient(to bottom,var(--pri),var(--out-v));margin:4px 0;transition:background .3s}
+.si-body{flex:1;padding-bottom:24px;padding-top:9px}
+.si-title{font-size:15px;font-weight:700;margin-bottom:5px}
+.si-desc{font-size:13px;color:var(--on-surf-v);line-height:1.65}
+.si-ex{margin-top:10px;background:var(--pri-con);border-radius:var(--r-md);padding:10px 14px;font-size:13px;color:var(--on-pri-con);font-weight:500;line-height:1.5;transition:background .3s,color .3s}
+
+/* ════════════════ SETTINGS ════════════════ */
+.settings-card{margin:0 16px;background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);box-shadow:var(--e1);overflow:hidden;transition:background .3s,border-color .3s}
+.sr{display:flex;align-items:center;gap:14px;padding:15px 18px;border-bottom:1px solid var(--out-v);transition:border-color .3s}
+.sr:last-child{border-bottom:none}
+.sr-ic{width:40px;height:40px;border-radius:var(--r-md);background:var(--pri-con);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;transition:background .3s}
+.sr-ic.b{background:var(--sec-con)} .sr-ic.g{background:var(--ter-con)}
+.sr-body{flex:1}
+.sr-title{font-size:14px;font-weight:700}
+.sr-sub{font-size:12px;color:var(--on-surf-v);margin-top:1px}
+.sr-val{font-size:13px;font-weight:700;color:var(--pri);background:var(--pri-con);padding:5px 12px;border-radius:var(--r-full);white-space:nowrap;transition:all .3s}
+.sr-val.b{color:var(--sec);background:var(--sec-con)}
+.sr-val.g{color:var(--ter);background:var(--ter-con)}
+
+/* ════════════════ LANGUAGES ════════════════ */
+.lang-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 16px 4px}
+.lc{border-radius:var(--r-xl);padding:18px 10px;text-align:center;border:2px solid;box-shadow:var(--e1);display:flex;flex-direction:column;align-items:center;gap:6px;transition:background .3s,border-color .3s}
+.lc.tj{background:var(--ter-con);border-color:var(--ter-con)}
+.lc.ru{background:var(--sec-con);border-color:var(--sec-con)}
+.lc.en{background:var(--pri-con);border-color:var(--pri-con)}
+.lc-flag{font-size:28px}
+.lc-code{font-family:'Noto Sans Display',sans-serif;font-size:15px;font-weight:900}
+.lc.tj .lc-code{color:var(--ter)} .lc.ru .lc-code{color:var(--sec)} .lc.en .lc-code{color:var(--pri)}
+.lc-native{font-size:11px;color:var(--on-surf-v)}
+.active-b{background:var(--sec);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--r-full);text-transform:uppercase;letter-spacing:.4px}
+
+/* ════════════════ PRESS / СМИ ════════════════ */
+.press-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:12px}
+.press-card{background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);box-shadow:var(--e2);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .15s,background .3s,border-color .3s}
+.press-card:active{transform:scale(.98)}
+.press-top{background:linear-gradient(135deg,var(--pri),#E65100);padding:16px 18px;display:flex;align-items:center;gap:12px}
+[data-theme="dark"] .press-top{background:linear-gradient(135deg,var(--pri-con),#3D1C00)}
+.press-logo{width:44px;height:44px;border-radius:var(--r-md);background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.press-source{font-size:15px;font-weight:800;color:#fff}
+[data-theme="dark"] .press-source{color:var(--on-pri-con)}
+.press-date{font-size:12px;color:rgba(255,255,255,.7);margin-top:2px}
+[data-theme="dark"] .press-date{color:var(--on-surf-v)}
+.press-body{padding:16px 18px}
+.press-title{font-size:15px;font-weight:700;line-height:1.4;margin-bottom:8px;color:var(--on-surf)}
+.press-excerpt{font-size:13px;color:var(--on-surf-v);line-height:1.65;margin-bottom:12px}
+.press-stats{display:flex;gap:12px}
+.press-stat{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--on-surf-v)}
+.press-stat-num{font-weight:700;color:var(--pri)}
+.press-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--pri);margin-top:4px}
+.press-link::after{content:'→'}
+
+/* ════════════════ ROADMAP ════════════════ */
+.rm-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:8px}
+.rm-item{background:var(--card-bg);border-radius:var(--r-lg);border:1px solid var(--out-v);padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--e1);transition:background .3s,border-color .3s}
+.rm-ic{font-size:22px;flex-shrink:0;width:36px;text-align:center}
+.rm-body{flex:1}
+.rm-title{font-size:14px;font-weight:700;margin-bottom:2px}
+.rm-desc{font-size:12px;color:var(--on-surf-v)}
+.status{font-size:11px;font-weight:700;padding:4px 10px;border-radius:var(--r-full);flex-shrink:0;white-space:nowrap}
+.status.done{background:var(--ter-con);color:var(--ter)}
+.status.soon{background:var(--sec-con);color:var(--sec)}
+.status.plan{background:var(--pri-con);color:var(--pri)}
+
+/* ════════════════ AUTHOR ════════════════ */
+.author-card{margin:0 16px;background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);box-shadow:var(--e2);overflow:hidden;transition:background .3s,border-color .3s}
+.author-hdr{background:linear-gradient(135deg,#FF6D00,#E65100);padding:22px 20px;display:flex;gap:16px;align-items:center}
+[data-theme="dark"] .author-hdr{background:linear-gradient(135deg,#5D2A00,#3D1A00)}
+.author-av{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.25);border:3px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-family:'Noto Sans Display',sans-serif;font-size:24px;font-weight:900;color:#fff;flex-shrink:0}
+.author-name{font-size:17px;font-weight:800;color:#fff;margin-bottom:2px}
+.author-sub{font-size:13px;color:rgba(255,255,255,.75)}
+.author-body{padding:20px}
+.author-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.author-chip{background:var(--pri-con);color:var(--on-pri-con);font-size:12px;font-weight:600;padding:5px 12px;border-radius:var(--r-full);transition:background .3s,color .3s}
+.author-q{font-size:14px;color:var(--on-surf-v);line-height:1.7;border-left:4px solid var(--pri);padding-left:14px;font-style:italic;transition:color .3s,border-color .3s}
+
+/* ════════════════ DOWNLOAD ════════════════ */
+.dl-section{padding:0 16px 16px}
+.dl-card{background:linear-gradient(155deg,#FF6D00 0%,#BF360C 100%);border-radius:var(--r-xl);padding:30px 22px;text-align:center;box-shadow:0 8px 28px rgba(255,109,0,.4)}
+[data-theme="dark"] .dl-card{background:linear-gradient(155deg,#7A3800 0%,#3D1C00 100%)}
+.dl-icon{font-size:52px;margin-bottom:12px}
+.dl-title{font-family:'Noto Sans Display',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:6px}
+[data-theme="dark"] .dl-title{color:var(--on-pri-con)}
+.dl-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:22px;line-height:1.55}
+.dl-btns{display:flex;flex-direction:column;gap:10px}
+.dl-btn{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:var(--r-full);padding:16px 24px;font-size:14px;font-weight:700;font-family:'Noto Sans',sans-serif;text-decoration:none;transition:transform .15s;border:none;cursor:pointer}
+.dl-btn:active{transform:scale(.97)}
+.dl-btn.p{background:#fff;color:var(--pri);box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.dl-btn.s{background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+
+/* ════════════════ FOOTER ════════════════ */
+footer{background:var(--surf2);border-top:1px solid var(--out-v);padding:24px 20px 48px;text-align:center;transition:background .3s,border-color .3s}
+.ft-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px}
+.ft-ic{width:32px;height:32px;background:var(--pri);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;transition:background .3s}
+.ft-name{font-family:'Noto Sans Display',sans-serif;font-size:18px;font-weight:900;color:var(--pri);transition:color .3s}
+footer p{font-size:13px;color:var(--on-surf-v);line-height:1.8;transition:color .3s}
+footer strong{color:var(--on-surf)}
+
+/* ════════════════ REDDIT SECTION ════════════════ */
+.reddit-intro{margin:0 16px 12px;background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);padding:18px;box-shadow:var(--e1);display:flex;gap:14px;align-items:center;transition:background .3s,border-color .3s}
+.reddit-intro-icon{font-size:36px;flex-shrink:0}
+.reddit-intro-text{}
+.reddit-intro-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.reddit-intro-desc{font-size:13px;color:var(--on-surf-v);line-height:1.55}
+
+.reddit-subs{padding:0 16px;display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.reddit-sub-card{background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);box-shadow:var(--e1);overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .15s,background .3s,border-color .3s}
+.reddit-sub-card:active{transform:scale(.98)}
+.reddit-sub-hdr{padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--out-v);transition:border-color .3s}
+.reddit-sub-hdr.orange{background:linear-gradient(135deg,#FF4500,#FF6534)}
+.reddit-sub-hdr.blue{background:linear-gradient(135deg,#0079D3,#1484E0)}
+.reddit-sub-logo{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:2px solid rgba(255,255,255,.4)}
+.reddit-sub-name{font-size:16px;font-weight:800;color:#fff}
+.reddit-sub-members{font-size:12px;color:rgba(255,255,255,.75);margin-top:1px}
+.reddit-sub-body{padding:16px 18px}
+.reddit-sub-desc{font-size:13px;color:var(--on-surf-v);line-height:1.6;margin-bottom:14px}
+.reddit-cta-btn{display:inline-flex;align-items:center;gap:6px;background:#FF4500;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:var(--r-full);text-decoration:none;transition:opacity .15s}
+.reddit-cta-btn.blue-btn{background:#0079D3}
+.reddit-cta-btn:active{opacity:.8}
+
+.reddit-note{margin:0 16px;background:var(--pri-con);border-radius:var(--r-lg);padding:14px 16px;display:flex;gap:10px;align-items:flex-start;transition:background .3s}
+.reddit-note-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.reddit-note-text{font-size:13px;color:var(--on-pri-con);line-height:1.6;transition:color .3s}
+
+/* ════════════════ TELEGRAM ════════════════ */
+.tg-card{margin:0 16px;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--e3);text-decoration:none;color:inherit;display:block;transition:transform .15s}
+.tg-card:active{transform:scale(.98)}
+.tg-hdr{background:linear-gradient(135deg,#0088CC,#006BA3);padding:24px 20px;display:flex;gap:16px;align-items:center}
+[data-theme="dark"] .tg-hdr{background:linear-gradient(135deg,#005F8F,#003D5C)}
+.tg-logo-wrap{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}
+.tg-channel-name{font-size:18px;font-weight:800;color:#fff;margin-bottom:3px}
+.tg-handle{font-size:13px;color:rgba(255,255,255,.75)}
+.tg-body{background:var(--card-bg);padding:18px 20px;border:1px solid var(--out-v);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);transition:background .3s,border-color .3s}
+.tg-desc{font-size:14px;color:var(--on-surf-v);line-height:1.65;margin-bottom:16px}
+.tg-features{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.tg-feat{display:flex;align-items:center;gap:10px;font-size:13px}
+.tg-feat-icon{font-size:18px;width:28px;text-align:center;flex-shrink:0}
+.tg-feat-text{color:var(--on-surf-v)}
+.tg-feat-text strong{color:var(--on-surf)}
+.tg-join-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#0088CC,#006BA3);color:#fff;font-size:15px;font-weight:700;padding:16px 24px;border-radius:var(--r-full);text-decoration:none;box-shadow:0 4px 16px rgba(0,136,204,.35);transition:transform .15s,box-shadow .15s}
+.tg-join-btn:active{transform:scale(.97);box-shadow:0 2px 8px rgba(0,136,204,.2)}
+
+/* ════════════════ UTILS ════════════════ */
+.g8{height:8px}.g16{height:16px}.g24{height:24px}
+[data-lang="ru"] .t-tj,[data-lang="ru"] .t-en,
+[data-lang="tj"] .t-ru,[data-lang="tj"] .t-en,
+[data-lang="en"] .t-ru,[data-lang="en"] .t-tj{display:none}
+
+/* ════════════════ ANIMATIONS ════════════════ */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-brand">
+    <div class="top-logo">🚌</div>
+    <div class="top-name">Rohnamo</div>
+  </div>
+  <div class="top-right">
+    <div class="lang-switch">
+      <button class="ls-btn active" onclick="setLang('ru')">RU</button>
+      <button class="ls-btn" onclick="setLang('tj')">TJ</button>
+      <button class="ls-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📍 <span class="t-ru">Душанбе, Таджикистан</span><span class="t-tj">Душанбе, Тоҷикистон</span><span class="t-en">Dushanbe, Tajikistan</span></div>
+  <h1 class="hero-title">
+    <span class="t-ru">Справочник<br>транспорта<br><span>Душанбе</span></span>
+    <span class="t-tj">Роҳнамои<br>нақлиёти<br><span>Душанбе</span></span>
+    <span class="t-en">Public Transport<br>Guide for<br><span>Dushanbe</span></span>
+  </h1>
+  <p class="hero-sub">
+    <span class="t-ru">Автобусы, маршрутки и троллейбусы — найди нужный маршрут за секунды. Работает без интернета, на трёх языках.</span>
+    <span class="t-tj">Автобус, маршрутка ва троллейбус — роҳи дурустро дар чанд сония ёбед. Бидуни интернет, ба се забон кор мекунад.</span>
+    <span class="t-en">Buses, marshrutkas and trolleybuses — find the right route in seconds. Works fully offline in three languages.</span>
+  </p>
+  <div class="hero-btns">
+    <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="btn-w">▶ Google Play</a>
+    <a href="https://www.instagram.com/rohnamoapp" class="btn-o">📷 @rohnamoapp</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="g8"></div>
+<div class="stats-grid">
+  <div class="stat-c reveal d1">
+    <div class="stat-ic">🚌</div>
+    <div class="stat-n r">25</div>
+    <div class="stat-l t-ru">автобусных маршрутов</div>
+    <div class="stat-l t-tj">хатти автобус</div>
+    <div class="stat-l t-en">bus routes</div>
+  </div>
+  <div class="stat-c reveal d2">
+    <div class="stat-ic">🚐</div>
+    <div class="stat-n b">21</div>
+    <div class="stat-l t-ru">маршрутов такси</div>
+    <div class="stat-l t-tj">хатти маршрутка</div>
+    <div class="stat-l t-en">marshrutka routes</div>
+  </div>
+  <div class="stat-c reveal d3">
+    <div class="stat-ic">🚎</div>
+    <div class="stat-n g">8</div>
+    <div class="stat-l t-ru">троллейбусных маршрутов</div>
+    <div class="stat-l t-tj">хатти троллейбус</div>
+    <div class="stat-l t-en">trolleybus routes</div>
+  </div>
+</div>
+
+<!-- OFFLINE -->
+<div class="g8"></div>
+<div class="offline reveal">
+  <div class="offline-ic">📵</div>
+  <div>
+    <div class="offline-t t-ru">100% офлайн</div>
+    <div class="offline-t t-tj">100% офлайн</div>
+    <div class="offline-t t-en">100% Offline</div>
+    <p class="offline-d t-ru">Скачайте один раз — пользуйтесь где угодно без интернета. Все маршруты и карта хранятся на вашем телефоне.</p>
+    <p class="offline-d t-tj">Як бор зеркашӣ кунед — дар ҳар ҷо бидуни интернет истифода баред. Ҳамаи хатҳо ва харита дар телефони шумо нигоҳ дошта мешаванд.</p>
+    <p class="offline-d t-en">Download once — use anywhere without internet. All routes and the map are stored directly on your phone.</p>
+  </div>
+</div>
+
+<!-- TRANSPORT -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Транспорт</div>
+  <div class="sh-label t-tj">Нақлиёт</div>
+  <div class="sh-label t-en">Transport</div>
+  <div class="sh-title t-ru">Все виды транспорта</div>
+  <div class="sh-title t-tj">Ҳамаи намудҳои нақлиёт</div>
+  <div class="sh-title t-en">All Types of Transport</div>
+  <p class="sh-desc t-ru">База актуальных маршрутов Душанбе, собранных вручную.</p>
+  <p class="sh-desc t-tj">Пойгоҳи маълумоти хатҳои Душанбе, ки дастӣ ҷамъоварӣ шудаанд.</p>
+  <p class="sh-desc t-en">A manually compiled database of current Dushanbe routes.</p>
+</div>
+<div class="t-list">
+  <div class="tc bus reveal d1">
+    <div class="tc-top">
+      <div class="tc-icon bus">🚌</div>
+      <div class="tc-info">
+        <div class="tc-name t-ru">Автобус</div>
+        <div class="tc-name t-tj">Автобус</div>
+        <div class="tc-name t-en">Bus</div>
+        <div class="tc-meta t-ru">Городские линии</div>
+        <div class="tc-meta t-tj">Хатҳои шаҳрӣ</div>
+        <div class="tc-meta t-en">City lines</div>
+      </div>
+      <div class="tc-badge">25</div>
+    </div>
+    <div class="tc-rl t-ru">Номера маршрутов</div>
+    <div class="tc-rl t-tj">Рақамҳои хатҳо</div>
+    <div class="tc-rl t-en">Route numbers</div>
+    <div class="tc-chips">
+      <div class="chip">№1</div><div class="chip">№2</div><div class="chip">№3а</div>
+      <div class="chip">№4</div><div class="chip">№6</div><div class="chip">№7</div>
+      <div class="chip">№8</div><div class="chip">№10</div><div class="chip">№11</div>
+      <div class="chip">№15</div><div class="chip">№18</div><div class="chip">№20</div>
+      <div class="chip more">+13</div>
+    </div>
+  </div>
+  <div class="tc min reveal d2">
+    <div class="tc-top">
+      <div class="tc-icon min">🚐</div>
+      <div class="tc-info">
+        <div class="tc-name t-ru">Маршрутка</div>
+        <div class="tc-name t-tj">Маршрутка</div>
+        <div class="tc-name t-en">Marshrutka</div>
+        <div class="tc-meta t-ru">Маршрутное такси</div>
+        <div class="tc-meta t-tj">Таксии хатӣ</div>
+        <div class="tc-meta t-en">Shared minibus taxi</div>
+      </div>
+      <div class="tc-badge">21</div>
+    </div>
+    <div class="tc-rl t-ru">Ключевые направления</div>
+    <div class="tc-rl t-tj">Самтҳои асосӣ</div>
+    <div class="tc-rl t-en">Key destinations</div>
+    <div class="tc-chips">
+      <div class="chip">Қараболо</div><div class="chip">Зарнигор</div>
+      <div class="chip">Сино</div><div class="chip">Корвон</div>
+      <div class="chip">Шохмансур</div><div class="chip more">+16</div>
+    </div>
+  </div>
+  <div class="tc trl reveal d3">
+    <div class="tc-top">
+      <div class="tc-icon trl">🚎</div>
+      <div class="tc-info">
+        <div class="tc-name t-ru">Троллейбус</div>
+        <div class="tc-name t-tj">Троллейбус</div>
+        <div class="tc-name t-en">Trolleybus</div>
+        <div class="tc-meta t-ru">Электротранспорт</div>
+        <div class="tc-meta t-tj">Нақлиёти барқӣ</div>
+        <div class="tc-meta t-en">Electric transport</div>
+      </div>
+      <div class="tc-badge">8</div>
+    </div>
+    <div class="tc-rl t-ru">Все маршруты</div>
+    <div class="tc-rl t-tj">Ҳамаи хатҳо</div>
+    <div class="tc-rl t-en">All routes</div>
+    <div class="tc-chips">
+      <div class="chip">№1</div><div class="chip">№2</div><div class="chip">№4</div>
+      <div class="chip">№5</div><div class="chip">№6</div><div class="chip">№9</div>
+      <div class="chip">№11</div><div class="chip">№12</div>
+    </div>
+  </div>
+</div>
+
+<!-- STOP PREVIEW -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Пример</div>
+  <div class="sh-label t-tj">Намуна</div>
+  <div class="sh-label t-en">Example</div>
+  <div class="sh-title t-ru">Карточка остановки</div>
+  <div class="sh-title t-tj">Корти истгоҳ</div>
+  <div class="sh-title t-en">Stop Card</div>
+  <p class="sh-desc t-ru">Нажмите на остановку — увидите весь транспорт через неё.</p>
+  <p class="sh-desc t-tj">Истгоҳро зер кунед — ҳамаи нақлиётро мебинед.</p>
+  <p class="sh-desc t-en">Tap a stop to see all transport passing through it.</p>
+</div>
+<div class="stop-card reveal">
+  <div class="stop-hdr">
+    <span style="font-size:20px">📍</span>
+    <div class="stop-name t-ru">Агентство «Таджикстандарт»</div>
+    <div class="stop-name t-tj">Агентии «Тоҷикстандарт»</div>
+    <div class="stop-name t-en">Agency "Tajikstandart"</div>
+  </div>
+  <div class="stop-body">
+    <div class="stop-row">
+      <div class="stop-type t-ru">🚌 Автобусы:</div>
+      <div class="stop-type t-tj">🚌 Автобусҳо:</div>
+      <div class="stop-type t-en">🚌 Buses:</div>
+      <div class="stop-chips">
+        <div class="chip" style="background:rgba(183,28,28,.15);color:var(--bus)">№2</div>
+        <div class="chip" style="background:rgba(183,28,28,.15);color:var(--bus)">№7</div>
+        <div class="chip" style="background:rgba(183,28,28,.15);color:var(--bus)">№18</div>
+        <div class="chip" style="background:rgba(183,28,28,.15);color:var(--bus)">№20</div>
+      </div>
+    </div>
+    <div class="stop-row">
+      <div class="stop-type t-ru">🚐 Маршрутки:</div>
+      <div class="stop-type t-tj">🚐 Маршруткаҳо:</div>
+      <div class="stop-type t-en">🚐 Marshrutkas:</div>
+      <div class="stop-chips">
+        <div class="chip" style="background:rgba(21,101,192,.15);color:var(--min)">Қараболо</div>
+      </div>
+    </div>
+    <div class="stop-row">
+      <div class="stop-type t-ru">🚎 Троллейбусы:</div>
+      <div class="stop-type t-tj">🚎 Троллейбусҳо:</div>
+      <div class="stop-type t-en">🚎 Trolleybuses:</div>
+      <div class="stop-chips">
+        <div class="chip" style="background:rgba(27,94,32,.15);color:var(--ter)">№4</div>
+        <div class="chip" style="background:rgba(27,94,32,.15);color:var(--ter)">№5</div>
+        <div class="chip" style="background:rgba(27,94,32,.15);color:var(--ter)">№12</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Возможности</div>
+  <div class="sh-label t-tj">Имкониятҳо</div>
+  <div class="sh-label t-en">Features</div>
+  <div class="sh-title t-ru">Что умеет Rohnamo</div>
+  <div class="sh-title t-tj">Rohnamo чӣ кор мекунад</div>
+  <div class="sh-title t-en">What Rohnamo Can Do</div>
+</div>
+<div class="feat-list">
+  <div class="fi reveal d1">
+    <div class="fi-ic">📍</div>
+    <div class="fi-body">
+      <div class="fi-title t-ru">Маршрут «От А до Б»</div>
+      <div class="fi-title t-tj">Маршрут «Аз А то Б»</div>
+      <div class="fi-title t-en">"From A to B" Planner</div>
+      <div class="fi-desc t-ru">Введите откуда и куда — приложение покажет номера транспорта, точки пересадки и примерное время.</div>
+      <div class="fi-desc t-tj">Аз куҷо ва ба куҷо нависед — барнома рақамҳои нақлиёт, ҷойҳои иваз ва вақти тахминиро нишон медиҳад.</div>
+      <div class="fi-desc t-en">Enter your start and end — the app shows transport numbers, transfer points and estimated travel time.</div>
+      <div class="fi-tag t-ru">Ключевая функция</div>
+      <div class="fi-tag t-tj">Функсияи асосӣ</div>
+      <div class="fi-tag t-en">Key feature</div>
+    </div>
+  </div>
+  <div class="fi reveal d2">
+    <div class="fi-ic b">🗺️</div>
+    <div class="fi-body">
+      <div class="fi-title t-ru">Интерактивная карта</div>
+      <div class="fi-title t-tj">Харитаи интерактивӣ</div>
+      <div class="fi-title t-en">Interactive Map</div>
+      <div class="fi-desc t-ru">Все маршруты на карте Душанбе. Нажмите на остановку — увидите весь транспорт с разбивкой по типу. На базе OpenStreetMap.</div>
+      <div class="fi-desc t-tj">Ҳамаи хатҳо дар харитаи Душанбе. Истгоҳро зер кунед — ҳамаи нақлиётро мебинед. Дар асоси OpenStreetMap.</div>
+      <div class="fi-desc t-en">All routes on Dushanbe's map. Tap any stop to see every transport line passing through, by type. Based on OpenStreetMap.</div>
+      <div class="fi-tag b t-ru">Офлайн-карта</div>
+      <div class="fi-tag b t-tj">Харитаи офлайн</div>
+      <div class="fi-tag b t-en">Offline map</div>
+    </div>
+  </div>
+  <div class="fi reveal d1">
+    <div class="fi-ic g">🔍</div>
+    <div class="fi-body">
+      <div class="fi-title t-ru">Поиск маршрутов</div>
+      <div class="fi-title t-tj">Ҷустуҷӯи хатҳо</div>
+      <div class="fi-title t-en">Route Search</div>
+      <div class="fi-desc t-ru">Найдите автобус по номеру или остановку по названию. Быстрый поиск без ввода всего слова.</div>
+      <div class="fi-desc t-tj">Автобусро аз рӯи рақам ё истгоҳро аз рӯи ном ёбед. Ҷустуҷӯи зуд бидуни ворид кардани тамоми калима.</div>
+      <div class="fi-desc t-en">Find a bus by number or a stop by name. Quick search without typing the full word.</div>
+    </div>
+  </div>
+  <div class="fi reveal d2">
+    <div class="fi-ic">⭐</div>
+    <div class="fi-body">
+      <div class="fi-title t-ru">Избранные</div>
+      <div class="fi-title t-tj">Дӯстдоштаҳо</div>
+      <div class="fi-title t-en">Favourites</div>
+      <div class="fi-desc t-ru">Три вкладки: сохранённые маршруты, остановки и направления А→Б для быстрого доступа.</div>
+      <div class="fi-desc t-tj">Се ҷадвал: хатҳои захиракардашуда, истгоҳҳо ва самтҳои А→Б барои дастрасии зуд.</div>
+      <div class="fi-desc t-en">Three tabs: saved routes, stops and A→B directions for quick access.</div>
+    </div>
+  </div>
+  <div class="fi reveal d1">
+    <div class="fi-ic r">🌙</div>
+    <div class="fi-body">
+      <div class="fi-title t-ru">Тёмная тема и крупный шрифт</div>
+      <div class="fi-title t-tj">Мавзӯи торик ва ҳарфи калон</div>
+      <div class="fi-title t-en">Dark Theme & Large Text</div>
+      <div class="fi-desc t-ru">Светлая и тёмная тема, регулируемый размер интерфейса. Удобно для пожилых пользователей.</div>
+      <div class="fi-desc t-tj">Мавзӯи равшан ва торик, андозаи интерфейси танзимшаванда. Барои корбарони пиронсол мувофиқ.</div>
+      <div class="fi-desc t-en">Light and dark themes, adjustable interface size. Comfortable for seniors and visually impaired users.</div>
+      <div class="fi-tag r t-ru">Доступность</div>
+      <div class="fi-tag r t-tj">Дастрасӣ</div>
+      <div class="fi-tag r t-en">Accessibility</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Инструкция</div>
+  <div class="sh-label t-tj">Дастурамал</div>
+  <div class="sh-label t-en">How to Use</div>
+  <div class="sh-title t-ru">Как найти маршрут</div>
+  <div class="sh-title t-tj">Чӣ тавр роҳро ёбед</div>
+  <div class="sh-title t-en">How to Find Your Route</div>
+</div>
+<div class="stepper">
+  <div class="si reveal">
+    <div class="si-spine"><div class="si-circle">1</div><div class="si-line"></div></div>
+    <div class="si-body">
+      <div class="si-title t-ru">Откройте «От А до Б»</div>
+      <div class="si-title t-tj">«Аз А то Б»-ро кушоед</div>
+      <div class="si-title t-en">Open "From A to B"</div>
+      <div class="si-desc t-ru">Нажмите иконку со стрелками в нижнем меню. Откроется форма с картой.</div>
+      <div class="si-desc t-tj">Нишонаи тирҳоро дар менюи поён зер кунед. Форма бо харита кушода мешавад.</div>
+      <div class="si-desc t-en">Tap the arrows icon in the bottom menu. A form with a map will open.</div>
+    </div>
+  </div>
+  <div class="si reveal d1">
+    <div class="si-spine"><div class="si-circle">2</div><div class="si-line"></div></div>
+    <div class="si-body">
+      <div class="si-title t-ru">Введите откуда и куда</div>
+      <div class="si-title t-tj">Аз куҷо ва ба куҷо нависед</div>
+      <div class="si-title t-en">Enter Start and End</div>
+      <div class="si-desc t-ru">Выберите ближайшую остановку или введите название вручную.</div>
+      <div class="si-desc t-tj">Истгоҳи наздиктаринро интихоб кунед ё номро дастӣ нависед.</div>
+      <div class="si-desc t-en">Pick the nearest stop or type the name manually.</div>
+      <div class="si-ex t-ru">Пример: «Корвон» → «Аэропорт» или «Рудаки» → «Зарнигор»</div>
+      <div class="si-ex t-tj">Намуна: «Корвон» → «Фурудгоҳ» ё «Рӯдакӣ» → «Зарнигор»</div>
+      <div class="si-ex t-en">Example: "Korvon" → "Airport" or "Rudaki" → "Zarnigor"</div>
+    </div>
+  </div>
+  <div class="si reveal d2">
+    <div class="si-spine"><div class="si-circle">3</div></div>
+    <div class="si-body">
+      <div class="si-title t-ru">Получите результат</div>
+      <div class="si-title t-tj">Натиҷаро гиред</div>
+      <div class="si-title t-en">Get Your Result</div>
+      <div class="si-desc t-ru">Приложение покажет номера транспорта, точки пересадок и ориентировочное время в пути.</div>
+      <div class="si-desc t-tj">Барнома рақамҳои нақлиёт, ҷойҳои иваз ва вақти тахминии сафарро нишон медиҳад.</div>
+      <div class="si-desc t-en">The app shows transport numbers, transfer points and estimated travel time.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ PRESS / СМИ ════ -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">В прессе</div>
+  <div class="sh-label t-tj">Дар матбуот</div>
+  <div class="sh-label t-en">Press</div>
+  <div class="sh-title t-ru">Что пишут СМИ Таджикистана</div>
+  <div class="sh-title t-tj">Расонаҳои Тоҷикистон чӣ менависанд</div>
+  <div class="sh-title t-en">Tajikistan Media Coverage</div>
+  <p class="sh-desc t-ru">Rohnamo уже заметили ведущие издания страны.</p>
+  <p class="sh-desc t-tj">Rohnamo аллакай аз ҷониби нашрияҳои пешбари кишвар қайд карда шуд.</p>
+  <p class="sh-desc t-en">Rohnamo has already been noticed by the country's leading publications.</p>
+</div>
+<div class="press-list">
+  <!-- Asia-Plus -->
+  <a class="press-card reveal d1" href="https://old.asiaplustj.info/ru/news/tajikistan/society/20260322/v-dorogu-s-rohnamo-tadzhikistanets-sozdal-spravochnik-po-obtshestvennomu-transportu-dushanbe" target="_blank" rel="noopener">
+    <div class="press-top">
+      <div class="press-logo">📰</div>
+      <div>
+        <div class="press-source">Asia-Plus</div>
+        <div class="press-date t-ru">22 марта 2026</div>
+        <div class="press-date t-tj">22 марти 2026</div>
+        <div class="press-date t-en">March 22, 2026</div>
+      </div>
+    </div>
+    <div class="press-body">
+      <div class="press-title t-ru">«В дорогу с Rohnamo: таджикистанец создал справочник по общественному транспорту Душанбе»</div>
+      <div class="press-title t-tj">«Бо Rohnamo ба роҳ: тоҷикистонӣ роҳнамои нақлиёти ҷамъиятии Душанберо офарид»</div>
+      <div class="press-title t-en">"Hit the Road with Rohnamo: A Tajik Developer Created a Public Transport Guide for Dushanbe"</div>
+      <div class="press-excerpt t-ru">«Когда мне нужно было доехать до определённого места, мне приходилось спрашивать у прохожих. Но многие сами не знали... Тогда я начал искать мобильное приложение — готового решения не было» — Сухайли Диловаршо</div>
+      <div class="press-excerpt t-tj">«Вақте ки ман бояд ба ҷои муайяне мерасидам, аз гузаштагон мепурсидам. Аммо бисёре худашон намедонистанд... Он гоҳ ман барнома ҷустуҷӯ кардам — роҳи тайёр набуд» — Сухайли Диловаршо</div>
+      <div class="press-excerpt t-en">"When I needed to get somewhere, I had to ask passersby — but many didn't know themselves... So I started looking for a mobile app — there was nothing ready" — Sukhayly Dilovarcho</div>
+      <div class="press-stats">
+        <div class="press-stat">👁️ <span class="press-stat-num">22 482</span> <span class="t-ru">просмотров</span><span class="t-tj">дидан</span><span class="t-en">views</span></div>
+        <div class="press-stat">👍 <span class="press-stat-num">101</span> <span class="t-ru">лайков</span><span class="t-tj">лайк</span><span class="t-en">likes</span></div>
+      </div>
+      <div class="press-link t-ru">Читать на Asia-Plus </div>
+      <div class="press-link t-tj">Дар Asia-Plus хондан </div>
+      <div class="press-link t-en">Read on Asia-Plus </div>
+    </div>
+  </a>
+</div>
+
+<!-- REDDIT -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Сообщество</div>
+  <div class="sh-label t-tj">Ҷомеа</div>
+  <div class="sh-label t-en">Community</div>
+  <div class="sh-title t-ru">Rohnamo на Reddit</div>
+  <div class="sh-title t-tj">Rohnamo дар Reddit</div>
+  <div class="sh-title t-en">Rohnamo on Reddit</div>
+  <p class="sh-desc t-ru">Обсуждайте приложение, делитесь опытом и предлагайте улучшения в сабреддитах о Таджикистане.</p>
+  <p class="sh-desc t-tj">Барнома, таҷрибаи худро мубодила кунед ва пешниҳодҳоятонро дар сабреддитҳои Тоҷикистон тақсим кунед.</p>
+  <p class="sh-desc t-en">Discuss the app, share your experience and suggest improvements in Tajikistan subreddits.</p>
+</div>
+
+<div class="reddit-intro reveal">
+  <div class="reddit-intro-icon">🤝</div>
+  <div class="reddit-intro-text">
+    <div class="reddit-intro-title t-ru">Присоединяйтесь к разговору!</div>
+    <div class="reddit-intro-title t-tj">Ба сӯҳбат ҳамроҳ шавед!</div>
+    <div class="reddit-intro-title t-en">Join the conversation!</div>
+    <div class="reddit-intro-desc t-ru">Rohnamo обсуждают пользователи из Душанбе, студенты, туристы и экспаты. Поделитесь своим мнением — разработчик активно читает отзывы.</div>
+    <div class="reddit-intro-desc t-tj">Rohnamo-ро корбарони Душанбе, донишҷӯён, сайёҳон ва экспатҳо муҳокима мекунанд. Назари худро баён кунед — таҳиягар баррасиҳоро фаъолона мехонад.</div>
+    <div class="reddit-intro-desc t-en">Rohnamo is discussed by Dushanbe residents, students, tourists and expats. Share your opinion — the developer actively reads all feedback.</div>
+  </div>
+</div>
+
+<div class="reddit-subs">
+  <a class="reddit-sub-card reveal d1" href="https://www.reddit.com/r/Tajikistan/" target="_blank" rel="noopener">
+    <div class="reddit-sub-hdr orange">
+      <div class="reddit-sub-logo">🇹🇯</div>
+      <div>
+        <div class="reddit-sub-name">r/Tajikistan</div>
+        <div class="reddit-sub-members t-ru">Сообщество о Таджикистане</div>
+        <div class="reddit-sub-members t-tj">Ҷамоаи дар бораи Тоҷикистон</div>
+        <div class="reddit-sub-members t-en">Community about Tajikistan</div>
+      </div>
+    </div>
+    <div class="reddit-sub-body">
+      <div class="reddit-sub-desc t-ru">Главный англоязычный сабреддит о Таджикистане. Здесь общаются местные жители, туристы и диаспора — отличное место, чтобы рассказать об удобном приложении для транспорта.</div>
+      <div class="reddit-sub-desc t-tj">Сабреддити асосии англисзабон дар бораи Тоҷикистон. Дар ин ҷо сокинони маҳаллӣ, сайёҳон ва диаспора муошират мекунанд.</div>
+      <div class="reddit-sub-desc t-en">The main English-language subreddit about Tajikistan. Locals, tourists and diaspora all chat here — a great place to spread the word about a useful transport app.</div>
+      <a href="https://www.reddit.com/r/Tajikistan/" target="_blank" rel="noopener" class="reddit-cta-btn">
+        <span>↗</span>
+        <span class="t-ru">Перейти на r/Tajikistan</span>
+        <span class="t-tj">Ба r/Tajikistan гузаред</span>
+        <span class="t-en">Go to r/Tajikistan</span>
+      </a>
+    </div>
+  </a>
+
+  <a class="reddit-sub-card reveal d2" href="https://www.reddit.com/r/Dushanbe/" target="_blank" rel="noopener">
+    <div class="reddit-sub-hdr blue">
+      <div class="reddit-sub-logo">🏙️</div>
+      <div>
+        <div class="reddit-sub-name">r/Dushanbe</div>
+        <div class="reddit-sub-members t-ru">Сообщество о столице</div>
+        <div class="reddit-sub-members t-tj">Ҷамоаи дар бораи пойтахт</div>
+        <div class="reddit-sub-members t-en">Community about the capital</div>
+      </div>
+    </div>
+    <div class="reddit-sub-body">
+      <div class="reddit-sub-desc t-ru">Сабреддит посвящён жизни в Душанбе: транспорт, районы, события. Идеальная аудитория для обсуждения Rohnamo — люди, которым каждый день нужно ориентироваться в городе.</div>
+      <div class="reddit-sub-desc t-tj">Сабреддит ба зиндагӣ дар Душанбе бахшида шудааст: нақлиёт, маҳаллаҳо, рӯйдодҳо. Аудиторияи идеалӣ барои муҳокимаи Rohnamo.</div>
+      <div class="reddit-sub-desc t-en">A subreddit dedicated to life in Dushanbe: transport, neighbourhoods, events. The ideal audience for discussing Rohnamo — people who need to navigate the city every day.</div>
+      <a href="https://www.reddit.com/r/Dushanbe/" target="_blank" rel="noopener" class="reddit-cta-btn blue-btn">
+        <span>↗</span>
+        <span class="t-ru">Перейти на r/Dushanbe</span>
+        <span class="t-tj">Ба r/Dushanbe гузаред</span>
+        <span class="t-en">Go to r/Dushanbe</span>
+      </a>
+    </div>
+  </a>
+</div>
+
+<div class="reddit-note reveal">
+  <div class="reddit-note-icon">💡</div>
+  <div class="reddit-note-text t-ru">Нашли баг или хотите предложить функцию? Напишите разработчику напрямую в Telegram-канале или в Instagram @rohnamoapp — каждый отзыв помогает сделать приложение лучше.</div>
+  <div class="reddit-note-text t-tj">Хатоеро ёфтед ё мехоҳед функсияеро пешниҳод кунед? Мустақиман ба таҳиягар дар Telegram ё Instagram @rohnamoapp нависед.</div>
+  <div class="reddit-note-text t-en">Found a bug or want to suggest a feature? Write to the developer directly in the Telegram channel or on Instagram @rohnamoapp — every piece of feedback helps improve the app.</div>
+</div>
+
+<!-- TELEGRAM -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Telegram-канал</div>
+  <div class="sh-label t-tj">Канали Telegram</div>
+  <div class="sh-label t-en">Telegram Channel</div>
+  <div class="sh-title t-ru">Будьте в курсе обновлений</div>
+  <div class="sh-title t-tj">Аз навсозиҳо огоҳ бошед</div>
+  <div class="sh-title t-en">Stay Up to Date</div>
+</div>
+
+<a class="tg-card reveal" href="https://t.me/tjrohnamo" target="_blank" rel="noopener">
+  <div class="tg-hdr">
+    <div class="tg-logo-wrap">✈️</div>
+    <div>
+      <div class="tg-channel-name">Rohnamo</div>
+      <div class="tg-handle">t.me/tjrohnamo</div>
+    </div>
+  </div>
+  <div class="tg-body">
+    <div class="tg-desc t-ru">Официальный Telegram-канал приложения Rohnamo. Здесь первыми узнаёте об обновлениях маршрутов, новых функциях и новостях разработки.</div>
+    <div class="tg-desc t-tj">Канали расмии Telegram-и барномаи Rohnamo. Дар ин ҷо аввалин хабарҳоро дар бораи навсозии хатҳо, функсияҳои нав ва хабарҳои таҳия мегиред.</div>
+    <div class="tg-desc t-en">The official Telegram channel of the Rohnamo app. Be the first to hear about route updates, new features and development news.</div>
+    <div class="tg-features">
+      <div class="tg-feat">
+        <div class="tg-feat-icon">🔔</div>
+        <div class="tg-feat-text t-ru"><strong>Уведомления об обновлениях</strong> — узнайте первыми о новых маршрутах</div>
+        <div class="tg-feat-text t-tj"><strong>Огоҳиҳо дар бораи навсозиҳо</strong> — аввалин нафар бошед, ки хатҳои навро медонед</div>
+        <div class="tg-feat-text t-en"><strong>Update notifications</strong> — be first to know about new routes</div>
+      </div>
+      <div class="tg-feat">
+        <div class="tg-feat-icon">🛠️</div>
+        <div class="tg-feat-text t-ru"><strong>Новости разработки</strong> — что готовится в следующей версии</div>
+        <div class="tg-feat-text t-tj"><strong>Хабарҳои таҳия</strong> — чӣ дар нусхаи навбатӣ омода мешавад</div>
+        <div class="tg-feat-text t-en"><strong>Dev news</strong> — what's coming in the next version</div>
+      </div>
+      <div class="tg-feat">
+        <div class="tg-feat-icon">💬</div>
+        <div class="tg-feat-text t-ru"><strong>Обратная связь</strong> — напишите об ошибке или предложите идею</div>
+        <div class="tg-feat-text t-tj"><strong>Бозхӯрд</strong> — дар бораи хато нависед ё идеяеро пешниҳод кунед</div>
+        <div class="tg-feat-text t-en"><strong>Feedback</strong> — report a bug or suggest an idea</div>
+      </div>
+      <div class="tg-feat">
+        <div class="tg-feat-icon">🌆</div>
+        <div class="tg-feat-text t-ru"><strong>Жизнь Душанбе</strong> — полезные материалы о транспорте города</div>
+        <div class="tg-feat-text t-tj"><strong>Зиндагии Душанбе</strong> — маводи муфид дар бораи нақлиёти шаҳр</div>
+        <div class="tg-feat-text t-en"><strong>Dushanbe life</strong> — useful content about the city's transport</div>
+      </div>
+    </div>
+    <div class="tg-join-btn">
+      ✈️ &nbsp;
+      <span class="t-ru">Подписаться на канал</span>
+      <span class="t-tj">Ба канал обуна шавед</span>
+      <span class="t-en">Join the Channel</span>
+    </div>
+  </div>
+</a>
+
+<div class="g24"></div>
+
+<!-- SETTINGS -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Настройки</div>
+  <div class="sh-label t-tj">Танзимот</div>
+  <div class="sh-label t-en">Settings</div>
+  <div class="sh-title t-ru">Гибкая настройка под себя</div>
+  <div class="sh-title t-tj">Танзими гибкӣ барои худатон</div>
+  <div class="sh-title t-en">Flexible Customisation</div>
+</div>
+<div class="settings-card reveal">
+  <div class="sr">
+    <div class="sr-ic">🌙</div>
+    <div class="sr-body">
+      <div class="sr-title t-ru">Тема оформления</div>
+      <div class="sr-title t-tj">Мавзӯи тарроҳӣ</div>
+      <div class="sr-title t-en">Theme</div>
+      <div class="sr-sub t-ru">Светлая или тёмная</div>
+      <div class="sr-sub t-tj">Равшан ё торик</div>
+      <div class="sr-sub t-en">Light or dark</div>
+    </div>
+    <div class="sr-val t-ru">Тёмная</div>
+    <div class="sr-val t-tj">Торик</div>
+    <div class="sr-val t-en">Dark</div>
+  </div>
+  <div class="sr">
+    <div class="sr-ic b">🔤</div>
+    <div class="sr-body">
+      <div class="sr-title t-ru">Размер интерфейса</div>
+      <div class="sr-title t-tj">Андозаи интерфейс</div>
+      <div class="sr-title t-en">Interface Size</div>
+      <div class="sr-sub t-ru">От 80% до 150%</div>
+      <div class="sr-sub t-tj">Аз 80% то 150%</div>
+      <div class="sr-sub t-en">80% to 150%</div>
+    </div>
+    <div class="sr-val b">100%</div>
+  </div>
+  <div class="sr">
+    <div class="sr-ic g">🌐</div>
+    <div class="sr-body">
+      <div class="sr-title t-ru">Язык приложения</div>
+      <div class="sr-title t-tj">Забони барнома</div>
+      <div class="sr-title t-en">App Language</div>
+      <div class="sr-sub">Тоҷикӣ · Русский · English</div>
+    </div>
+    <div class="sr-val g">RU / TJ / EN</div>
+  </div>
+</div>
+
+<!-- LANGUAGES -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Языки</div>
+  <div class="sh-label t-tj">Забонҳо</div>
+  <div class="sh-label t-en">Languages</div>
+  <div class="sh-title t-ru">Для всех жителей и гостей</div>
+  <div class="sh-title t-tj">Барои ҳамаи сокинон ва меҳмонон</div>
+  <div class="sh-title t-en">For All Residents & Visitors</div>
+</div>
+<div class="lang-grid">
+  <div class="lc tj reveal d1">
+    <div class="lc-flag">🇹🇯</div>
+    <div class="lc-code">TJ</div>
+    <div class="lc-native">Тоҷикӣ</div>
+  </div>
+  <div class="lc ru reveal d2">
+    <div class="lc-flag">🇷🇺</div>
+    <div class="lc-code">RU</div>
+    <div class="lc-native">Русский</div>
+    <div class="active-b t-ru">активный</div>
+    <div class="active-b t-tj">фаъол</div>
+    <div class="active-b t-en">active</div>
+  </div>
+  <div class="lc en reveal d3">
+    <div class="lc-flag">🇬🇧</div>
+    <div class="lc-code">EN</div>
+    <div class="lc-native">English</div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="g24"></div>
+<div class="sh reveal">
+  <div class="sh-label t-ru">Дорожная карта</div>
+  <div class="sh-label t-tj">Нақшаи роҳ</div>
+  <div class="sh-label t-en">Roadmap</div>
+  <div class="sh-title t-ru">Планы развития</div>
+  <div class="sh-title t-tj">Нақшаҳои рушд</div>
+  <div class="sh-title t-en">Development Plans</div>
+</div>
+<div class="rm-list">
+  <div class="rm-item reveal d1"><div class="rm-ic">✅</div><div class="rm-body"><div class="rm-title t-ru">База маршрутов Душанбе</div><div class="rm-title t-tj">Пойгоҳи хатҳои Душанбе</div><div class="rm-title t-en">Dushanbe Route Database</div><div class="rm-desc t-ru">25 автобусов · 21 маршрутка · 8 троллейбусов</div><div class="rm-desc t-tj">25 автобус · 21 маршрутка · 8 троллейбус</div><div class="rm-desc t-en">25 buses · 21 marshrutkas · 8 trolleybuses</div></div><div class="status done t-ru">Готово</div><div class="status done t-tj">Омода</div><div class="status done t-en">Done</div></div>
+  <div class="rm-item reveal d2"><div class="rm-ic">✅</div><div class="rm-body"><div class="rm-title t-ru">Офлайн-режим</div><div class="rm-title t-tj">Реҷаи офлайн</div><div class="rm-title t-en">Offline Mode</div></div><div class="status done t-ru">Готово</div><div class="status done t-tj">Омода</div><div class="status done t-en">Done</div></div>
+  <div class="rm-item reveal d3"><div class="rm-ic">✅</div><div class="rm-body"><div class="rm-title t-ru">Три языка интерфейса</div><div class="rm-title t-tj">Се забони интерфейс</div><div class="rm-title t-en">Three Interface Languages</div></div><div class="status done t-ru">Готово</div><div class="status done t-tj">Омода</div><div class="status done t-en">Done</div></div>
+  <div class="rm-item reveal d1"><div class="rm-ic">🕐</div><div class="rm-body"><div class="rm-title t-ru">Расписание движения</div><div class="rm-title t-tj">Ҷадвали ҳаракат</div><div class="rm-title t-en">Schedule</div></div><div class="status soon t-ru">Скоро</div><div class="status soon t-tj">Зуд</div><div class="status soon t-en">Soon</div></div>
+  <div class="rm-item reveal d2"><div class="rm-ic">📡</div><div class="rm-body"><div class="rm-title t-ru">GPS-трекинг в реальном времени</div><div class="rm-title t-tj">GPS-трекинги зинда</div><div class="rm-title t-en">Real-time GPS Tracking</div></div><div class="status plan t-ru">В планах</div><div class="status plan t-tj">Дар нақша</div><div class="status plan t-en">Planned</div></div>
+  <div class="rm-item reveal d3"><div class="rm-ic">🏙️</div><div class="rm-body"><div class="rm-title t-ru">Другие города Таджикистана</div><div class="rm-title t-tj">Шаҳрҳои дигари Тоҷикистон</div><div class="rm-title t-en">Other Cities in Tajikistan</div><div class="rm-desc t-ru">Худжанд, Куляб, Хорог</div><div class="rm-desc t-en">Khujand, Kulob, Khorog</div></div><div class="status plan t-ru">В планах</div><div class="status plan t-tj">Дар нақша</div><div class="status plan t-en">Planned</div></div>
+</div>
+
+<!-- AUTHOR -->
+<div class="g24"></div>
+<div class="sh reveal">
+  <div class="sh-label t-ru">Автор</div>
+  <div class="sh-label t-tj">Муаллиф</div>
+  <div class="sh-label t-en">Author</div>
+  <div class="sh-title t-ru">Кто создал Rohnamo</div>
+  <div class="sh-title t-tj">Rohnamo-ро кӣ офарид</div>
+  <div class="sh-title t-en">Who Created Rohnamo</div>
+</div>
+<div class="author-card reveal">
+  <div class="author-hdr">
+    <div class="author-av">С</div>
+    <div>
+      <div class="author-name">Сухайли Диловаршо</div>
+      <div class="author-sub t-ru">Инди-разработчик · Душанбе</div>
+      <div class="author-sub t-tj">Таҳиягари мустақил · Душанбе</div>
+      <div class="author-sub t-en">Indie Developer · Dushanbe</div>
+    </div>
+  </div>
+  <div class="author-body">
+    <div class="author-chips">
+      <div class="author-chip t-ru">23 года</div><div class="author-chip t-tj">23 сола</div><div class="author-chip t-en">23 y.o.</div>
+      <div class="author-chip">ТТУ им. Осими</div>
+      <div class="author-chip t-ru">Фархорский р-н</div><div class="author-chip t-tj">Ноҳияи Фархор</div><div class="author-chip t-en">Farkhor district</div>
+      <div class="author-chip t-ru">Хатлонская обл.</div><div class="author-chip t-tj">Вилояти Хатлон</div><div class="author-chip t-en">Khatlon region</div>
+    </div>
+    <div class="author-q t-ru">«В 2023 году я приехал в Душанбе и постоянно терял время в маршрутках. Готового приложения не было — я решил создать его сам. Всю базу маршрутов пришлось собирать вручную.»</div>
+    <div class="author-q t-tj">«Дар соли 2023 ман ба Душанбе омадам ва доимо вақтро дар маршрутка гум мекардам. Барномаи тайёр набуд — ман тасмим гирифтам онро худам созам. Тамоми пойгоҳи хатҳоро дастӣ ҷамъ кардам.»</div>
+    <div class="author-q t-en">"In 2023 I moved to Dushanbe and kept losing time in marshrutkas. There was no ready app — so I decided to build one myself. The entire route database had to be collected manually."</div>
+  </div>
+</div>
+
+<!-- DOWNLOAD -->
+<div class="g24"></div>
+<div class="dl-section">
+  <div class="dl-card reveal">
+    <div class="dl-icon">📲</div>
+    <div class="dl-title t-ru">Скачать бесплатно</div>
+    <div class="dl-title t-tj">Ройгон зеркашӣ кунед</div>
+    <div class="dl-title t-en">Download for Free</div>
+    <p class="dl-sub t-ru">Доступно для Android. Один раз скачал — работает везде без интернета.</p>
+    <p class="dl-sub t-tj">Барои Android дастрас аст. Як бор зеркашӣ кунед — дар ҳар ҷо бидуни интернет кор мекунад.</p>
+    <p class="dl-sub t-en">Available for Android. Download once — works everywhere without internet.</p>
+    <div class="dl-btns">
+      <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="dl-btn p">▶ &nbsp;Google Play</a>
+      <a href="https://www.instagram.com/rohnamoapp" class="dl-btn s">📷 &nbsp;@rohnamoapp</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">
+    <div class="ft-ic">🚌</div>
+    <div class="ft-name">Rohnamo</div>
+  </div>
+  <p>
+    <strong class="t-ru">Руководство · Путь · Действие</strong>
+    <strong class="t-tj">Роҳнамо · Роҳ · Амал</strong>
+    <strong class="t-en">Guide · Route · Action</strong>
+    <br>
+    <span class="t-ru">Справочник общественного транспорта Душанбе</span>
+    <span class="t-tj">Роҳнамои нақлиёти ҷамъиятии Душанбе</span>
+    <span class="t-en">Dushanbe Public Transport Guide</span>
+    <br>
+    <span style="color:var(--out)">© 2024–2026 Сухайли Диловаршо</span>
+  </p>
+</footer>
+
+<script>
+/* ─── SCROLL REVEAL ─── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ─── THEME ─── */
+const html = document.documentElement;
+const themeBtn = document.querySelector('.theme-btn');
+function toggleTheme() {
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeBtn.textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('rohnamo-theme', isDark ? 'light' : 'dark');
+}
+// Restore saved theme
+const saved = localStorage.getItem('rohnamo-theme');
+if (saved) { html.setAttribute('data-theme', saved); themeBtn.textContent = saved === 'dark' ? '☀️' : '🌙'; }
+
+/* ─── LANGUAGE ─── */
+const langBtns = document.querySelectorAll('.ls-btn');
+function setLang(lang) {
+  html.setAttribute('data-lang', lang);
+  langBtns.forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  localStorage.setItem('rohnamo-lang', lang);
+}
+const savedLang = localStorage.getItem('rohnamo-lang');
+if (savedLang) setLang(savedLang);
+</script>
+</body>
+</html>
