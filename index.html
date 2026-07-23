@@ -72,9 +72,16 @@
   --card-bg:#231916;
 }
 
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth;background:var(--surf);transition:background .3s}
-body{background:var(--surf);color:var(--on-surf);font-family:'Noto Sans',sans-serif;max-width:480px;margin:0 auto;overflow-x:hidden;transition:background .3s,color .3s}
+html, body {
+  width: 100%; max-width: 100%; margin: 0; padding: 0;
+  overflow-x: hidden; min-height: 100vh;
+  background: var(--surf) !important; color: var(--on-surf);
+  font-family: 'Noto Sans', sans-serif; transition: background .3s, color .3s;
+}
+.app-container {
+  max-width: 480px; margin: 0 auto; min-height: 100vh;
+  position: relative; background: var(--surf); overflow-x: hidden;
+}
 
 /* ════════════════ TOP BAR ════════════════ */
 .top-bar{
@@ -494,6 +501,7 @@ footer strong{color:var(--on-surf)}
 </style>
 </head>
 <body>
+<div class="app-container">
 
 <!-- TOP BAR -->
 <div class="top-bar">
@@ -1608,5 +1616,6 @@ function toggleQRModal(show) {
   }
 }
 </script>
+</div>
 </body>
 </html>
