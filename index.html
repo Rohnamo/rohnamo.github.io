@@ -50,11 +50,65 @@ body{background:var(--surf);color:var(--on-surf);font-family:'Noto Sans',sans-se
 /* ════════════════ TOP BAR ════════════════ */
 .top-bar{
   position:sticky;top:0;z-index:100;
-  background:var(--surf);border-bottom:1px solid var(--out-v);
+  background:rgba(255,248,245,0.85);border-bottom:1px solid var(--out-v);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   height:64px;padding:0 16px;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:between;
   box-shadow:var(--e1);transition:background .3s,border-color .3s;
 }
+[data-theme="dark"] .top-bar{
+  background:rgba(26,18,16,0.85);
+}
+
+/* ════════════════ PHONE MOCKUP & CAROUSEL ════════════════ */
+.mockup-wrap{
+  margin:24px auto 0;
+  max-width:280px;
+  position:relative;
+  filter:drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+  animation:fadeUp .8s .4s ease both;
+}
+.phone-frame{
+  background:#1e1e24;
+  border-radius:36px;
+  padding:10px;
+  border:4px solid #3a3a42;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,0.1);
+  position:relative;
+}
+.phone-notch{
+  width:90px;height:18px;background:#000;
+  border-radius:0 0 10px 10px;
+  position:absolute;top:10px;left:50%;
+  transform:translateX(-50%);z-index:10;
+}
+.phone-screen{
+  border-radius:26px;overflow:hidden;
+  aspect-ratio:9/16;background:#111;
+  position:relative;
+}
+.screen-img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+
+/* Screenshots Gallery Horizontal Scroll */
+.screenshots-sec{padding:0 16px 8px}
+.sc-scroll{
+  display:flex;gap:14px;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding-bottom:12px;-webkit-overflow-scrolling:touch;
+}
+.sc-scroll::-webkit-scrollbar{height:4px}
+.sc-scroll::-webkit-scrollbar-thumb{background:var(--pri);border-radius:4px}
+.sc-item{
+  flex:0 0 180px;scroll-snap-align:center;
+  background:var(--card-bg);border-radius:var(--r-lg);
+  border:1px solid var(--out-v);overflow:hidden;
+  box-shadow:var(--e2);transition:transform .2s;
+}
+.sc-item:hover{transform:translateY(-4px)}
+.sc-item img{width:100%;height:auto;display:block}
+.sc-caption{padding:10px;font-size:12px;font-weight:700;text-align:center;color:var(--on-surf)}
 .top-brand{display:flex;align-items:center;gap:10px}
 .top-logo{width:36px;height:36px;background:var(--pri);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 2px 8px rgba(255,109,0,.4);transition:background .3s}
 .top-name{font-family:'Noto Sans Display',sans-serif;font-size:20px;font-weight:900;color:var(--pri);letter-spacing:-.3px;transition:color .3s}
@@ -80,18 +134,22 @@ body{background:var(--surf);color:var(--on-surf);font-family:'Noto Sans',sans-se
 .hero-title span{opacity:.65}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:28px;animation:fadeUp .8s .2s ease both}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
-.btn-w{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--pri);font-size:14px;font-weight:700;padding:14px 24px;border-radius:var(--r-full);text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .15s}
+.btn-w{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1c1b1f;padding:10px 18px;border-radius:var(--r-full);text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .15s,box-shadow .15s}
 .btn-w:active{transform:scale(.96)}
-.btn-o{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);color:#fff;font-size:14px;font-weight:600;padding:14px 22px;border-radius:var(--r-full);text-decoration:none;border:1.5px solid rgba(255,255,255,.4);transition:background .15s}
+.btn-w svg{width:22px;height:22px;flex-shrink:0}
+.btn-w-text{display:flex;flex-direction:column;text-align:left;line-height:1.15}
+.btn-w-sub{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.7}
+.btn-w-main{font-size:14px;font-weight:800;font-family:'Noto Sans Display',sans-serif}
+.btn-o{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;padding:12px 20px;border-radius:var(--r-full);text-decoration:none;border:1.5px solid rgba(255,255,255,.4);transition:background .15s}
 .btn-o:active{background:rgba(255,255,255,.28)}
 
 /* ════════════════ STATS ════════════════ */
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:16px}
-.stat-c{background:var(--card-bg);border-radius:var(--r-xl);padding:16px 10px;text-align:center;border:1px solid var(--out-v);box-shadow:var(--e1);display:flex;flex-direction:column;align-items:center;gap:3px;transition:background .3s,border-color .3s}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:16px 12px}
+.stat-c{background:var(--card-bg);border-radius:var(--r-xl);padding:14px 4px;text-align:center;border:1px solid var(--out-v);box-shadow:var(--e1);display:flex;flex-direction:column;align-items:center;gap:3px;transition:background .3s,border-color .3s}
 .stat-ic{font-size:22px;margin-bottom:2px}
-.stat-n{font-family:'Noto Sans Display',sans-serif;font-size:30px;font-weight:900;line-height:1}
-.stat-n.r{color:var(--bus)} .stat-n.b{color:var(--sec)} .stat-n.g{color:var(--ter)}
-.stat-l{font-size:11px;color:var(--on-surf-v);font-weight:500;line-height:1.35}
+.stat-n{font-family:'Noto Sans Display',sans-serif;font-size:22px;font-weight:900;line-height:1}
+.stat-n.o{color:var(--pri)} .stat-n.r{color:var(--bus)} .stat-n.b{color:var(--sec)} .stat-n.g{color:var(--ter)}
+.stat-l{font-size:10px;color:var(--on-surf-v);font-weight:600;line-height:1.25}
 
 /* ════════════════ OFFLINE ════════════════ */
 .offline{margin:0 16px;background:linear-gradient(135deg,#FF8F00,#E65100);border-radius:var(--r-xl);padding:22px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 6px 20px rgba(255,109,0,.35);color:#fff;transition:background .3s}
@@ -148,8 +206,14 @@ body{background:var(--surf);color:var(--on-surf);font-family:'Noto Sans',sans-se
 .feat-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:10px}
 .fi{background:var(--card-bg);border-radius:var(--r-xl);padding:18px;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--out-v);box-shadow:var(--e1);transition:transform .15s,background .3s,border-color .3s}
 .fi:active{transform:scale(.98)}
-.fi-ic{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--pri-con);transition:background .3s}
-.fi-ic.b{background:var(--sec-con)} .fi-ic.g{background:var(--ter-con)} .fi-ic.r{background:var(--err-con)}
+.fi-ic{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:var(--pri-con);color:var(--pri);transition:background .3s}
+.fi-ic.b{background:var(--sec-con);color:var(--sec)} .fi-ic.g{background:var(--ter-con);color:var(--ter)} .fi-ic.r{background:var(--err-con);color:var(--err)}
+.fi-ic svg, .stat-ic svg, .tc-icon svg, .sr-ic svg, .top-logo svg, .offline-ic svg{width:24px;height:24px;fill:currentColor}
+.top-logo svg{width:22px;height:22px;color:#fff}
+.stat-ic svg{width:26px;height:26px}
+.tc-icon svg{width:28px;height:28px}
+.offline-ic svg{width:40px;height:40px;color:#fff}
+.sr-ic svg{width:22px;height:22px}
 .fi-body{flex:1}
 .fi-title{font-size:15px;font-weight:700;margin-bottom:4px}
 .fi-desc{font-size:13px;color:var(--on-surf-v);line-height:1.6}
@@ -245,11 +309,12 @@ body{background:var(--surf);color:var(--on-surf);font-family:'Noto Sans',sans-se
 .dl-title{font-family:'Noto Sans Display',sans-serif;font-size:24px;font-weight:900;color:#fff;margin-bottom:6px}
 [data-theme="dark"] .dl-title{color:var(--on-pri-con)}
 .dl-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:22px;line-height:1.55}
-.dl-btns{display:flex;flex-direction:column;gap:10px}
-.dl-btn{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:var(--r-full);padding:16px 24px;font-size:14px;font-weight:700;font-family:'Noto Sans',sans-serif;text-decoration:none;transition:transform .15s;border:none;cursor:pointer}
+.dl-btns{display:flex;flex-direction:column;gap:12px}
+.dl-btn{display:flex;align-items:center;justify-content:center;gap:12px;border-radius:var(--r-full);padding:12px 24px;text-decoration:none;transition:transform .15s;border:none;cursor:pointer}
 .dl-btn:active{transform:scale(.97)}
-.dl-btn.p{background:#fff;color:var(--pri);box-shadow:0 4px 16px rgba(0,0,0,.2)}
-.dl-btn.s{background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.dl-btn.p{background:#fff;color:#1c1b1f;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.dl-btn.s{background:rgba(255,255,255,.18);color:#fff;border:1.5px solid rgba(255,255,255,.4);font-size:14px;font-weight:600;padding:14px 24px}
+.dl-btn svg{width:24px;height:24px;flex-shrink:0}
 
 /* ════════════════ FOOTER ════════════════ */
 footer{background:var(--surf2);border-top:1px solid var(--out-v);padding:24px 20px 48px;text-align:center;transition:background .3s,border-color .3s}
@@ -290,18 +355,21 @@ footer strong{color:var(--on-surf)}
 .tg-card:active{transform:scale(.98)}
 .tg-hdr{background:linear-gradient(135deg,#0088CC,#006BA3);padding:24px 20px;display:flex;gap:16px;align-items:center}
 [data-theme="dark"] .tg-hdr{background:linear-gradient(135deg,#005F8F,#003D5C)}
-.tg-logo-wrap{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}
+.tg-logo-wrap{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;color:#fff}
+.tg-logo-wrap svg{width:32px;height:32px;fill:currentColor}
 .tg-channel-name{font-size:18px;font-weight:800;color:#fff;margin-bottom:3px}
 .tg-handle{font-size:13px;color:rgba(255,255,255,.75)}
 .tg-body{background:var(--card-bg);padding:18px 20px;border:1px solid var(--out-v);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);transition:background .3s,border-color .3s}
 .tg-desc{font-size:14px;color:var(--on-surf-v);line-height:1.65;margin-bottom:16px}
 .tg-features{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
 .tg-feat{display:flex;align-items:center;gap:10px;font-size:13px}
-.tg-feat-icon{font-size:18px;width:28px;text-align:center;flex-shrink:0}
+.tg-feat-icon{font-size:18px;width:28px;text-align:center;flex-shrink:0;color:var(--pri);display:flex;align-items:center;justify-content:center}
+.tg-feat-icon svg{width:18px;height:18px;fill:currentColor}
 .tg-feat-text{color:var(--on-surf-v)}
 .tg-feat-text strong{color:var(--on-surf)}
 .tg-join-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#0088CC,#006BA3);color:#fff;font-size:15px;font-weight:700;padding:16px 24px;border-radius:var(--r-full);text-decoration:none;box-shadow:0 4px 16px rgba(0,136,204,.35);transition:transform .15s,box-shadow .15s}
 .tg-join-btn:active{transform:scale(.97);box-shadow:0 2px 8px rgba(0,136,204,.2)}
+.tg-join-btn svg, .btn-o svg, .dl-btn.s svg{width:20px;height:20px;fill:currentColor}
 
 /* ════════════════ UTILS ════════════════ */
 .g8{height:8px}.g16{height:16px}.g24{height:24px}
@@ -314,7 +382,7 @@ footer strong{color:var(--on-surf)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
 </style>
 </head>
 <body>
@@ -322,7 +390,9 @@ footer strong{color:var(--on-surf)}
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-brand">
-    <div class="top-logo">🚌</div>
+    <div class="top-logo">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+    </div>
     <div class="top-name">Rohnamo</div>
   </div>
   <div class="top-right">
@@ -337,7 +407,10 @@ footer strong{color:var(--on-surf)}
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">📍 <span class="t-ru">Душанбе, Таджикистан</span><span class="t-tj">Душанбе, Тоҷикистон</span><span class="t-en">Dushanbe, Tajikistan</span></div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;">
+    <div class="hero-badge">📍 <span class="t-ru">Душанбе, Таджикистан</span><span class="t-tj">Душанбе, Тоҷикистон</span><span class="t-en">Dushanbe, Tajikistan</span></div>
+    <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">🚀 <span class="t-ru">10 000+ пользователей</span><span class="t-tj">10 000+ корбарон</span><span class="t-en">10,000+ Users</span></div>
+  </div>
   <h1 class="hero-title">
     <span class="t-ru">Справочник<br>транспорта<br><span>Душанбе</span></span>
     <span class="t-tj">Роҳнамои<br>нақлиёти<br><span>Душанбе</span></span>
@@ -349,42 +422,124 @@ footer strong{color:var(--on-surf)}
     <span class="t-en">Buses, marshrutkas and trolleybuses — find the right route in seconds. Works fully offline in three languages.</span>
   </p>
   <div class="hero-btns">
-    <a href="https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965" class="btn-w">🍎 App Store</a>
-    <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="btn-w">▶ Google Play</a>
-    <a href="https://www.instagram.com/rohnamoapp" class="btn-o">📷 @rohnamoapp</a>
+    <a href="https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965" class="btn-w">
+      <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-12 69.5-34.3z"/></svg>
+      <span class="btn-w-text">
+        <span class="btn-w-sub t-ru">Загрузите в</span><span class="btn-w-sub t-tj">Боргирӣ дар</span><span class="btn-w-sub t-en">Download on the</span>
+        <span class="btn-w-main">App Store</span>
+      </span>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="btn-w">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l220.7-221.3 60.1 60.1L104.6 499z"/></svg>
+      <span class="btn-w-text">
+        <span class="btn-w-sub t-ru">Доступно в</span><span class="btn-w-sub t-tj">Дастрас дар</span><span class="btn-w-sub t-en">GET IT ON</span>
+        <span class="btn-w-main">Google Play</span>
+      </span>
+    </a>
+    <a href="https://www.instagram.com/rohnamoapp" class="btn-o" target="_blank" rel="noopener">
+      <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9c14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      @rohnamoapp
+    </a>
   </div>
+
+  <!-- PHONE MOCKUP -->
+  <div class="mockup-wrap">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <img src="img/screen1.png" alt="Rohnamo App Preview" class="screen-img">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREENSHOTS GALLERY -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Скриншоты</div>
+  <div class="sh-label t-tj">Скриншотҳо</div>
+  <div class="sh-label t-en">Screenshots</div>
+  <div class="sh-title t-ru">Интерфейс приложения</div>
+  <div class="sh-title t-tj">Интерфейси барнома</div>
+  <div class="sh-title t-en">App Interface</div>
+</div>
+
+<div class="screenshots-sec reveal">
+  <div class="sc-scroll">
+    <div class="sc-item">
+      <img src="img/screen1.png" alt="Справочник транспорта">
+      <div class="sc-caption t-ru">Все маршруты</div>
+      <div class="sc-caption t-tj">Ҳамаи хатҳо</div>
+      <div class="sc-caption t-en">All Routes</div>
+    </div>
+    <div class="sc-item">
+      <img src="img/screen2.png" alt="Интерактивная карта">
+      <div class="sc-caption t-ru">Карта Душанбе</div>
+      <div class="sc-caption t-tj">Харитаи Душанбе</div>
+      <div class="sc-caption t-en">Dushanbe Map</div>
+    </div>
+    <div class="sc-item">
+      <img src="img/screen3.png" alt="Поиск от А до Б">
+      <div class="sc-caption t-ru">Поиск «От А до Б»</div>
+      <div class="sc-caption t-tj">Ҷустуҷӯи «Аз А то Б»</div>
+      <div class="sc-caption t-en">A to B Search</div>
+    </div>
+    <div class="sc-item">
+      <img src="img/screen4.png" alt="Детали остановки">
+      <div class="sc-caption t-ru">Остановки и линии</div>
+      <div class="sc-caption t-tj">Истгоҳҳо ва хатҳо</div>
+      <div class="sc-caption t-en">Stops & Lines</div>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- STATS -->
 <div class="g8"></div>
 <div class="stats-grid">
   <div class="stat-c reveal d1">
-    <div class="stat-ic">🚌</div>
-    <div class="stat-n r">25</div>
-    <div class="stat-l t-ru">автобусных маршрутов</div>
-    <div class="stat-l t-tj">хатти автобус</div>
-    <div class="stat-l t-en">bus routes</div>
+    <div class="stat-ic" style="color:var(--pri)">
+      <svg viewBox="0 0 640 512" fill="currentColor"><path d="M144 160c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm368 0c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zM144 200c-61.9 0-112 50.1-112 112v24c0 13.3 10.7 24 24 24h176c13.3 0 24-10.7 24-24v-24c0-61.9-50.1-112-112-112zm368 0c-61.9 0-112 50.1-112 112v24c0 13.3 10.7 24 24 24h176c13.3 0 24-10.7 24-24v-24c0-61.9-50.1-112-112-112zM320 128c-44.2 0-80-35.8-80-80s35.8-80 80-80 80 35.8 80 80-35.8 80-80 80zm0 40c-61.9 0-112 50.1-112 112v32c0 17.7 14.3 32 32 32h160c17.7 0 32-14.3 32-32v-32c0-61.9-50.1-112-112-112z"/></svg>
+    </div>
+    <div class="stat-n o">10K+</div>
+    <div class="stat-l t-ru">пользователей</div>
+    <div class="stat-l t-tj">корбарон</div>
+    <div class="stat-l t-en">users</div>
   </div>
   <div class="stat-c reveal d2">
-    <div class="stat-ic">🚐</div>
-    <div class="stat-n b">21</div>
-    <div class="stat-l t-ru">маршрутов такси</div>
-    <div class="stat-l t-tj">хатти маршрутка</div>
-    <div class="stat-l t-en">marshrutka routes</div>
+    <div class="stat-ic" style="color:var(--bus)">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+    </div>
+    <div class="stat-n r">25</div>
+    <div class="stat-l t-ru">автобусов</div>
+    <div class="stat-l t-tj">автобусҳо</div>
+    <div class="stat-l t-en">buses</div>
   </div>
   <div class="stat-c reveal d3">
-    <div class="stat-ic">🚎</div>
+    <div class="stat-ic" style="color:var(--sec)">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+    </div>
+    <div class="stat-n b">21</div>
+    <div class="stat-l t-ru">маршруток</div>
+    <div class="stat-l t-tj">маршруткаҳо</div>
+    <div class="stat-l t-en">minibuses</div>
+  </div>
+  <div class="stat-c reveal d4">
+    <div class="stat-ic" style="color:var(--ter)">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+    </div>
     <div class="stat-n g">8</div>
-    <div class="stat-l t-ru">троллейбусных маршрутов</div>
-    <div class="stat-l t-tj">хатти троллейбус</div>
-    <div class="stat-l t-en">trolleybus routes</div>
+    <div class="stat-l t-ru">троллейбусов</div>
+    <div class="stat-l t-tj">троллейбусҳо</div>
+    <div class="stat-l t-en">trolleybuses</div>
   </div>
 </div>
 
 <!-- OFFLINE -->
 <div class="g8"></div>
 <div class="offline reveal">
-  <div class="offline-ic">📵</div>
+  <div class="offline-ic">
+    <svg viewBox="0 0 640 512" fill="currentColor"><path d="M634 471L36 3.7c-9.3-9.3-24.5-9.3-33.8 0s-9.3 24.5 0 33.8l82.8 82.8c-12 11.2-19.7 26.6-20.9 44-24.8 6.4-44.1 27.5-44.1 53.7 0 25 17.5 45.4 40.5 51.5C65.5 352.4 135 416 224 416c31.1 0 60.1-8 85.5-22l288.6 288.6c9.3 9.3 24.5 9.3 33.8 0s9.3-24.4 0-33.7z"/></svg>
+  </div>
   <div>
     <div class="offline-t t-ru">100% офлайн</div>
     <div class="offline-t t-tj">100% офлайн</div>
@@ -410,7 +565,9 @@ footer strong{color:var(--on-surf)}
 <div class="t-list">
   <div class="tc bus reveal d1">
     <div class="tc-top">
-      <div class="tc-icon bus">🚌</div>
+      <div class="tc-icon bus" style="color:var(--bus)">
+        <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+      </div>
       <div class="tc-info">
         <div class="tc-name t-ru">Автобус</div>
         <div class="tc-name t-tj">Автобус</div>
@@ -434,7 +591,9 @@ footer strong{color:var(--on-surf)}
   </div>
   <div class="tc min reveal d2">
     <div class="tc-top">
-      <div class="tc-icon min">🚐</div>
+      <div class="tc-icon min" style="color:var(--sec)">
+        <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+      </div>
       <div class="tc-info">
         <div class="tc-name t-ru">Маршрутка</div>
         <div class="tc-name t-tj">Маршрутка</div>
@@ -456,7 +615,9 @@ footer strong{color:var(--on-surf)}
   </div>
   <div class="tc trl reveal d3">
     <div class="tc-top">
-      <div class="tc-icon trl">🚎</div>
+      <div class="tc-icon trl" style="color:var(--ter)">
+        <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+      </div>
       <div class="tc-info">
         <div class="tc-name t-ru">Троллейбус</div>
         <div class="tc-name t-tj">Троллейбус</div>
@@ -541,7 +702,9 @@ footer strong{color:var(--on-surf)}
 </div>
 <div class="feat-list">
   <div class="fi reveal d1">
-    <div class="fi-ic">📍</div>
+    <div class="fi-ic">
+      <svg viewBox="0 0 384 512" fill="currentColor"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+    </div>
     <div class="fi-body">
       <div class="fi-title t-ru">Маршрут «От А до Б»</div>
       <div class="fi-title t-tj">Маршрут «Аз А то Б»</div>
@@ -555,7 +718,9 @@ footer strong{color:var(--on-surf)}
     </div>
   </div>
   <div class="fi reveal d2">
-    <div class="fi-ic b">🗺️</div>
+    <div class="fi-ic b">
+      <svg viewBox="0 0 576 512" fill="currentColor"><path d="M0 117.66v346.32c0 15.72 15.52 26.81 30.29 21.31L144 441.94l144 48 144-48 113.71 43.33c14.77 5.5 30.29-5.59 30.29-21.31V117.66c0-9.42-5.46-17.98-13.97-21.96L432 48l-144 48-144-48L30.27 95.7C21.76 99.68 16.3 108.24 16.3 117.66zM128 405.3V122.7l128 42.67v282.6L128 405.3zm288 0V122.7l128-42.67v282.6L416 405.3z"/></svg>
+    </div>
     <div class="fi-body">
       <div class="fi-title t-ru">Интерактивная карта</div>
       <div class="fi-title t-tj">Харитаи интерактивӣ</div>
@@ -569,7 +734,9 @@ footer strong{color:var(--on-surf)}
     </div>
   </div>
   <div class="fi reveal d1">
-    <div class="fi-ic g">🔍</div>
+    <div class="fi-ic g">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+    </div>
     <div class="fi-body">
       <div class="fi-title t-ru">Поиск маршрутов</div>
       <div class="fi-title t-tj">Ҷустуҷӯи хатҳо</div>
@@ -580,7 +747,9 @@ footer strong{color:var(--on-surf)}
     </div>
   </div>
   <div class="fi reveal d2">
-    <div class="fi-ic">⭐</div>
+    <div class="fi-ic">
+      <svg viewBox="0 0 576 512" fill="currentColor"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.1 23 46 46.4 33.7L288 439.6l130.7 68.7c23.4 12.3 50.9-7.6 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L404 150.2 338.7 17.8c-11.7-23.8-45.7-23.8-57.4 0z"/></svg>
+    </div>
     <div class="fi-body">
       <div class="fi-title t-ru">Избранные</div>
       <div class="fi-title t-tj">Дӯстдоштаҳо</div>
@@ -591,7 +760,9 @@ footer strong{color:var(--on-surf)}
     </div>
   </div>
   <div class="fi reveal d1">
-    <div class="fi-ic r">🌙</div>
+    <div class="fi-ic r">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.559-238.262-196.954 0-72.222 38.62-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.385 0-256 114.615-256 256s114.615 256 256 256z"/></svg>
+    </div>
     <div class="fi-body">
       <div class="fi-title t-ru">Тёмная тема и крупный шрифт</div>
       <div class="fi-title t-tj">Мавзӯи торик ва ҳарфи калон</div>
@@ -788,7 +959,9 @@ footer strong{color:var(--on-surf)}
 
 <a class="tg-card reveal" href="https://t.me/tjrohnamo" target="_blank" rel="noopener">
   <div class="tg-hdr">
-    <div class="tg-logo-wrap">✈️</div>
+    <div class="tg-logo-wrap">
+      <svg viewBox="0 0 496 512" fill="currentColor"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg>
+    </div>
     <div>
       <div class="tg-channel-name">Rohnamo</div>
       <div class="tg-handle">t.me/tjrohnamo</div>
@@ -825,7 +998,7 @@ footer strong{color:var(--on-surf)}
       </div>
     </div>
     <div class="tg-join-btn">
-      ✈️ &nbsp;
+      <svg viewBox="0 0 496 512" fill="currentColor"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg>
       <span class="t-ru">Подписаться на канал</span>
       <span class="t-tj">Ба канал обуна шавед</span>
       <span class="t-en">Join the Channel</span>
@@ -846,7 +1019,9 @@ footer strong{color:var(--on-surf)}
 </div>
 <div class="settings-card reveal">
   <div class="sr">
-    <div class="sr-ic">🌙</div>
+    <div class="sr-ic">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.559-238.262-196.954 0-72.222 38.62-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.385 0-256 114.615-256 256s114.615 256 256 256z"/></svg>
+    </div>
     <div class="sr-body">
       <div class="sr-title t-ru">Тема оформления</div>
       <div class="sr-title t-tj">Мавзӯи тарроҳӣ</div>
@@ -860,7 +1035,9 @@ footer strong{color:var(--on-surf)}
     <div class="sr-val t-en">Dark</div>
   </div>
   <div class="sr">
-    <div class="sr-ic b">🔤</div>
+    <div class="sr-ic b">
+      <svg viewBox="0 0 448 512" fill="currentColor"><path d="M432 416h-23.41l-19.07-52.62H276.46L257.4 416H234c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h80c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16h-10.97l60.27-166.02h4.41L428.97 416H416c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h80c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16zm-104.91-100.62l38.9-107.24 38.9 107.24h-77.8zM176 64h-32L14.4 416H0c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h96c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H95.42l31.85-88h137.45l31.85 88h-20.57c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h96c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16h-14.4L176 64zm-32.96 216L160 144.97 176.96 280h-33.92z"/></svg>
+    </div>
     <div class="sr-body">
       <div class="sr-title t-ru">Размер интерфейса</div>
       <div class="sr-title t-tj">Андозаи интерфейс</div>
@@ -872,7 +1049,9 @@ footer strong{color:var(--on-surf)}
     <div class="sr-val b">100%</div>
   </div>
   <div class="sr">
-    <div class="sr-ic g">🌐</div>
+    <div class="sr-ic g">
+      <svg viewBox="0 0 496 512" fill="currentColor"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm179.3 160h-64.8c-7.7-34.7-20.9-67-38.3-95.7 44.9 18.2 82.8 51.5 103.1 95.7zM248 56c22.1 0 47.7 33.4 63.8 88H184.2C200.3 89.4 225.9 56 248 56zM40 256c0-14.7 1.8-29 5.2-42.7h85.3c-1.5 13.9-2.5 28.2-2.5 42.7s1 28.8 2.5 42.7H45.2C41.8 285 40 270.7 40 256zm15.7 88h64.8c7.7 34.7 20.9 67 38.3 95.7-44.9-18.2-82.8-51.5-103.1-95.7zm64.8-176h-64.8c20.3-44.2 58.3-77.5 103.1-95.7-17.4 28.7-30.6 61-38.3 95.7zM248 456c-22.1 0-47.7-33.4-63.8-88h127.6c-16.1 54.6-41.7 88-63.8 88zm70.4-128H177.6c-1.8-13.8-3.6-28.1-3.6-42.7s1.8-28.9 3.6-42.7h140.8c1.8 13.8 3.6 28.1 3.6 42.7s-1.8 28.9-3.6 42.7zm43.3 123.7c17.4-28.7 30.6-61 38.3-95.7h64.8c-20.3 44.2-58.3 77.5-103.1 95.7zM365.5 298.7c1.5-13.9 2.5-28.2 2.5-42.7s-1-28.8-2.5-42.7h85.3c3.4 13.7 5.2 28 5.2 42.7s-1.8 28.9-5.2 42.7h-85.3z"/></svg>
+    </div>
     <div class="sr-body">
       <div class="sr-title t-ru">Язык приложения</div>
       <div class="sr-title t-tj">Забони барнома</div>
@@ -977,9 +1156,24 @@ footer strong{color:var(--on-surf)}
     <p class="dl-sub t-tj">Барои iOS ва Android дастрас аст. Як бор зеркашӣ кунед — дар ҳар ҷо бидуни интернет кор мекунад.</p>
     <p class="dl-sub t-en">Available for iOS and Android. Download once — works everywhere without internet.</p>
     <div class="dl-btns">
-      <a href="https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965" class="dl-btn p">🍎 &nbsp;App Store</a>
-      <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="dl-btn p">▶ &nbsp;Google Play</a>
-      <a href="https://www.instagram.com/rohnamoapp" class="dl-btn s">📷 &nbsp;@rohnamoapp</a>
+      <a href="https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965" class="dl-btn p">
+        <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-12 69.5-34.3z"/></svg>
+        <span class="btn-w-text">
+          <span class="btn-w-sub t-ru">Загрузите в</span><span class="btn-w-sub t-tj">Боргирӣ дар</span><span class="btn-w-sub t-en">Download on the</span>
+          <span class="btn-w-main">App Store</span>
+        </span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="dl-btn p">
+        <svg viewBox="0 0 512 512" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l220.7-221.3 60.1 60.1L104.6 499z"/></svg>
+        <span class="btn-w-text">
+          <span class="btn-w-sub t-ru">Доступно в</span><span class="btn-w-sub t-tj">Дастрас дар</span><span class="btn-w-sub t-en">GET IT ON</span>
+          <span class="btn-w-main">Google Play</span>
+        </span>
+      </a>
+      <a href="https://www.instagram.com/rohnamoapp" class="dl-btn s" target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9c14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+        @rohnamoapp
+      </a>
     </div>
   </div>
 </div>
