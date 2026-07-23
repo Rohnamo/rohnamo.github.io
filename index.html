@@ -144,8 +144,11 @@ html, body {
   background:rgba(255,248,245,0.85);border-bottom:1px solid var(--out-v);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   height:64px;padding:0 16px;
-  display:flex;align-items:center;justify-content:between;
+  display:flex;align-items:center;justify-content:space-between;
   box-shadow:var(--e1);transition:background .3s,border-color .3s;
+}
+.top-right{
+  display:flex;align-items:center;gap:8px;margin-left:auto;
 }
 [data-theme="dark"] .top-bar{
   background:rgba(26,18,16,0.85);
@@ -331,15 +334,16 @@ html, body {
 .hero{
   background:linear-gradient(155deg,#FF6D00 0%,#E65100 50%,#BF360C 100%);
   padding:40px 20px 40px;position:relative;overflow:hidden;
+  text-align:center;
 }
 [data-theme="dark"] .hero{background:linear-gradient(155deg,#7A3800 0%,#5D2A00 50%,#3D1C00 100%)}
 .hero::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08);top:-80px;right:-60px;pointer-events:none}
 .hero::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05);bottom:-50px;left:-30px;pointer-events:none}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;padding:6px 14px;border-radius:var(--r-full);font-size:12px;font-weight:600;letter-spacing:.4px;margin-bottom:16px;animation:fadeDown .8s ease both}
-.hero-title{font-family:'Noto Sans Display',sans-serif;font-size:34px;font-weight:900;color:#fff;line-height:1.12;margin-bottom:14px;animation:fadeDown .8s .1s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;padding:6px 14px;border-radius:var(--r-full);font-size:12px;font-weight:600;letter-spacing:.4px;margin-bottom:6px;animation:fadeDown .8s ease both}
+.hero-title{font-family:'Noto Sans Display',sans-serif;font-size:34px;font-weight:900;color:#fff;line-height:1.12;margin-bottom:14px;animation:fadeDown .8s .1s ease both;text-align:center}
 .hero-title span{opacity:.65}
-.hero-sub{font-size:15px;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:28px;animation:fadeUp .8s .2s ease both}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.85);line-height:1.65;margin-bottom:28px;animation:fadeUp .8s .2s ease both;text-align:center;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .3s ease both}
 .btn-w{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#1c1b1f;padding:10px 18px;border-radius:var(--r-full);text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .15s,box-shadow .15s}
 .btn-w:active{transform:scale(.96)}
 .btn-w svg{width:22px;height:22px;flex-shrink:0}
@@ -365,11 +369,11 @@ html, body {
 .offline-d{font-size:13px;opacity:.85;line-height:1.55}
 
 /* ════════════════ SECTION HEADER ════════════════ */
-.sh{padding:28px 16px 4px}
-.sh-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pri);margin-bottom:6px;transition:color .3s}
-.sh-label::before{content:'';width:16px;height:3px;background:var(--pri);border-radius:2px;transition:background .3s}
-.sh-title{font-family:'Noto Sans Display',sans-serif;font-size:22px;font-weight:800;line-height:1.25;color:var(--on-surf);transition:color .3s}
-.sh-desc{font-size:14px;color:var(--on-surf-v);line-height:1.6;margin-top:6px;transition:color .3s}
+.sh{padding:28px 16px 12px;text-align:center}
+.sh-label{display:flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pri);margin-bottom:6px;transition:color .3s}
+.sh-label::before, .sh-label::after{content:'';width:16px;height:3px;background:var(--pri);border-radius:2px;transition:background .3s}
+.sh-title{font-family:'Noto Sans Display',sans-serif;font-size:22px;font-weight:800;line-height:1.25;color:var(--on-surf);transition:color .3s;text-align:center}
+.sh-desc{font-size:14px;color:var(--on-surf-v);line-height:1.6;margin-top:6px;transition:color .3s;text-align:center}
 
 /* ════════════════ TRANSPORT ════════════════ */
 .t-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:10px}
@@ -1155,7 +1159,7 @@ footer strong{color:var(--on-surf)}
 
 <!-- HERO -->
 <div class="hero">
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;justify-content:center;">
     <div class="hero-badge">📍 <span class="t-ru">Душанбе, Таджикистан</span><span class="t-tj">Душанбе, Тоҷикистон</span><span class="t-en">Dushanbe, Tajikistan</span></div>
     <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">🚀 <span class="t-ru">10 000+ скачиваний</span><span class="t-tj">10 000+ зеркашӣ</span><span class="t-en">10,000+ Downloads</span></div>
     <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">⭐ <span class="t-ru">4.9 ★ (480+ отзывов в Google Play)</span><span class="t-tj">4.9 ★ (480+ шарҳ дар Google Play)</span><span class="t-en">4.9 ★ (480+ Google Play Reviews)</span></div>
@@ -1190,13 +1194,6 @@ footer strong{color:var(--on-surf)}
       <span class="btn-w-text">
         <span class="btn-w-sub t-ru">Открыть в веб</span><span class="btn-w-sub t-tj">Кушодан дар веб</span><span class="btn-w-sub t-en">Open Web App</span>
         <span class="btn-w-main">Rohnamo Web</span>
-      </span>
-    </a>
-    <a href="https://github.com/Suhay1i/rohnamo/releases/download/v1.6.0/Rohnamo-v1.6.0.apk" class="btn-w" target="_blank" rel="noopener">
-      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M416 199.5h-91.4V32H187.4v167.5H96l160 160 160-160zM96 416h320v32H96v-32z"/></svg>
-      <span class="btn-w-text">
-        <span class="btn-w-sub t-ru">Прямая загрузка</span><span class="btn-w-sub t-tj">Боргирии мустақим</span><span class="btn-w-sub t-en">Direct Download</span>
-        <span class="btn-w-main">APK (15 MB)</span>
       </span>
     </a>
     <a href="https://www.instagram.com/rohnamoapp" class="btn-o" target="_blank" rel="noopener">
@@ -2630,6 +2627,14 @@ function setMockupMode(mode) {
       iframe.style.display = 'none';
       screenImg.style.display = 'block';
     }
+  }
+}
+
+/* ─── QR MODAL TOGGLE ─── */
+function toggleQRModal(show) {
+  const modal = document.getElementById('qrModal');
+  if (modal) {
+    modal.classList.toggle('active', show);
   }
 }
 
