@@ -1086,9 +1086,95 @@ footer strong{color:var(--on-surf)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ════════════════ MOCKUP HINT & EMERGING ARROW ════════════════ */
+.mockup-interactive-hint {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto 14px;
+  padding: 18px 24px 14px;
+  max-width: 90%;
+  width: fit-content;
+  background: var(--card-bg);
+  border: 1.5px solid var(--pri);
+  border-radius: var(--r-xl);
+  box-shadow: 0 8px 24px rgba(255, 109, 0, 0.22);
+  text-align: center;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+.hint-arrow-container {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FF6D00 0%, #E65100 100%);
+  border: 3px solid var(--card-bg);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(255, 109, 0, 0.45);
+  animation: pulseEmergingArrow 1.8s infinite ease-in-out;
+  transition: border-color .3s;
+}
+.hint-arrow-svg {
+  width: 20px;
+  height: 20px;
+}
+.hint-text {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--on-surf);
+  letter-spacing: 0.2px;
+}
+.hint-text span {
+  display: inline;
+}
+@keyframes pulseEmergingArrow {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    box-shadow: 0 4px 14px rgba(255, 109, 0, 0.45);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px) scale(1.08);
+    box-shadow: 0 8px 22px rgba(255, 109, 0, 0.65);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    box-shadow: 0 4px 14px rgba(255, 109, 0, 0.45);
+  }
+}
+
+/* ════════════════ BACKGROUND ANIMATED CANVAS ════════════════ */
+.bg-network-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+  transition: opacity 0.5s ease;
+}
+[data-theme="dark"] .bg-network-canvas {
+  opacity: 0.85;
+}
+.app-container {
+  position: relative;
+  z-index: 1;
+}
 </style>
 </head>
 <body>
+<canvas id="bgNetworkCanvas" class="bg-network-canvas"></canvas>
 
 <!-- SIDEBAR BACKDROP & PANEL -->
 <div id="sidebarBackdrop" class="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
@@ -1225,6 +1311,20 @@ footer strong{color:var(--on-surf)}
           <div class="phone-glare-3d"></div>
         </div>
       </div>
+    </div>
+  </div>
+  
+  <div class="mockup-interactive-hint">
+    <div class="hint-arrow-container">
+      <svg class="hint-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </div>
+    <div class="hint-text">
+      <span class="t-ru">Вы можете использовать приложение прямо тут!</span>
+      <span class="t-tj">Шумо метавонед барномаро рост дар ин ҷо истифода баред!</span>
+      <span class="t-en">You can use the application right here!</span>
     </div>
   </div>
 </div>
@@ -2648,6 +2748,375 @@ function toggleSidebar(show) {
     document.body.style.overflow = show ? 'hidden' : '';
   }
 }
+
+/* ─── ANIMATED TRANSPORT ROUTES CANVAS BACKGROUND (PREMIUM VECTOR ICONS) ─── */
+(function initTransportRoutesCanvas() {
+  const canvas = document.getElementById('bgNetworkCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let width, height;
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Define Dushanbe Transport Routes (Bus, Marshrutka, Trolleybus)
+  const routeConfigs = [
+    {
+      id: 'bus-8',
+      num: '8',
+      type: 'bus',
+      colorLight: '#FF6D00',
+      colorDark: '#FF9E40',
+      pointsRatio: [
+        {x: 0.05, y: 0.18}, {x: 0.25, y: 0.25}, {x: 0.48, y: 0.22}, {x: 0.72, y: 0.38}, {x: 0.92, y: 0.48}
+      ],
+      vehicleCount: 3
+    },
+    {
+      id: 'min-16',
+      num: '16',
+      type: 'minibus',
+      colorLight: '#1565C0',
+      colorDark: '#64B5F6',
+      pointsRatio: [
+        {x: 0.08, y: 0.85}, {x: 0.28, y: 0.68}, {x: 0.52, y: 0.52}, {x: 0.78, y: 0.32}, {x: 0.94, y: 0.15}
+      ],
+      vehicleCount: 3
+    },
+    {
+      id: 'trl-1',
+      num: '1',
+      type: 'trolleybus',
+      colorLight: '#2E7D32',
+      colorDark: '#81C784',
+      pointsRatio: [
+        {x: 0.50, y: 0.05}, {x: 0.48, y: 0.32}, {x: 0.52, y: 0.62}, {x: 0.50, y: 0.95}
+      ],
+      vehicleCount: 2
+    },
+    {
+      id: 'bus-3',
+      num: '3',
+      type: 'bus',
+      colorLight: '#E65100',
+      colorDark: '#FFB74D',
+      pointsRatio: [
+        {x: 0.06, y: 0.45}, {x: 0.30, y: 0.42}, {x: 0.60, y: 0.46}, {x: 0.92, y: 0.60}
+      ],
+      vehicleCount: 2
+    },
+    {
+      id: 'min-25',
+      num: '25',
+      type: 'minibus',
+      colorLight: '#0D47A1',
+      colorDark: '#90CAF9',
+      pointsRatio: [
+        {x: 0.10, y: 0.70}, {x: 0.35, y: 0.88}, {x: 0.65, y: 0.78}, {x: 0.88, y: 0.88}
+      ],
+      vehicleCount: 2
+    },
+    {
+      id: 'trl-4',
+      num: '4',
+      type: 'trolleybus',
+      colorLight: '#1B5E20',
+      colorDark: '#A5D6A7',
+      pointsRatio: [
+        {x: 0.15, y: 0.32}, {x: 0.38, y: 0.12}, {x: 0.68, y: 0.16}, {x: 0.85, y: 0.30}
+      ],
+      vehicleCount: 2
+    }
+  ];
+
+  // Helper function to draw crisp vector icons
+  function drawVectorBus(ctx, x, y, size, color) {
+    ctx.save();
+    ctx.translate(x, y);
+    const s = size / 20;
+    ctx.scale(s, s);
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-8, -9, 16, 17, 3);
+    else ctx.rect(-8, -9, 16, 17);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-6.5, -7, 13, 6, 1.5);
+    else ctx.rect(-6.5, -7, 13, 6);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFD54F';
+    ctx.beginPath();
+    ctx.arc(-5, 4.5, 1.4, 0, Math.PI * 2);
+    ctx.arc(5, 4.5, 1.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#212121';
+    ctx.beginPath();
+    ctx.arc(-5, 8, 1.8, 0, Math.PI * 2);
+    ctx.arc(5, 8, 1.8, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawVectorMinibus(ctx, x, y, size, color) {
+    ctx.save();
+    ctx.translate(x, y);
+    const s = size / 20;
+    ctx.scale(s, s);
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-9, -7, 18, 14, 3);
+    else ctx.rect(-9, -7, 18, 14);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-7.5, -5.5, 15, 5, 1.5);
+    else ctx.rect(-7.5, -5.5, 15, 5);
+    ctx.fill();
+
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.fillRect(-5.5, 1, 11, 1.5);
+
+    ctx.fillStyle = '#212121';
+    ctx.beginPath();
+    ctx.arc(-5, 7, 1.8, 0, Math.PI * 2);
+    ctx.arc(5, 7, 1.8, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawVectorTrolleybus(ctx, x, y, size, color) {
+    ctx.save();
+    ctx.translate(x, y);
+    const s = size / 20;
+    ctx.scale(s, s);
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(-3, -7);
+    ctx.lineTo(-7, -15);
+    ctx.moveTo(3, -7);
+    ctx.lineTo(7, -15);
+    ctx.stroke();
+
+    ctx.fillStyle = color;
+    ctx.fillRect(-8.5, -16.5, 3, 1.5);
+    ctx.fillRect(5.5, -16.5, 3, 1.5);
+
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-8, -7, 16, 15, 3);
+    else ctx.rect(-8, -7, 16, 15);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-6.5, -5, 13, 5, 1.5);
+    else ctx.rect(-6.5, -5, 13, 5);
+    ctx.fill();
+
+    ctx.fillStyle = '#FFD54F';
+    ctx.beginPath();
+    ctx.arc(-5, 3.5, 1.4, 0, Math.PI * 2);
+    ctx.arc(5, 3.5, 1.4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#212121';
+    ctx.beginPath();
+    ctx.arc(-5, 8, 1.8, 0, Math.PI * 2);
+    ctx.arc(5, 8, 1.8, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  function getPathPoint(points, progress) {
+    let totalLen = 0;
+    const lens = [];
+    for (let i = 0; i < points.length - 1; i++) {
+      const dx = points[i+1].x - points[i].x;
+      const dy = points[i+1].y - points[i].y;
+      const len = Math.hypot(dx, dy);
+      lens.push(len);
+      totalLen += len;
+    }
+    let targetD = progress * totalLen;
+    for (let i = 0; i < lens.length; i++) {
+      if (targetD <= lens[i] || i === lens.length - 1) {
+        const segT = lens[i] > 0 ? targetD / lens[i] : 0;
+        const x = points[i].x + (points[i+1].x - points[i].x) * segT;
+        const y = points[i].y + (points[i+1].y - points[i].y) * segT;
+        return { x, y };
+      }
+      targetD -= lens[i];
+    }
+    return { x: points[points.length - 1].x, y: points[points.length - 1].y };
+  }
+
+  const vehicles = [];
+  routeConfigs.forEach((route, rIdx) => {
+    for (let i = 0; i < route.vehicleCount; i++) {
+      const direction = (i % 2 === 0) ? 1 : -1;
+      vehicles.push({
+        routeIndex: rIdx,
+        progress: (i / route.vehicleCount) + Math.random() * 0.1,
+        speed: (Math.random() * 0.0012 + 0.0008) * direction,
+        num: route.num,
+        type: route.type
+      });
+    }
+  });
+
+  let pulseTime = 0;
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    pulseTime += 0.03;
+
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+    // 1. Draw Routes (Under-stroke + Main Route line for maximum contrast)
+    routeConfigs.forEach(route => {
+      const color = isDark ? route.colorDark : route.colorLight;
+      const points = route.pointsRatio.map(p => ({ x: p.x * width, y: p.y * height }));
+
+      // Under-stroke contrast line
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+      ctx.strokeStyle = isDark ? 'rgba(0, 0, 0, 0.45)' : 'rgba(255, 255, 255, 0.8)';
+      ctx.lineWidth = 5;
+      ctx.stroke();
+
+      // Main dashed route line
+      ctx.strokeStyle = color;
+      ctx.globalAlpha = isDark ? 0.65 : 0.55;
+      ctx.lineWidth = 3;
+      ctx.setLineDash([9, 5]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Stop dots & Terminus rings
+      for (let i = 0; i < points.length; i++) {
+        const isTerminus = (i === 0 || i === points.length - 1);
+        
+        ctx.beginPath();
+        ctx.arc(points[i].x, points[i].y, isTerminus ? 6 : 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? '#181210' : '#FFFFFF';
+        ctx.fill();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        if (isTerminus) {
+          const ringRadius = 10 + Math.sin(pulseTime * 1.5 + i) * 3;
+          ctx.beginPath();
+          ctx.arc(points[i].x, points[i].y, ringRadius, 0, Math.PI * 2);
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 1.8;
+          ctx.globalAlpha = isDark ? 0.6 : 0.45;
+          ctx.stroke();
+        }
+      }
+    });
+
+    // 2. Draw Vehicles along routes
+    vehicles.forEach(v => {
+      v.progress += v.speed;
+      if (v.progress > 1) {
+        v.progress = 1;
+        v.speed = -Math.abs(v.speed);
+      } else if (v.progress < 0) {
+        v.progress = 0;
+        v.speed = Math.abs(v.speed);
+      }
+
+      const route = routeConfigs[v.routeIndex];
+      const color = isDark ? route.colorDark : route.colorLight;
+      const points = route.pointsRatio.map(p => ({ x: p.x * width, y: p.y * height }));
+      
+      const pos = getPathPoint(points, v.progress);
+
+      // Glow Aura
+      ctx.globalAlpha = 1.0;
+      const glow = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 22);
+      glow.addColorStop(0, color);
+      glow.addColorStop(0.55, color);
+      glow.addColorStop(1, 'rgba(0,0,0,0)');
+
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 22, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+
+      // Icon Container Disc
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 13, 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? '#1F1512' : '#FFFFFF';
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = isDark ? 8 : 4;
+      ctx.fill();
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Draw Premium Vector Transport Icon
+      if (v.type === 'bus') {
+        drawVectorBus(ctx, pos.x, pos.y, 16, color);
+      } else if (v.type === 'minibus') {
+        drawVectorMinibus(ctx, pos.x, pos.y, 16, color);
+      } else if (v.type === 'trolleybus') {
+        drawVectorTrolleybus(ctx, pos.x, pos.y, 16, color);
+      }
+
+      // Route Number Badge Pill (e.g. "8", "16", "1")
+      ctx.font = '800 11px "Noto Sans", sans-serif';
+      const text = v.num;
+      const badgeWidth = ctx.measureText(text).width + 10;
+      const badgeHeight = 16;
+      const badgeX = pos.x + 15;
+      const badgeY = pos.y - 8;
+
+      ctx.fillStyle = isDark ? '#1F1512' : '#FFFFFF';
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(badgeX, badgeY, badgeWidth, badgeHeight, 5);
+      } else {
+        ctx.rect(badgeX, badgeY, badgeWidth, badgeHeight);
+      }
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, badgeX + badgeWidth / 2, badgeY + badgeHeight / 2 + 0.5);
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
 </script>
 </div>
 </body>
