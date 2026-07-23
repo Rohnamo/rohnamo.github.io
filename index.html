@@ -123,6 +123,10 @@
   --card-bg:#231916;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   width: 100%; max-width: 100%; margin: 0; padding: 0;
   overflow-x: hidden; min-height: 100vh;
@@ -147,35 +151,157 @@ html, body {
   background:rgba(26,18,16,0.85);
 }
 
-/* ════════════════ PHONE MOCKUP & CAROUSEL ════════════════ */
-.mockup-wrap{
-  margin:24px auto 0;
-  max-width:280px;
-  position:relative;
-  filter:drop-shadow(0 20px 30px rgba(0,0,0,0.3));
-  animation:fadeUp .8s .4s ease both;
+/* ════════════════ ULTRA-PREMIUM FLAGSHIP MOCKUP ════════════════ */
+.mockup-container-3d {
+  perspective: 1200px;
+  margin: 24px auto 0;
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.phone-frame{
-  background:#1e1e24;
-  border-radius:36px;
-  padding:10px;
-  border:4px solid #3a3a42;
-  box-shadow:inset 0 0 0 2px rgba(255,255,255,0.1);
-  position:relative;
+.mockup-card-3d {
+  position: relative;
+  width: 340px;
+  max-width: 88vw;
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) rotateY(-8deg) rotateZ(1deg);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: floatSleek 6s ease-in-out infinite alternate;
 }
-.phone-notch{
-  width:90px;height:18px;background:#000;
-  border-radius:0 0 10px 10px;
-  position:absolute;top:10px;left:50%;
-  transform:translateX(-50%);z-index:10;
+@keyframes floatSleek {
+  0% { transform: rotateX(6deg) rotateY(-8deg) translateY(0px); }
+  50% { transform: rotateX(9deg) rotateY(-4deg) translateY(-10px); }
+  100% { transform: rotateX(4deg) rotateY(-10deg) translateY(-2px); }
 }
-.phone-screen{
-  border-radius:26px;overflow:hidden;
-  aspect-ratio:9/16;background:#111;
-  position:relative;
+.phone-glow-3d {
+  position: absolute;
+  bottom: -30px; left: 50%;
+  transform: translateX(-50%);
+  width: 220px; height: 50px;
+  background: radial-gradient(ellipse at center, rgba(255, 109, 0, 0.45) 0%, rgba(255, 171, 64, 0.15) 50%, transparent 75%);
+  filter: blur(20px);
+  pointer-events: none;
+  border-radius: 50%;
 }
-.screen-img{
-  width:100%;height:100%;object-fit:cover;display:block;
+.phone-body-3d {
+  position: relative;
+  background: linear-gradient(135deg, #32323e 0%, #1a1a24 50%, #0f0f15 100%);
+  border-radius: 42px;
+  padding: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(255, 109, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+}
+.phone-camera-android {
+  width: 11px; height: 11px;
+  background: #050508;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  position: absolute;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.25);
+}
+.phone-screen-3d {
+  border-radius: 34px;
+  overflow: hidden;
+  aspect-ratio: 9 / 19.5;
+  background: #000;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  clip-path: inset(0 round 34px);
+}
+.phone-status-android {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 32px;
+  padding: 8px 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+  pointer-events: none;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+}
+.ps-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.screen-img-3d {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.35s ease;
+  border-radius: 34px;
+  clip-path: inset(0 round 34px);
+}
+.phone-glare-3d {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  pointer-events: none;
+  z-index: 15;
+  border-radius: 34px;
+  clip-path: inset(0 round 34px);
+}
+
+.phone-iframe-3d {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  border-radius: 34px;
+  clip-path: inset(0 round 34px);
+  background: #000;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 10;
+}
+.mockup-mode-switch {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+  z-index: 50;
+  position: relative;
+}
+.mode-btn {
+  background: var(--surf2);
+  color: var(--on-surf);
+  border: 1px solid var(--out-v);
+  padding: 8px 16px;
+  border-radius: var(--r-full);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.mode-btn.active {
+  background: var(--pri);
+  color: #fff;
+  border-color: var(--pri);
+  box-shadow: 0 4px 12px rgba(255, 109, 0, 0.35);
 }
 
 /* Screenshots Gallery Horizontal Scroll */
@@ -498,6 +624,317 @@ footer strong{color:var(--on-surf)}
 .qr-desc{font-size:12px;color:var(--on-surf-v);margin-bottom:16px}
 .qr-img{width:180px;height:180px;margin:0 auto 14px;background:#fff;padding:10px;border-radius:var(--r-md);border:1px solid var(--out-v);display:block}
 
+/* ════════════════ COMPARISON TABLE ════════════════ */
+.comp-wrap {
+  margin: 0 16px;
+  background: var(--card-bg);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--out-v);
+  padding: 16px;
+  box-shadow: var(--e2);
+  overflow-x: auto;
+  transition: background .3s, border-color .3s;
+}
+.comp-table {
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.comp-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: var(--surf1);
+  gap: 8px;
+  font-size: 13px;
+}
+.comp-row.head {
+  background: var(--surf2);
+  font-weight: 800;
+  font-family: 'Noto Sans Display', sans-serif;
+  padding: 14px;
+}
+.comp-col.brand {
+  color: var(--pri);
+  font-weight: 800;
+  text-align: center;
+}
+.comp-col.other {
+  color: var(--on-surf-v);
+  text-align: center;
+}
+.comp-col.check {
+  color: var(--ter);
+  font-weight: 700;
+  text-align: center;
+}
+.comp-col.cross {
+  color: var(--on-surf-v);
+  font-size: 12px;
+  text-align: center;
+}
+.comp-col.feature {
+  font-weight: 700;
+  color: var(--on-surf);
+}
+
+/* ════════════════ TIME SAVINGS CALCULATOR ════════════════ */
+.calc-card {
+  margin: 0 16px;
+  background: var(--card-bg);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--out-v);
+  padding: 22px 18px;
+  box-shadow: var(--e2);
+  text-align: center;
+  transition: background .3s, border-color .3s;
+}
+.calc-question {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surf);
+  margin-bottom: 14px;
+}
+.calc-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.calc-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--out-v);
+  background: var(--surf1);
+  color: var(--on-surf);
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.calc-btn.active {
+  background: var(--pri);
+  color: #fff;
+  border-color: var(--pri);
+  box-shadow: 0 4px 12px rgba(255, 109, 0, 0.35);
+  transform: scale(1.08);
+}
+.calc-results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.calc-res-item {
+  background: var(--surf2);
+  border-radius: var(--r-lg);
+  padding: 14px 10px;
+  border: 1px solid var(--out-v);
+}
+.calc-res-val {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--pri);
+  line-height: 1.1;
+}
+.calc-res-lbl {
+  font-size: 12px;
+  color: var(--on-surf-v);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ════════════════ POPULAR ROUTES CHEAT-SHEET ════════════════ */
+.pop-routes-grid {
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 480px) {
+  .pop-routes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.pop-route-card {
+  background: var(--card-bg);
+  border-radius: var(--r-xl);
+  padding: 14px 16px;
+  border: 1px solid var(--out-v);
+  box-shadow: var(--e1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.pop-route-card:hover, .pop-route-card:active {
+  transform: translateY(-2px);
+  border-color: var(--pri);
+  box-shadow: var(--e2);
+}
+.pop-route-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+.pop-route-body {
+  flex: 1;
+}
+.pop-route-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--on-surf);
+  font-family: 'Noto Sans Display', sans-serif;
+}
+.pop-route-desc {
+  font-size: 11px;
+  color: var(--on-surf-v);
+  margin-top: 3px;
+  font-weight: 600;
+}
+.pop-route-arrow {
+  color: var(--pri);
+  font-weight: 900;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.pop-route-card:hover .pop-route-arrow {
+  transform: translateX(4px);
+}
+
+/* ════════════════ SIDEBAR ════════════════ */
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 6px;
+  transition: background 0.2s;
+}
+.hamburger-btn:hover {
+  background: var(--surf2);
+}
+.hamburger-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--on-surf);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+.sidebar-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sidebar-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar-panel {
+  position: fixed;
+  top: 0; left: 0;
+  width: 290px;
+  max-width: 85vw;
+  height: 100%;
+  z-index: 9001;
+  background: var(--card-bg);
+  border-right: 1px solid var(--out-v);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.sidebar-panel.active {
+  transform: translateX(0);
+}
+.sidebar-head {
+  padding: 18px;
+  border-bottom: 1px solid var(--out-v);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar-brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+.sidebar-brand span {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--on-surf);
+}
+.sidebar-close {
+  background: var(--surf2);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--on-surf);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar-menu {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow-y: auto;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--r-lg);
+  color: var(--on-surf);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar-item:hover, .sidebar-item:active {
+  background: var(--surf1);
+  color: var(--pri);
+}
+.sidebar-foot {
+  padding: 18px;
+  border-top: 1px solid var(--out-v);
+  font-size: 12px;
+  color: var(--on-surf-v);
+  text-align: center;
+}
+
 /* ════════════════ LIVE DEMO SEARCH ════════════════ */
 .live-search-card{margin:0 16px;background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);padding:18px;box-shadow:var(--e2);transition:background .3s,border-color .3s}
 .ls-input-wrap{position:relative;margin-bottom:12px}
@@ -554,11 +991,59 @@ footer strong{color:var(--on-surf)}
 </style>
 </head>
 <body>
+
+<!-- SIDEBAR BACKDROP & PANEL -->
+<div id="sidebarBackdrop" class="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
+<div id="sidebarPanel" class="sidebar-panel">
+  <div class="sidebar-head">
+    <div class="sidebar-brand">
+      <img src="img/icon.png" alt="Rohnamo Logo">
+      <span>Rohnamo</span>
+    </div>
+    <button class="sidebar-close" onclick="toggleSidebar(false)">✕</button>
+  </div>
+  <div class="sidebar-menu">
+    <a href="#" class="sidebar-item" onclick="toggleSidebar(false)">
+      <span>🏠</span>
+      <span class="t-ru">Главная</span><span class="t-tj">Асосӣ</span><span class="t-en">Home</span>
+    </a>
+    <a href="#demoSearchInput" class="sidebar-item" onclick="toggleSidebar(false)">
+      <span>🔍</span>
+      <span class="t-ru">Поиск маршрутов</span><span class="t-tj">Ҷустуҷӯи хатҳо</span><span class="t-en">Route Search</span>
+    </a>
+    <a href="#screenshotsSec" class="sidebar-item" onclick="toggleSidebar(false)">
+      <span>📱</span>
+      <span class="t-ru">Скриншоты</span><span class="t-tj">Скриншотҳо</span><span class="t-en">Screenshots</span>
+    </a>
+    <a href="#reviewsSec" class="sidebar-item" onclick="toggleSidebar(false)">
+      <span>⭐</span>
+      <span class="t-ru">Отзывы</span><span class="t-tj">Шарҳҳо</span><span class="t-en">Reviews</span>
+    </a>
+    <a href="#faqSec" class="sidebar-item" onclick="toggleSidebar(false)">
+      <span>❓</span>
+      <span class="t-ru">Частые вопросы (FAQ)</span><span class="t-tj">Саволҳои зуд-зуд</span><span class="t-en">FAQ</span>
+    </a>
+    <a href="#redditSec" class="sidebar-item" onclick="toggleSidebar(false)">
+      <span>💬</span>
+      <span class="t-ru">Обсуждения Reddit</span><span class="t-tj">Муҳокимаҳои Reddit</span><span class="t-en">Reddit Discussions</span>
+    </a>
+  </div>
+  <div class="sidebar-foot">
+    <strong>Rohnamo v1.6.0</strong><br>
+    <span class="t-ru">Душанбе, Таджикистан</span>
+    <span class="t-tj">Душанбе, Тоҷикистон</span>
+    <span class="t-en">Dushanbe, Tajikistan</span>
+  </div>
+</div>
+
 <div class="app-container">
 
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-brand">
+    <button class="hamburger-btn" onclick="toggleSidebar(true)" title="Меню">
+      <span></span><span></span><span></span>
+    </button>
     <div class="top-logo">
       <img src="img/icon.png" alt="Rohnamo Logo">
     </div>
@@ -578,7 +1063,8 @@ footer strong{color:var(--on-surf)}
 <div class="hero">
   <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;">
     <div class="hero-badge">📍 <span class="t-ru">Душанбе, Таджикистан</span><span class="t-tj">Душанбе, Тоҷикистон</span><span class="t-en">Dushanbe, Tajikistan</span></div>
-    <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">🚀 <span class="t-ru">10 000+ пользователей</span><span class="t-tj">10 000+ корбарон</span><span class="t-en">10,000+ Users</span></div>
+    <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">🚀 <span class="t-ru">10 000+ скачиваний</span><span class="t-tj">10 000+ зеркашӣ</span><span class="t-en">10,000+ Downloads</span></div>
+    <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">⭐ <span class="t-ru">4.9 ★ (480+ отзывов в Google Play)</span><span class="t-tj">4.9 ★ (480+ шарҳ дар Google Play)</span><span class="t-en">4.9 ★ (480+ Google Play Reviews)</span></div>
   </div>
   <h1 class="hero-title">
     <span class="t-ru">Справочник<br>транспорта<br><span>Душанбе</span></span>
@@ -605,6 +1091,13 @@ footer strong{color:var(--on-surf)}
         <span class="btn-w-main">Google Play</span>
       </span>
     </a>
+    <a href="https://rohnamo.vercel.app" class="btn-w" target="_blank" rel="noopener">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.4c2.2 20.4 3.3 41.8 3.3 64zm28.8-96h111.8c-18.7-46-55.7-82.6-102.1-100.8 14.7 29.8 25.1 63.8 30.3 100.8zM256 32c-25 0-54.8 34.6-70.9 96h141.8C310.8 66.6 281 32 256 32zm-122.5 31.2C87.1 81.4 50.1 118 31.4 160h111.8c5.2-37 15.6-71 30.3-100.8zM23.3 224c-2.2 10.4-3.3 21.1-3.3 32s1.1 21.6 3.3 32h111.5c-1.8-10.4-2.8-21.1-2.8-32s1-21.6 2.8-32H23.3zm354.2 64h111.5c2.2-10.4 3.3-21.1 3.3-32s-1.1-21.6-3.3-32H377.5c1.8 10.4 2.8 21.1 2.8 32s-1 21.6-2.8 32zM256 480c25 0 54.8-34.6 70.9-96H185.1c16.1 61.4 45.9 96 70.9 96zm122.5-31.2c14.7-29.8 25.1-63.8 30.3-100.8H297c-5.2 37-15.6 71-30.3 100.8zM133.5 352H21.7c18.7 46 55.7 82.6 102.1 100.8-14.7-29.8-25.1-63.8-30.3-100.8z"/></svg>
+      <span class="btn-w-text">
+        <span class="btn-w-sub t-ru">Открыть в веб</span><span class="btn-w-sub t-tj">Кушодан дар веб</span><span class="btn-w-sub t-en">Open Web App</span>
+        <span class="btn-w-main">Rohnamo Web</span>
+      </span>
+    </a>
     <a href="https://www.instagram.com/rohnamoapp" class="btn-o" target="_blank" rel="noopener">
       <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9c14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
       @rohnamoapp
@@ -615,12 +1108,24 @@ footer strong{color:var(--on-surf)}
     </button>
   </div>
 
-  <!-- PHONE MOCKUP -->
-  <div class="mockup-wrap">
-    <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <img src="img/screen1.png" alt="Rohnamo App Preview" class="screen-img">
+  <!-- 3D ANDROID PHONE MOCKUP -->
+  <div class="mockup-container-3d" id="mockupContainer3D">
+    <div class="mockup-card-3d" id="mockupCard3D">
+      <div class="phone-glow-3d"></div>
+      <div class="phone-body-3d">
+        <div class="phone-camera-android"></div>
+        <div class="phone-screen-3d" id="phoneScreen3D">
+          <div class="phone-status-android">
+            <span>09:41</span>
+            <div class="ps-icons">
+              <span style="font-size:10px;margin-right:2px;">5G</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9.47 2.03-12.72 5.32l2.12 2.12c2.72-2.75 6.47-4.44 10.6-4.44s7.88 1.69 10.6 4.44l2.12-2.12c-3.25-3.29-7.75-5.32-12.72-5.32zm0 4.5c-3.73 0-7.1 1.52-9.54 3.98l2.12 2.12c1.9-1.91 4.52-3.1 7.42-3.1s5.52 1.19 7.42 3.1l2.12-2.12c-2.44-2.46-5.81-3.98-9.54-3.98zm0 4.5c-2.49 0-4.74 1.01-6.36 2.65l2.12 2.12c1.08-1.09 2.57-1.77 4.24-1.77s3.16.68 4.24 1.77l2.12-2.12c-1.62-1.64-3.87-2.65-6.36-2.65zm0 4.5c-1.24 0-2.37.5-3.18 1.32l3.18 3.18 3.18-3.18c-.81-.82-1.94-1.32-3.18-1.32z"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+            </div>
+          </div>
+          <iframe id="webAppIframe" class="phone-iframe-3d" src="https://rohnamo.vercel.app" title="Rohnamo Web App"></iframe>
+          <div class="phone-glare-3d"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -720,6 +1225,192 @@ footer strong{color:var(--on-surf)}
     <p class="offline-d t-ru">Скачайте один раз — пользуйтесь где угодно без интернета. Все маршруты и карта хранятся на вашем телефоне.</p>
     <p class="offline-d t-tj">Як бор зеркашӣ кунед — дар ҳар ҷо бидуни интернет истифода баред. Ҳамаи хатҳо ва харита дар телефони шумо нигоҳ дошта мешаванд.</p>
     <p class="offline-d t-en">Download once — use anywhere without internet. All routes and the map are stored directly on your phone.</p>
+  </div>
+</div>
+
+<!-- COMPARISON SECTION -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Сравнение</div>
+  <div class="sh-label t-tj">Муқоиса</div>
+  <div class="sh-label t-en">Comparison</div>
+  <div class="sh-title t-ru">Почему выбирают Rohnamo?</div>
+  <div class="sh-title t-tj">Чаро Rohnamo-ро интихоб мекунанд?</div>
+  <div class="sh-title t-en">Why Choose Rohnamo?</div>
+  <p class="sh-desc t-ru">Сравнение Rohnamo с другими способами поиска транспорта в Душанбе:</p>
+  <p class="sh-desc t-tj">Муқоисаи Rohnamo бо дигар роҳҳои ҷустуҷӯи нақлиёт дар Душанбе:</p>
+  <p class="sh-desc t-en">Comparing Rohnamo with other ways to find transit in Dushanbe:</p>
+</div>
+
+<div class="comp-wrap reveal">
+  <div class="comp-table">
+    <div class="comp-row head">
+      <div class="comp-col feature t-ru">Возможность</div>
+      <div class="comp-col feature t-tj">Имконият</div>
+      <div class="comp-col feature t-en">Feature</div>
+      <div class="comp-col brand">Rohnamo</div>
+      <div class="comp-col other t-ru">Обычные карты</div>
+      <div class="comp-col other t-tj">Харитаҳо</div>
+      <div class="comp-col other t-en">Standard Maps</div>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-col feature">
+        <span class="t-ru">📡 100% Работа без интернета</span>
+        <span class="t-tj">📡 100% Кор бидуни интернет</span>
+        <span class="t-en">📡 100% Offline Work</span>
+      </div>
+      <div class="comp-col brand check">✅ <span class="t-ru">Да</span><span class="t-tj">Бале</span><span class="t-en">Yes</span></div>
+      <div class="comp-col other cross">❌ <span class="t-ru">Нужен интернет</span><span class="t-tj">Интернет лозим</span><span class="t-en">Needs Internet</span></div>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-col feature">
+        <span class="t-ru">🚐 База маршруток Душанбе</span>
+        <span class="t-tj">🚐 Махзани маршруткаҳо</span>
+        <span class="t-en">🚐 Dushanbe Minivans</span>
+      </div>
+      <div class="comp-col brand check">✅ <span class="t-ru">54+ маршрута</span><span class="t-tj">54+ хатсайр</span><span class="t-en">54+ Routes</span></div>
+      <div class="comp-col other cross">❌ <span class="t-ru">Неполная</span><span class="t-tj">Нопурра</span><span class="t-en">Incomplete</span></div>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-col feature">
+        <span class="t-ru">🌐 Таджикский язык (TJ)</span>
+        <span class="t-tj">🌐 Забони тоҷикӣ (TJ)</span>
+        <span class="t-en">🌐 Tajik Language (TJ)</span>
+      </div>
+      <div class="comp-col brand check">✅ <span class="t-ru">Родной язык</span><span class="t-tj">Забони модарӣ</span><span class="t-en">Native Tajik</span></div>
+      <div class="comp-col other cross">❌ <span class="t-ru">Только RU/EN</span><span class="t-tj">Танҳо RU/EN</span><span class="t-en">Only RU/EN</span></div>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-col feature">
+        <span class="t-ru">📦 Размер приложения</span>
+        <span class="t-tj">📦 Андозаи барнома</span>
+        <span class="t-en">📦 App Size</span>
+      </div>
+      <div class="comp-col brand check">⚡ <span class="t-ru">Всего 15 МБ</span><span class="t-tj">Танҳо 15 МБ</span><span class="t-en">Only 15 MB</span></div>
+      <div class="comp-col other cross">🐢 <span class="t-ru">150–300 МБ</span><span class="t-tj">150–300 МБ</span><span class="t-en">150–300 MB</span></div>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-col feature">
+        <span class="t-ru">🛡️ Без рекламы и платежей</span>
+        <span class="t-tj">🛡️ Бе реклама ва пардохт</span>
+        <span class="t-en">🛡️ No Ads & 100% Free</span>
+      </div>
+      <div class="comp-col brand check">✅ <span class="t-ru">100% Бесплатно</span><span class="t-tj">100% Ройгон</span><span class="t-en">100% Free</span></div>
+      <div class="comp-col other cross">⚠️ <span class="t-ru">Баннеры/Реклама</span><span class="t-tj">Реклама</span><span class="t-en">Ad Banners</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TIME SAVINGS CALCULATOR -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Калькулятор</div>
+  <div class="sh-label t-tj">Ҳисобкунак</div>
+  <div class="sh-label t-en">Calculator</div>
+  <div class="sh-title t-ru">Сколько времени вы сэкономите?</div>
+  <div class="sh-title t-tj">Чанқад вақт сарфа мекунед?</div>
+  <div class="sh-title t-en">How Much Time Will You Save?</div>
+  <p class="sh-desc t-ru">Выберите сколько поездок на транспорте в Душанбе вы совершаете в день:</p>
+  <p class="sh-desc t-tj">Чанд сафар дар як рӯз дар Душанбе анҷом медиҳед:</p>
+  <p class="sh-desc t-en">Select how many transit trips you take per day in Dushanbe:</p>
+</div>
+
+<div class="calc-card reveal">
+  <div class="calc-question t-ru">Поездок в день:</div>
+  <div class="calc-question t-tj">Сафар дар як рӯз:</div>
+  <div class="calc-question t-en">Trips per day:</div>
+
+  <div class="calc-buttons">
+    <button class="calc-btn" onclick="calcTimeSavings(1)">1</button>
+    <button class="calc-btn active" onclick="calcTimeSavings(2)">2</button>
+    <button class="calc-btn" onclick="calcTimeSavings(3)">3</button>
+    <button class="calc-btn" onclick="calcTimeSavings(4)">4</button>
+    <button class="calc-btn" onclick="calcTimeSavings(5)">5+</button>
+  </div>
+
+  <div class="calc-results">
+    <div class="calc-res-item">
+      <div class="calc-res-val" id="calcValDay">20 мин</div>
+      <div class="calc-res-lbl t-ru">в день сэкономлено</div>
+      <div class="calc-res-lbl t-tj">дар як рӯз сарфа шуд</div>
+      <div class="calc-res-lbl t-en">saved per day</div>
+    </div>
+    <div class="calc-res-item">
+      <div class="calc-res-val" id="calcValMonth">10 часов</div>
+      <div class="calc-res-lbl t-ru">в месяц для жизни</div>
+      <div class="calc-res-lbl t-tj">дар як моҳ барои зиндагӣ</div>
+      <div class="calc-res-lbl t-en">saved per month</div>
+    </div>
+  </div>
+</div>
+
+<!-- POPULAR ROUTES CHEAT-SHEET -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Шпаргалка</div>
+  <div class="sh-label t-tj">Шпаргалка</div>
+  <div class="sh-label t-en">Cheat-Sheet</div>
+  <div class="sh-title t-ru">Популярные маршруты Душанбе</div>
+  <div class="sh-title t-tj">Хатҳои машҳури Душанбе</div>
+  <div class="sh-title t-en">Popular Dushanbe Routes</div>
+  <p class="sh-desc t-ru">Нажмите на направление для мгновенной проверки транспорта:</p>
+  <p class="sh-desc t-tj">Барои санҷиши зуд ба самт зер кунед:</p>
+  <p class="sh-desc t-en">Tap any direction for instant route lookup:</p>
+</div>
+
+<div class="pop-routes-grid reveal">
+  <div class="pop-route-card" onclick="setDemoQuery('Аэропорт')">
+    <div class="pop-route-icon">✈️</div>
+    <div class="pop-route-body">
+      <div class="pop-route-title t-ru">В Аэропорт (Душанбе)</div>
+      <div class="pop-route-title t-tj">Ба Фурудгоҳ (Душанбе)</div>
+      <div class="pop-route-title t-en">To Dushanbe Airport</div>
+      <div class="pop-route-desc t-ru">Автобус №3а, №8 · Маршрутка №16</div>
+      <div class="pop-route-desc t-tj">Автобус №3а, №8 · Маршрутка №16</div>
+      <div class="pop-route-desc t-en">Bus №3a, №8 · Marshrutka №16</div>
+    </div>
+    <div class="pop-route-arrow">➔</div>
+  </div>
+
+  <div class="pop-route-card" onclick="setDemoQuery('Вокзал')">
+    <div class="pop-route-icon">🚉</div>
+    <div class="pop-route-body">
+      <div class="pop-route-title t-ru">На Ж/Д Вокзал</div>
+      <div class="pop-route-title t-tj">Ба Вокзал</div>
+      <div class="pop-route-title t-en">To Railway Station</div>
+      <div class="pop-route-desc t-ru">Автобус №1, №8 · Троллейбус №4</div>
+      <div class="pop-route-desc t-tj">Автобус №1, №8 · Троллейбус №4</div>
+      <div class="pop-route-desc t-en">Bus №1, №8 · Trolleybus №4</div>
+    </div>
+    <div class="pop-route-arrow">➔</div>
+  </div>
+
+  <div class="pop-route-card" onclick="setDemoQuery('Корвон')">
+    <div class="pop-route-icon">🛍️</div>
+    <div class="pop-route-body">
+      <div class="pop-route-title t-ru">Рынок «Корвон»</div>
+      <div class="pop-route-title t-tj">Бозори «Корвон»</div>
+      <div class="pop-route-title t-en">Korvon Market</div>
+      <div class="pop-route-desc t-ru">Маршрутка №16, №25 · Автобус №2</div>
+      <div class="pop-route-desc t-tj">Маршрутка №16, №25 · Автобус №2</div>
+      <div class="pop-route-desc t-en">Marshrutka №16, №25 · Bus №2</div>
+    </div>
+    <div class="pop-route-arrow">➔</div>
+  </div>
+
+  <div class="pop-route-card" onclick="setDemoQuery('Зарафшон')">
+    <div class="pop-route-icon">🏥</div>
+    <div class="pop-route-body">
+      <div class="pop-route-title t-ru">Караболо / Зарафшон</div>
+      <div class="pop-route-title t-tj">Қараболо / Зарафшон</div>
+      <div class="pop-route-title t-en">Karabolo / Zarafshon</div>
+      <div class="pop-route-desc t-ru">Автобус №3а · Маршрутка №16 · Троллейбус №10</div>
+      <div class="pop-route-desc t-tj">Автобус №3а · Маршрутка №16 · Троллейбус №10</div>
+      <div class="pop-route-desc t-en">Bus №3a · Marshrutka №16 · Trolleybus №10</div>
+    </div>
+    <div class="pop-route-arrow">➔</div>
   </div>
 </div>
 
@@ -1225,9 +1916,9 @@ footer strong{color:var(--on-surf)}
 <div class="reviews-summary reveal">
   <div class="rs-score">4.9</div>
   <div class="rs-stars">⭐⭐⭐⭐⭐</div>
-  <div class="rs-count t-ru">Более 480+ оценок в Google Play</div>
-  <div class="rs-count t-tj">Зиёда аз 480+ баҳо дар Google Play</div>
-  <div class="rs-count t-en">480+ Ratings on Google Play</div>
+  <div class="rs-count t-ru">⭐ 4.9 из 5 на основе 480+ отзывов в Google Play</div>
+  <div class="rs-count t-tj">⭐ 4.9 аз 5 дар асоси 480+ шарҳ дар Google Play</div>
+  <div class="rs-count t-en">⭐ 4.9 out of 5 based on 480+ Google Play reviews</div>
 </div>
 
 <div class="reviews-grid">
@@ -1505,6 +2196,13 @@ footer strong{color:var(--on-surf)}
           <span class="btn-w-main">Google Play</span>
         </span>
       </a>
+      <a href="https://rohnamo.vercel.app" class="dl-btn p" target="_blank" rel="noopener">
+        <svg viewBox="0 0 512 512" fill="currentColor"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.4c2.2 20.4 3.3 41.8 3.3 64zm28.8-96h111.8c-18.7-46-55.7-82.6-102.1-100.8 14.7 29.8 25.1 63.8 30.3 100.8zM256 32c-25 0-54.8 34.6-70.9 96h141.8C310.8 66.6 281 32 256 32zm-122.5 31.2C87.1 81.4 50.1 118 31.4 160h111.8c5.2-37 15.6-71 30.3-100.8zM23.3 224c-2.2 10.4-3.3 21.1-3.3 32s1.1 21.6 3.3 32h111.5c-1.8-10.4-2.8-21.1-2.8-32s1-21.6 2.8-32H23.3zm354.2 64h111.5c2.2-10.4 3.3-21.1 3.3-32s-1.1-21.6-3.3-32H377.5c1.8 10.4 2.8 21.1 2.8 32s-1 21.6-2.8 32zM256 480c25 0 54.8-34.6 70.9-96H185.1c16.1 61.4 45.9 96 70.9 96zm122.5-31.2c14.7-29.8 25.1-63.8 30.3-100.8H297c-5.2 37-15.6 71-30.3 100.8zM133.5 352H21.7c18.7 46 55.7 82.6 102.1 100.8-14.7-29.8-25.1-63.8-30.3-100.8z"/></svg>
+        <span class="btn-w-text">
+          <span class="btn-w-sub t-ru">Открыть в веб</span><span class="btn-w-sub t-tj">Кушодан дар веб</span><span class="btn-w-sub t-en">Open Web App</span>
+          <span class="btn-w-main">Rohnamo Web</span>
+        </span>
+      </a>
       <a href="https://www.instagram.com/rohnamoapp" class="dl-btn s" target="_blank" rel="noopener">
         <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9c14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
         @rohnamoapp
@@ -1563,6 +2261,10 @@ footer strong{color:var(--on-surf)}
       <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l220.7-221.3 60.1 60.1L104.6 499z"/></svg>
       Google Play
     </a>
+    <a href="https://rohnamo.vercel.app" class="sb-btn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 512 512"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64h185.4c2.2 20.4 3.3 41.8 3.3 64zm28.8-96h111.8c-18.7-46-55.7-82.6-102.1-100.8 14.7 29.8 25.1 63.8 30.3 100.8zM256 32c-25 0-54.8 34.6-70.9 96h141.8C310.8 66.6 281 32 256 32zm-122.5 31.2C87.1 81.4 50.1 118 31.4 160h111.8c5.2-37 15.6-71 30.3-100.8zM23.3 224c-2.2 10.4-3.3 21.1-3.3 32s1.1 21.6 3.3 32h111.5c-1.8-10.4-2.8-21.1-2.8-32s1-21.6 2.8-32H23.3zm354.2 64h111.5c2.2-10.4 3.3-21.1 3.3-32s-1.1-21.6-3.3-32H377.5c1.8 10.4 2.8 21.1 2.8 32s-1 21.6-2.8 32zM256 480c25 0 54.8-34.6 70.9-96H185.1c16.1 61.4 45.9 96 70.9 96zm122.5-31.2c14.7-29.8 25.1-63.8 30.3-100.8H297c-5.2 37-15.6 71-30.3 100.8zM133.5 352H21.7c18.7 46 55.7 82.6 102.1 100.8-14.7-29.8-25.1-63.8-30.3-100.8z"/></svg>
+      Web App
+    </a>
   </div>
 </div>
 
@@ -1592,6 +2294,8 @@ function setLang(lang) {
   html.setAttribute('data-lang', lang);
   langBtns.forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
   localStorage.setItem('rohnamo-lang', lang);
+  const activeCalcBtn = document.querySelector('.calc-btn.active');
+  if (activeCalcBtn) calcTimeSavings(parseInt(activeCalcBtn.textContent) || 2);
 }
 const savedLang = localStorage.getItem('rohnamo-lang');
 if (savedLang) setLang(savedLang);
@@ -1662,10 +2366,103 @@ window.addEventListener('scroll', () => {
   }
 });
 
-function toggleQRModal(show) {
-  const modal = document.getElementById('qrModal');
-  if (modal) {
-    modal.classList.toggle('active', show);
+/* ─── 3D MOUSE TILT & SCREEN SLIDESHOW ─── */
+const mContainer = document.getElementById('mockupContainer3D');
+const mCard = document.getElementById('mockupCard3D');
+if (mContainer && mCard) {
+  mContainer.addEventListener('mousemove', (e) => {
+    const rect = mContainer.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const rotX = (y / (rect.height / 2)) * -10;
+    const rotY = (x / (rect.width / 2)) * 10;
+    mCard.style.animation = 'none';
+    mCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  });
+
+  mContainer.addEventListener('mouseleave', () => {
+    mCard.style.animation = 'floatSleek 6s ease-in-out infinite alternate';
+  });
+}
+
+const screenImages = ['img/screen1.png', 'img/screen2.png', 'img/screen3.png', 'img/screen4.png'];
+let currentScreenIdx = 0;
+setInterval(() => {
+  const img = document.getElementById('androidScreenImg');
+  if (img) {
+    currentScreenIdx = (currentScreenIdx + 1) % screenImages.length;
+    img.style.opacity = '0.35';
+    setTimeout(() => {
+      img.src = screenImages[currentScreenIdx];
+      img.style.opacity = '1';
+    }, 200);
+  }
+}, 3500);
+
+/* ─── TIME SAVINGS CALCULATOR ─── */
+function calcTimeSavings(trips) {
+  document.querySelectorAll('.calc-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.textContent.trim() === String(trips) || (trips >= 5 && btn.textContent.includes('5'))) {
+      btn.classList.add('active');
+    }
+  });
+
+  const minPerDay = trips * 10;
+  const hoursPerMonth = Math.round((minPerDay * 30) / 60);
+  const lang = document.documentElement.getAttribute('data-lang') || 'ru';
+
+  const valDayEl = document.getElementById('calcValDay');
+  const valMonthEl = document.getElementById('calcValMonth');
+
+  if (valDayEl && valMonthEl) {
+    if (lang === 'tj') {
+      valDayEl.textContent = minPerDay + ' дақиқа';
+      valMonthEl.textContent = hoursPerMonth + ' соат';
+    } else if (lang === 'en') {
+      valDayEl.textContent = minPerDay + ' mins';
+      valMonthEl.textContent = hoursPerMonth + ' hours';
+    } else {
+      valDayEl.textContent = minPerDay + ' мин';
+      valMonthEl.textContent = hoursPerMonth + ' часов';
+    }
+  }
+}
+
+/* ─── 3D MOCKUP INTERACTIVE MODE ─── */
+function setMockupMode(mode) {
+  const btnScreens = document.getElementById('btnModeScreens');
+  const btnLive = document.getElementById('btnModeLive');
+  const screenImg = document.getElementById('androidScreenImg');
+  const iframe = document.getElementById('webAppIframe');
+
+  if (btnScreens && btnLive && screenImg && iframe) {
+    if (mode === 'live') {
+      btnLive.classList.add('active');
+      btnScreens.classList.remove('active');
+      screenImg.style.display = 'none';
+
+      if (!iframe.src || iframe.src === '' || iframe.src === 'about:blank') {
+        iframe.src = 'https://rohnamo.vercel.app';
+      }
+      iframe.style.display = 'block';
+    } else {
+      btnScreens.classList.add('active');
+      btnLive.classList.remove('active');
+      iframe.style.display = 'none';
+      screenImg.style.display = 'block';
+    }
+  }
+}
+
+/* ─── SIDEBAR TOGGLE ─── */
+function toggleSidebar(show) {
+  const panel = document.getElementById('sidebarPanel');
+  const backdrop = document.getElementById('sidebarBackdrop');
+  if (panel && backdrop) {
+    panel.classList.toggle('active', show);
+    backdrop.classList.toggle('active', show);
+    document.body.style.overflow = show ? 'hidden' : '';
   }
 }
 </script>
