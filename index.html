@@ -2,8 +2,37 @@
 <html lang="ru" data-theme="light" data-lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Rohnamo — Транспорт Душанбе</title>
+<title>Rohnamo — Справочник и маршруты общественного транспорта Душанбе</title>
+<link rel="canonical" href="https://rohnamo.github.io/">
+<meta name="description" content="Официальный офлайн-справочник и навигатор общественного транспорта Душанбе. Все актуальные маршруты автобусов, троллейбусов и маршруток. Схема остановок, поиск «От А до Б», работает 100% без интернета.">
+<meta name="keywords" content="rohnamo, рохнамо, роҳнамо, рохнамо душанбе, транспорт душанбе, общественный транспорт душанбе, маршруты общественного транспорта душанбе, маршруты душанбе, автобусы душанбе, маршрутки душанбе, троллейбусы душанбе, схема маршрутов душанбе, карта транспорта душанбе, как доехать в душанбе, хатҳои нақлиёти душанбе, роҳнамои нақлиёти ҷамъиятии душанбе, нақлиёти душанбе, автобусҳои душанбе, маршруткаҳои душанбе, троллейбусҳои душанбе, dushanbe public transport, dushanbe transport guide, dushanbe bus routes, rohnamo app, рохнамо апп">
+<!-- JSON-LD Schema.org Structured Data for Google & Yandex -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Rohnamo",
+  "alternateName": ["Рохнамо", "Роҳнамо", "Rohnamo Dushanbe Transport", "Маршруты транспорта Душанбе"],
+  "url": "https://rohnamo.github.io/",
+  "operatingSystem": "Android, iOS",
+  "applicationCategory": "NavigationApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "200"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Сухайли Диловаршо"
+  },
+  "description": "Справочник и навигатор общественного транспорта Душанбе. Маршруты автобусов, маршруток и троллейбусов. Работает 100% офлайн."
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════
@@ -371,6 +400,85 @@ footer strong{color:var(--on-surf)}
 .tg-join-btn:active{transform:scale(.97);box-shadow:0 2px 8px rgba(0,136,204,.2)}
 .tg-join-btn svg, .btn-o svg, .dl-btn.s svg{width:20px;height:20px;fill:currentColor}
 
+/* ════════════════ FLOATING STICKY BAR ════════════════ */
+.sticky-bar{
+  position:fixed;bottom:12px;left:0;right:0;
+  max-width:440px;margin:0 auto;z-index:99;
+  background:rgba(35,25,22,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.15);border-radius:var(--r-full);
+  padding:8px 12px;display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  transform:translateY(140%);transition:transform .3s ease;
+}
+.sticky-bar.visible{transform:translateY(0)}
+.sb-left{display:flex;align-items:center;gap:8px}
+.sb-icon{width:32px;height:32px;border-radius:8px;background:var(--pri);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;flex-shrink:0}
+.sb-icon svg{width:18px;height:18px;fill:currentColor}
+.sb-title{font-size:12px;font-weight:800;color:#fff;font-family:'Noto Sans Display',sans-serif}
+.sb-btns{display:flex;gap:6px}
+.sb-btn{background:#fff;color:#1c1b1f;padding:6px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:5px}
+.sb-btn svg{width:14px;height:14px;fill:currentColor}
+
+/* ════════════════ QR MODAL ════════════════ */
+.qr-modal-backdrop{
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;
+  background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.qr-modal-backdrop.active{opacity:1;pointer-events:auto}
+.qr-modal{
+  background:var(--card-bg);border-radius:var(--r-xl);padding:24px;
+  max-width:320px;width:100%;text-align:center;border:1px solid var(--out-v);
+  box-shadow:var(--e3);position:relative;transform:scale(0.9);transition:transform .25s ease;
+}
+.qr-modal-backdrop.active .qr-modal{transform:scale(1)}
+.qr-close{position:absolute;top:14px;right:14px;background:var(--surf2);border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--on-surf);display:flex;align-items:center;justify-content:center}
+.qr-title{font-family:'Noto Sans Display',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px;color:var(--on-surf)}
+.qr-desc{font-size:12px;color:var(--on-surf-v);margin-bottom:16px}
+.qr-img{width:180px;height:180px;margin:0 auto 14px;background:#fff;padding:10px;border-radius:var(--r-md);border:1px solid var(--out-v);display:block}
+
+/* ════════════════ LIVE DEMO SEARCH ════════════════ */
+.live-search-card{margin:0 16px;background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);padding:18px;box-shadow:var(--e2);transition:background .3s,border-color .3s}
+.ls-input-wrap{position:relative;margin-bottom:12px}
+.ls-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;fill:var(--on-surf-v)}
+.ls-input-wrap input{width:100%;padding:14px 14px 14px 44px;border-radius:var(--r-full);border:1.5px solid var(--out-v);background:var(--surf);color:var(--on-surf);font-size:14px;outline:none;font-family:inherit;transition:border-color .2s}
+.ls-input-wrap input:focus{border-color:var(--pri)}
+.quick-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.quick-tags button{background:var(--surf2);color:var(--on-surf);border:none;padding:6px 12px;border-radius:var(--r-full);font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
+.quick-tags button:hover,.quick-tags button:active{background:var(--pri);color:#fff}
+.demo-results{display:flex;flex-direction:column;gap:8px}
+.dr-item{background:var(--surf1);border-radius:var(--r-md);padding:12px 14px;border:1px solid var(--out-v);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dr-badge{padding:4px 10px;border-radius:var(--r-full);font-weight:800;font-size:13px;font-family:'Noto Sans Display',sans-serif;white-space:nowrap}
+.dr-badge.bus{background:rgba(183,28,28,.15);color:var(--bus)}
+.dr-badge.min{background:rgba(21,101,192,.15);color:var(--min)}
+.dr-badge.trl{background:rgba(27,94,32,.15);color:var(--ter)}
+.dr-info{flex:1}
+.dr-title{font-weight:700;font-size:14px;color:var(--on-surf)}
+.dr-stops{font-size:12px;color:var(--on-surf-v);margin-top:2px}
+
+/* ════════════════ REVIEWS ════════════════ */
+.reviews-summary{margin:0 16px 14px;background:var(--card-bg);border-radius:var(--r-xl);padding:18px;text-align:center;border:1px solid var(--out-v);box-shadow:var(--e1);transition:background .3s,border-color .3s}
+.rs-score{font-family:'Noto Sans Display',sans-serif;font-size:38px;font-weight:900;color:var(--pri);line-height:1}
+.rs-stars{font-size:16px;margin:6px 0}
+.rs-count{font-size:12px;color:var(--on-surf-v);font-weight:600}
+.reviews-grid{padding:0 16px;display:flex;flex-direction:column;gap:10px}
+.rev-card{background:var(--card-bg);border-radius:var(--r-xl);padding:16px;border:1px solid var(--out-v);box-shadow:var(--e1);transition:background .3s,border-color .3s}
+.rev-hdr{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.rev-av{width:38px;height:38px;border-radius:50%;background:var(--pri-con);color:var(--on-pri-con);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Noto Sans Display',sans-serif;font-size:16px;flex-shrink:0}
+.rev-author{font-weight:700;font-size:14px;color:var(--on-surf)}
+.rev-stars{font-size:12px;margin-top:2px}
+.rev-text{font-size:13px;color:var(--on-surf-v);line-height:1.6;font-style:italic}
+
+/* ════════════════ FAQ ════════════════ */
+.faq-list{padding:0 16px 4px;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--card-bg);border-radius:var(--r-xl);border:1px solid var(--out-v);box-shadow:var(--e1);overflow:hidden;transition:background .3s,border-color .3s}
+.faq-q{padding:16px 18px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;color:var(--on-surf)}
+.faq-q::-webkit-details-marker{display:none}
+.faq-arrow{font-size:11px;color:var(--pri);transition:transform .2s;margin-left:auto;padding-left:10px;flex-shrink:0}
+.faq-item[open] .faq-arrow{transform:rotate(180deg)}
+.faq-a{padding:0 18px 16px;font-size:13px;color:var(--on-surf-v);line-height:1.65;border-top:1px solid var(--out-v);margin-top:4px;padding-top:12px}
+
 /* ════════════════ UTILS ════════════════ */
 .g8{height:8px}.g16{height:16px}.g24{height:24px}
 [data-lang="ru"] .t-tj,[data-lang="ru"] .t-en,
@@ -440,6 +548,10 @@ footer strong{color:var(--on-surf)}
       <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9c14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
       @rohnamoapp
     </a>
+    <button onclick="toggleQRModal(true)" class="btn-o">
+      <svg viewBox="0 0 448 512" fill="currentColor"><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352 64h32v64h-32zm-64-128h32v32h-32zm-64 128h32v64h-32zm96-64h32v32h-32zm-32 32h32v32h-32zm-64-64h64v32h-64zm64 96h64v32h-64z"/></svg>
+      QR-код
+    </button>
   </div>
 
   <!-- PHONE MOCKUP -->
@@ -688,6 +800,37 @@ footer strong{color:var(--on-surf)}
         <div class="chip" style="background:rgba(27,94,32,.15);color:var(--ter)">№12</div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- LIVE DEMO SEARCH -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Попробуйте прямо сейчас</div>
+  <div class="sh-label t-tj">Ҳозир имтиҳон кунед</div>
+  <div class="sh-label t-en">Try It Live</div>
+  <div class="sh-title t-ru">Интерактивный поиск маршрута</div>
+  <div class="sh-title t-tj">Ҷустуҷӯи интерактивӣ</div>
+  <div class="sh-title t-en">Interactive Route Lookup</div>
+  <p class="sh-desc t-ru">Введите номер маршрута или место в Душанбе для быстрой проверки:</p>
+  <p class="sh-desc t-tj">Рақами хат ё ҷоро дар Душанбе ворид кунед:</p>
+  <p class="sh-desc t-en">Type a route number or location in Dushanbe for instant lookup:</p>
+</div>
+
+<div class="live-search-card reveal">
+  <div class="ls-input-wrap">
+    <svg viewBox="0 0 512 512" class="ls-icon"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+    <input type="text" id="demoSearchInput" placeholder="Поиск... (например, 1, 3а, Садбарг, Аэропорт)" oninput="filterDemoRoutes()">
+  </div>
+  <div class="quick-tags">
+    <button onclick="setDemoQuery('1')">№ 1</button>
+    <button onclick="setDemoQuery('3а')">№ 3а</button>
+    <button onclick="setDemoQuery('8')">№ 8</button>
+    <button onclick="setDemoQuery('16')">№ 16</button>
+    <button onclick="setDemoQuery('Садбарг')">Садбарг</button>
+    <button onclick="setDemoQuery('Қараболо')">Қараболо</button>
+  </div>
+  <div id="demoResults" class="demo-results">
+    <!-- Populated by JS -->
   </div>
 </div>
 
@@ -1008,6 +1151,137 @@ footer strong{color:var(--on-surf)}
 
 <div class="g24"></div>
 
+<!-- REVIEWS -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Отзывы</div>
+  <div class="sh-label t-tj">Шарҳҳо</div>
+  <div class="sh-label t-en">Reviews</div>
+  <div class="sh-title t-ru">Что говорят пассажиры Душанбе</div>
+  <div class="sh-title t-tj">Мусофирон чӣ мегӯянд</div>
+  <div class="sh-title t-en">What Dushanbe Passengers Say</div>
+</div>
+
+<div class="reviews-summary reveal">
+  <div class="rs-score">4.9</div>
+  <div class="rs-stars">⭐⭐⭐⭐⭐</div>
+  <div class="rs-count t-ru">Более 200+ оценок в Google Play</div>
+  <div class="rs-count t-tj">Зиёда аз 200+ баҳо дар Google Play</div>
+  <div class="rs-count t-en">200+ Ratings on Google Play</div>
+</div>
+
+<div class="reviews-grid">
+  <div class="rev-card reveal d1">
+    <div class="rev-hdr">
+      <div class="rev-av">А</div>
+      <div>
+        <div class="rev-author">Алишер Р.</div>
+        <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+    <div class="rev-text t-ru">«Очень удобное приложение! В Душанбе раньше постоянно путался в маршрутках, а теперь без интернета открыл — и за пару секунд знаю, куда ехать.»</div>
+    <div class="rev-text t-tj">«Барномаи хеле қулай! Пештар дар Душанбе ҳамеша дар маршруткаҳо ошуфта мешудам, аммо ҳоло бидуни интернет кушодам — ва дар чанд сония медонам куҷо равам.»</div>
+    <div class="rev-text t-en">"Very convenient app! I used to get confused by marshrutkas in Dushanbe, but now I open it offline and know where to go in seconds."</div>
+  </div>
+
+  <div class="rev-card reveal d2">
+    <div class="rev-hdr">
+      <div class="rev-av">З</div>
+      <div>
+        <div class="rev-author">Зарина М.</div>
+        <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+    <div class="rev-text t-ru">«Боҳарият! Офлайн кор кардани харита ва маршрутҳо хеле муфид аст. Забони тоҷикӣ ҳам ҳаст.»</div>
+    <div class="rev-text t-tj">«Боҳарият! Офлайн кор кардани харита ва маршрутҳо хеле муфид аст. Забони тоҷикӣ ҳам ҳаст.»</div>
+    <div class="rev-text t-en">"Awesome! Offline map and routes work great. Having Tajik language is super helpful."</div>
+  </div>
+
+  <div class="rev-card reveal d3">
+    <div class="rev-hdr">
+      <div class="rev-av">D</div>
+      <div>
+        <div class="rev-author">David K.</div>
+        <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+    <div class="rev-text t-ru">«Лучший транспортный гид по Душанбе! Незаменимое приложение для тех, кто живет здесь или приехал в гости.»</div>
+    <div class="rev-text t-tj">«Беҳтарин роҳнамои нақлиёти Душанбе! Барномаи ивазнашаванда барои сокинон ва меҳмонон.»</div>
+    <div class="rev-text t-en">"Best transport guide for Dushanbe! Essential app for anyone living in or visiting the city."</div>
+  </div>
+</div>
+
+<div class="g24"></div>
+
+<!-- FAQ -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Вопросы и ответы</div>
+  <div class="sh-label t-tj">Саволу ҷавоб</div>
+  <div class="sh-label t-en">FAQ</div>
+  <div class="sh-title t-ru">Часто задаваемые вопросы</div>
+  <div class="sh-title t-tj">Саволҳои зуд-зуд додашаванда</div>
+  <div class="sh-title t-en">Frequently Asked Questions</div>
+</div>
+
+<div class="faq-list reveal">
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="t-ru">Работает ли приложение без интернета?</span>
+      <span class="t-tj">Оё барнома бидуни интернет кор мекунад?</span>
+      <span class="t-en">Does the app work offline?</span>
+      <span class="faq-arrow">▼</span>
+    </summary>
+    <div class="faq-a">
+      <p class="t-ru">Да, на 100%! Вся база маршрутов, остановок и планировщик «От А до Б» работают полностью без подключения к мобильному интернету.</p>
+      <p class="t-tj">Бале, 100%! Тамоми пойгоҳи хатҳо, истгоҳҳо ва роҳнамои «Аз А то Б» бидуни пайвастшавӣ ба интернет кор мекунанд.</p>
+      <p class="t-en">Yes, 100%! The entire route database, stops, and "From A to B" planner work completely without internet access.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="t-ru">Приложение бесплатное?</span>
+      <span class="t-tj">Оё барнома ройгон аст?</span>
+      <span class="t-en">Is the app free?</span>
+      <span class="faq-arrow">▼</span>
+    </summary>
+    <div class="faq-a">
+      <p class="t-ru">Да, Rohnamo полностью бесплатный справочник без скрытых подписок.</p>
+      <p class="t-tj">Бале, Rohnamo комилан роҳнамои ройгон аст бидуни обунаҳои пинҳонӣ.</p>
+      <p class="t-en">Yes, Rohnamo is completely free with no hidden subscriptions.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="t-ru">Доступно ли приложение на iOS (iPhone)?</span>
+      <span class="t-tj">Оё барнома дар iOS (iPhone) дастрас аст?</span>
+      <span class="t-en">Is the app available on iOS (iPhone)?</span>
+      <span class="faq-arrow">▼</span>
+    </summary>
+    <div class="faq-a">
+      <p class="t-ru">Да! Приложение уже опубликовано в App Store и доступно для владельцев iPhone.</p>
+      <p class="t-tj">Бале! Барнома аллакай дар App Store нашр шудааст ва барои соҳибони iPhone дастрас аст.</p>
+      <p class="t-en">Yes! The app is published in the App Store and available for iPhone users.</p>
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary class="faq-q">
+      <span class="t-ru">Откуда берутся данные о маршрутах?</span>
+      <span class="t-tj">Маълумот дар бораи хатҳо аз куҷо гирифта мешавад?</span>
+      <span class="t-en">Where does the route data come from?</span>
+      <span class="faq-arrow">▼</span>
+    </summary>
+    <div class="faq-a">
+      <p class="t-ru">База данных собирается вручную и постоянно актуализируется разработчиком с учётом изменений в движении городского транспорта Душанбе.</p>
+      <p class="t-tj">Пойгоҳи маълумот дастӣ ҷамъоварӣ мешавад ва пайваста бо назардошти тағйирот дар нақлиёти Душанбе нав карда мешавад.</p>
+      <p class="t-en">The database is collected manually and continuously updated by the developer based on real transit changes in Dushanbe.</p>
+    </div>
+  </details>
+</div>
+
+<div class="g24"></div>
+
 <!-- SETTINGS -->
 <div class="sh reveal">
   <div class="sh-label t-ru">Настройки</div>
@@ -1197,6 +1471,40 @@ footer strong{color:var(--on-surf)}
   </p>
 </footer>
 
+<!-- QR MODAL -->
+<div id="qrModal" class="qr-modal-backdrop" onclick="if(event.target===this)toggleQRModal(false)">
+  <div class="qr-modal">
+    <button class="qr-close" onclick="toggleQRModal(false)">✕</button>
+    <div class="qr-title t-ru">Скачать на телефон</div>
+    <div class="qr-title t-tj">Дар телефон зеркашӣ кунед</div>
+    <div class="qr-title t-en">Scan to Download</div>
+    <p class="qr-desc t-ru">Наведите камеру смартфона на QR-код для перехода на сайт и скачивания приложения.</p>
+    <p class="qr-desc t-tj">Камераи смартфонро ба коди QR барои зеркашии барнома равона кунед.</p>
+    <p class="qr-desc t-en">Point your phone camera at the QR code to open the site and download the app.</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://rohnamo.github.io" alt="QR Code Rohnamo" class="qr-img">
+  </div>
+</div>
+
+<!-- FLOATING STICKY BAR -->
+<div id="stickyBar" class="sticky-bar">
+  <div class="sb-left">
+    <div class="sb-icon">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M488 128h-8V80c0-26.5-21.5-48-48-48H80C53.5 32 32 53.5 32 80v48h-8c-13.3 0-24 10.7-24 24v80c0 13.3 10.7 24 24 24h8v176c0 26.5 21.5 48 48 48h32c17.7 0 32-14.3 32-32v-32h224v32c0 17.7 14.3 32 32 32h32c26.5 0 48-21.5 48-48V280h8c13.3 0 24-10.7 24-24v-80c0-13.3-10.7-24-24-24zM112 400c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm320-176H80V96h352v128zm-32 176c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+    </div>
+    <div class="sb-title">Rohnamo</div>
+  </div>
+  <div class="sb-btns">
+    <a href="https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965" class="sb-btn">
+      <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-12 69.5-34.3z"/></svg>
+      App Store
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="sb-btn">
+      <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l220.7-221.3 60.1 60.1L104.6 499z"/></svg>
+      Google Play
+    </a>
+  </div>
+</div>
+
 <script>
 /* ─── SCROLL REVEAL ─── */
 const obs = new IntersectionObserver(entries => {
@@ -1226,6 +1534,79 @@ function setLang(lang) {
 }
 const savedLang = localStorage.getItem('rohnamo-lang');
 if (savedLang) setLang(savedLang);
+
+/* ─── LIVE DEMO SEARCH ─── */
+const demoRoutes = [
+  { num: '№ 1', type: 'bus', typeName: 'Автобус', route: 'Вокзал ⇄ Азия Express', stops: 'Рудаки, Садбарг, Караболо, Политех' },
+  { num: '№ 3а', type: 'bus', typeName: 'Автобус', route: 'Аэропорт ⇄ Зарафшон', stops: 'Айни, Рудаки, Ватан, Сомони, Сино' },
+  { num: '№ 8', type: 'bus', typeName: 'Автобус', route: 'Вокзал ⇄ Пахтакор', stops: 'Сомони, Ипек Йолы, Шохмансур' },
+  { num: '№ 16', type: 'min', typeName: 'Маршрутка', route: 'Корвон ⇄ Зарафшон', stops: 'Қараболо, Зарнигор, 103 мкр' },
+  { num: '№ 25', type: 'min', typeName: 'Маршрутка', route: 'Вокзал ⇄ Чортут', stops: '103 мкр, Сино, Садбарг' },
+  { num: '№ 4', type: 'trl', typeName: 'Троллейбус', route: 'Вокзал ⇄ 83 мкр', stops: 'Рудаки, Островский, Борбад' },
+  { num: '№ 10', type: 'trl', typeName: 'Троллейбус', route: '83 мкр ⇄ 103 мкр', stops: 'Сомони, 82 мкр, Зарнигор' }
+];
+
+function renderDemoRoutes(filtered) {
+  const container = document.getElementById('demoResults');
+  if (!container) return;
+  if (!filtered.length) {
+    container.innerHTML = `<div style="text-align:center;padding:12px;color:var(--on-surf-v);font-size:13px;">Маршрут не найден. В приложении доступно свыше 54 маршрутов!</div>`;
+    return;
+  }
+  container.innerHTML = filtered.map(r => `
+    <div class="dr-item">
+      <div class="dr-badge ${r.type}">${r.num}</div>
+      <div class="dr-info">
+        <div class="dr-title">${r.typeName} ${r.num} (${r.route})</div>
+        <div class="dr-stops">📍 ${r.stops}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterDemoRoutes() {
+  const input = document.getElementById('demoSearchInput');
+  if (!input) return;
+  const query = input.value.trim().toLowerCase();
+  if (!query) {
+    renderDemoRoutes(demoRoutes.slice(0, 3));
+    return;
+  }
+  const filtered = demoRoutes.filter(r => 
+    r.num.toLowerCase().includes(query) ||
+    r.route.toLowerCase().includes(query) ||
+    r.stops.toLowerCase().includes(query) ||
+    r.typeName.toLowerCase().includes(query)
+  );
+  renderDemoRoutes(filtered);
+}
+
+function setDemoQuery(val) {
+  const input = document.getElementById('demoSearchInput');
+  if (input) {
+    input.value = val;
+    filterDemoRoutes();
+  }
+}
+
+renderDemoRoutes(demoRoutes.slice(0, 3));
+
+/* ─── STICKY BAR & QR MODAL ─── */
+const stickyBar = document.getElementById('stickyBar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 350) {
+    stickyBar.classList.add('visible');
+  } else {
+    stickyBar.classList.remove('visible');
+  }
+});
+
+function toggleQRModal(show) {
+  const modal = document.getElementById('qrModal');
+  if (modal) {
+    modal.classList.toggle('active', show);
+  }
+}
 </script>
 </body>
 </html>
