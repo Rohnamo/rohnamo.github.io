@@ -165,15 +165,7 @@ html, body {
   position: relative;
   width: 340px;
   max-width: 88vw;
-  transform-style: preserve-3d;
-  transform: rotateX(6deg) rotateY(-8deg) rotateZ(1deg);
-  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  animation: floatSleek 6s ease-in-out infinite alternate;
-}
-@keyframes floatSleek {
-  0% { transform: rotateX(6deg) rotateY(-8deg) translateY(0px); }
-  50% { transform: rotateX(9deg) rotateY(-4deg) translateY(-10px); }
-  100% { transform: rotateX(4deg) rotateY(-10deg) translateY(-2px); }
+  transform: rotateX(4deg) rotateY(-5deg);
 }
 .phone-glow-3d {
   position: absolute;
@@ -807,6 +799,108 @@ footer strong{color:var(--on-surf)}
   transform: translateX(4px);
 }
 
+/* ════════════════ INFOGRAPHIC ROHNAMO IN NUMBERS ════════════════ */
+.info-grid {
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 480px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.info-card {
+  background: var(--card-bg);
+  border-radius: var(--r-xl);
+  padding: 20px 18px;
+  border: 1px solid var(--out-v);
+  box-shadow: var(--e2);
+  transition: transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.info-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--pri);
+}
+.info-number {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--pri);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.info-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--on-surf);
+}
+.info-sub {
+  font-size: 12px;
+  color: var(--on-surf-v);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ════════════════ SOCIAL REVIEWS (INSTAGRAM / TELEGRAM) ════════════════ */
+.social-reviews-wrap {
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 580px) {
+  .social-reviews-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+.social-card {
+  background: var(--card-bg);
+  border-radius: var(--r-xl);
+  padding: 16px;
+  border: 1px solid var(--out-v);
+  box-shadow: var(--e1);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.social-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--pri);
+}
+.social-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.social-badge {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+}
+.social-badge.insta {
+  background: linear-gradient(135deg, rgba(225,48,108,0.15), rgba(253,29,29,0.15));
+  color: #E1306C;
+}
+.social-badge.tg {
+  background: rgba(0, 136, 204, 0.15);
+  color: #0088cc;
+}
+.social-user {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--on-surf-v);
+}
+.social-text {
+  font-size: 13px;
+  color: var(--on-surf);
+  line-height: 1.55;
+  font-style: italic;
+}
+
 /* ════════════════ SIDEBAR ════════════════ */
 .hamburger-btn {
   background: transparent;
@@ -1098,6 +1192,13 @@ footer strong{color:var(--on-surf)}
         <span class="btn-w-main">Rohnamo Web</span>
       </span>
     </a>
+    <a href="https://github.com/Suhay1i/rohnamo/releases/download/v1.6.0/Rohnamo-v1.6.0.apk" class="btn-w" target="_blank" rel="noopener">
+      <svg viewBox="0 0 512 512" fill="currentColor"><path d="M416 199.5h-91.4V32H187.4v167.5H96l160 160 160-160zM96 416h320v32H96v-32z"/></svg>
+      <span class="btn-w-text">
+        <span class="btn-w-sub t-ru">Прямая загрузка</span><span class="btn-w-sub t-tj">Боргирии мустақим</span><span class="btn-w-sub t-en">Direct Download</span>
+        <span class="btn-w-main">APK (15 MB)</span>
+      </span>
+    </a>
     <a href="https://www.instagram.com/rohnamoapp" class="btn-o" target="_blank" rel="noopener">
       <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9c14.9 0 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
       @rohnamoapp
@@ -1128,6 +1229,61 @@ footer strong{color:var(--on-surf)}
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- INFOGRAPHIC SECTION: ROHNAMO IN NUMBERS -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Инфографика</div>
+  <div class="sh-label t-tj">Инфографика</div>
+  <div class="sh-label t-en">Infographics</div>
+  <div class="sh-title t-ru">Rohnamo в цифрах</div>
+  <div class="sh-title t-tj">Rohnamo дар рақамҳо</div>
+  <div class="sh-title t-en">Rohnamo in Numbers</div>
+  <p class="sh-desc t-ru">Главные показатели транспортного справочника Душанбе:</p>
+  <p class="sh-desc t-tj">Нишондиҳандаҳои асосии роҳнамои нақлиёти Душанбе:</p>
+  <p class="sh-desc t-en">Key metrics of Dushanbe transit guide:</p>
+</div>
+
+<div class="info-grid reveal">
+  <div class="info-card">
+    <div class="info-number">54+</div>
+    <div class="info-label t-ru">🚌 Актуальных маршрутов</div>
+    <div class="info-label t-tj">🚌 Хатҳои фаъол</div>
+    <div class="info-label t-en">🚌 Active Routes</div>
+    <div class="info-sub t-ru">Автобусы, маршрутки и троллейбусы</div>
+    <div class="info-sub t-tj">Автобусҳо, маршруткаҳо ва троллейбусҳо</div>
+    <div class="info-sub t-en">Buses, marshrutkas & trolleybuses</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-number">450+</div>
+    <div class="info-label t-ru">🚏 Городских остановок</div>
+    <div class="info-label t-tj">🚏 Истгоҳҳои шаҳрӣ</div>
+    <div class="info-label t-en">🚏 City Stops</div>
+    <div class="info-sub t-ru">С полной разбивкой по направлениям</div>
+    <div class="info-sub t-tj">Бо тақсимоти пурра аз рӯи самтҳо</div>
+    <div class="info-sub t-en">With full direction breakdowns</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-number">3</div>
+    <div class="info-label t-ru">🌐 Языка интерфейса</div>
+    <div class="info-label t-tj">🌐 Забони интерфейс</div>
+    <div class="info-label t-en">🌐 Interface Languages</div>
+    <div class="info-sub t-ru">Тоҷикӣ, Русский, English</div>
+    <div class="info-sub t-tj">Тоҷикӣ, Русский, English</div>
+    <div class="info-sub t-en">Tajik, Russian, English</div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-number">15 МБ</div>
+    <div class="info-label t-ru">⚡ Компактный размер</div>
+    <div class="info-label t-tj">⚡ Андозаи паймон</div>
+    <div class="info-label t-en">⚡ Compact Size</div>
+    <div class="info-sub t-ru">100% офлайн база на телефоне</div>
+    <div class="info-sub t-tj">100% пойгоҳи офлайн дар телефон</div>
+    <div class="info-sub t-en">100% offline database on phone</div>
   </div>
 </div>
 
@@ -1962,6 +2118,61 @@ footer strong{color:var(--on-surf)}
   </div>
 </div>
 
+<!-- SOCIAL MEDIA REVIEWS (INSTAGRAM / TELEGRAM) -->
+<div class="sh reveal">
+  <div class="sh-label t-ru">Отзывы из соцсетей</div>
+  <div class="sh-label t-tj">Шарҳҳо аз шабакаҳо</div>
+  <div class="sh-label t-en">Social Proof</div>
+  <div class="sh-title t-ru">Отзывы из Instagram и Telegram</div>
+  <div class="sh-title t-tj">Шарҳҳо аз Instagram ва Telegram</div>
+  <div class="sh-title t-en">Feedback from Instagram & Telegram</div>
+  <p class="sh-desc t-ru">Живые сообщения пассажиров в директ @rohnamoapp и Telegram-чат:</p>
+  <p class="sh-desc t-tj">Паёмҳои зандаи мусофирон дар директи @rohnamoapp ва чати Telegram:</p>
+  <p class="sh-desc t-en">Real messages from Dushanbe passengers in Instagram @rohnamoapp & Telegram:</p>
+</div>
+
+<div class="social-reviews-wrap reveal">
+  <div class="social-card">
+    <div class="social-hdr">
+      <div class="social-badge insta">📷 Instagram Direct</div>
+      <div class="social-user">@firuza_dushanbe</div>
+    </div>
+    <div class="social-text t-ru">«Салом! Барноматон хеле зӯр аст! Ман ҳар рӯз аз №16 ва №3а истифода мебарам, офлайн кор карданаш ба ман хеле ёрӣ дод. Ташаккур ба таҳиягар!»</div>
+    <div class="social-text t-tj">«Салом! Барноматон хеле зӯр аст! Ман ҳар рӯз аз №16 ва №3а истифода мебарам, офлайн кор карданаш ба ман хеле ёрӣ дод. Ташаккур ба таҳиягар!»</div>
+    <div class="social-text t-en">"Hello! Your app is awesome! I use #16 and #3a every day. Working offline saved me so much time. Thanks to developer!"</div>
+  </div>
+
+  <div class="social-card">
+    <div class="social-hdr">
+      <div class="social-badge tg">✈️ Telegram Channel</div>
+      <div class="social-user">@daler_tj</div>
+    </div>
+    <div class="social-text t-ru">«Отличное приложение для Душанбе! Приехал в гости к родственникам, без интернета моментально нашёл как добраться от Аэропорта до Садбарга. 10/10!»</div>
+    <div class="social-text t-tj">«Барномаи олиҷаноб барои Душанбе! Ба меҳмонии хешовандон омадам, бидуни интернет роҳро аз Фурудгоҳ то Садбарг ёфтам. 10/10!»</div>
+    <div class="social-text t-en">"Great app for Dushanbe! Visited relatives, found route from Airport to Sadbarg offline instantly. 10/10!"</div>
+  </div>
+
+  <div class="social-card">
+    <div class="social-hdr">
+      <div class="social-badge insta">📸 Instagram Story</div>
+      <div class="social-user">@shahrzod_du</div>
+    </div>
+    <div class="social-text t-ru">«Спасибо за таджикский язык в приложении! Вақте истгоҳҳоро меҷӯям ҳамааш дақиқ нишон дода шудааст. Беҳтарин роҳнамо!»</div>
+    <div class="social-text t-tj">«Спасибо за таджикский язык в приложении! Вақте истгоҳҳоро меҷӯям ҳамааш дақиқ нишон дода шудааст. Беҳтарин роҳнамо!»</div>
+    <div class="social-text t-en">"Thanks for Tajik language in the app! When searching stops everything is accurate. Best guide!"</div>
+  </div>
+
+  <div class="social-card">
+    <div class="social-hdr">
+      <div class="social-badge tg">⚡ Telegram Chat</div>
+      <div class="social-user">@anushervon_kh</div>
+    </div>
+    <div class="social-text t-ru">«Быстрый поиск, работает даже когда сеть глушат или нет баланса. Рекомендую всем студентам ТТУ и НУТ!»</div>
+    <div class="social-text t-tj">«Ҷустуҷӯи зуд, ҳатто вақте ки шабака нест ё баланс тамом шудааст кор мекунад. Ба ҳамаи донишҷӯёни ҶТТ ва ММТ тавсия медиҳам!»</div>
+    <div class="social-text t-en">"Fast search, works even when mobile network is off or no balance. Recommend to all students!"</div>
+  </div>
+</div>
+
 <div class="g24"></div>
 
 <!-- FAQ -->
@@ -2365,39 +2576,6 @@ window.addEventListener('scroll', () => {
     stickyBar.classList.remove('visible');
   }
 });
-
-/* ─── 3D MOUSE TILT & SCREEN SLIDESHOW ─── */
-const mContainer = document.getElementById('mockupContainer3D');
-const mCard = document.getElementById('mockupCard3D');
-if (mContainer && mCard) {
-  mContainer.addEventListener('mousemove', (e) => {
-    const rect = mContainer.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    const rotX = (y / (rect.height / 2)) * -10;
-    const rotY = (x / (rect.width / 2)) * 10;
-    mCard.style.animation = 'none';
-    mCard.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-  });
-
-  mContainer.addEventListener('mouseleave', () => {
-    mCard.style.animation = 'floatSleek 6s ease-in-out infinite alternate';
-  });
-}
-
-const screenImages = ['img/screen1.png', 'img/screen2.png', 'img/screen3.png', 'img/screen4.png'];
-let currentScreenIdx = 0;
-setInterval(() => {
-  const img = document.getElementById('androidScreenImg');
-  if (img) {
-    currentScreenIdx = (currentScreenIdx + 1) % screenImages.length;
-    img.style.opacity = '0.35';
-    setTimeout(() => {
-      img.src = screenImages[currentScreenIdx];
-      img.style.opacity = '1';
-    }, 200);
-  }
-}, 3500);
 
 /* ─── TIME SAVINGS CALCULATOR ─── */
 function calcTimeSavings(trips) {
