@@ -9,12 +9,12 @@
 <title>Rohnamo — Справочник и маршруты общественного транспорта Душанбе</title>
 <link rel="canonical" href="https://rohnamo.github.io/">
 <!-- Multi-language Hreflang SEO -->
-<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/?lang=ru">
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/">
 <link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/?lang=tg">
 <link rel="alternate" hreflang="en" href="https://rohnamo.github.io/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/">
 <meta name="description" content="Официальный офлайн-справочник и навигатор общественного транспорта Душанбе. Все актуальные маршруты автобусов, троллейбусов и маршруток. Схема остановок, поиск «От А до Б», более 10 000 скачиваний, работает 100% без интернета.">
-<meta name="keywords" content="rohnamo, рохнамо, роҳнамо, рохнамо душанбе, транспорт душанбе, общественный транспорт душанбе, маршруты общественного транспорта душанбе, маршруты душанбе, автобусы душанбе, маршрутки душанбе, троллейбусы душанбе, схема маршрутов душанбе, карта транспорта душанбе, как доехать в душанбе, хатҳои нақлиёти душанбе, роҳнамои нақлиёти ҷамъиятии душанбе, нақлиёти душанбе, автобусҳои душанбе, маршруткаҳои душанбе, троллейбусҳои душанбе, dushanbe public transport, dushanbe transport guide, dushanbe bus routes, rohnamo app, рохнамо апп, душанбе автобуслар, دوشنبه حمل و نقل, Dushanbe Busse, Dushanbe transports, 杜尚别公交, Duşanbe ulaşım, Dushanbe transporte">
+<meta name="keywords" content="rohnamo, роҳнамо, рохнамо, транспорт душанбе, общественный транспорт душанбе, маршруты душанбе, автобусы душанбе, троллейбусы душанбе, маршрутки душанбе, dushanbe public transport, dushanbe bus routes">
 <!-- Geo Local SEO for Dushanbe, Tajikistan -->
 <meta name="geo.region" content="TJ-DU">
 <meta name="geo.placename" content="Dushanbe">
@@ -293,7 +293,7 @@
     <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">🚀 <span class="t-ru">10 000+ скачиваний</span><span class="t-tj">10 000+ зеркашӣ</span><span class="t-en">10,000+ Downloads</span></div>
     <div class="hero-badge" style="background:rgba(255,255,255,0.28);border-color:rgba(255,255,255,0.5);">⭐ <span class="t-ru">4.9 ★ (480+ отзывов в Google Play)</span><span class="t-tj">4.9 ★ (480+ шарҳ дар Google Play)</span><span class="t-en">4.9 ★ (480+ Google Play Reviews)</span></div>
   </div>
-  <h1 class="hero-title">
+  <h1 class="hero-title" aria-label="Rohnamo — Справочник и навигатор общественного транспорта Душанбе">
     <span class="t-ru">Справочник<br>транспорта<br><span>Душанбе</span></span>
     <span class="t-tj">Роҳнамои<br>нақлиёти<br><span>Душанбе</span></span>
     <span class="t-en">Public Transport<br>Guide for<br><span>Dushanbe</span></span>
@@ -2176,8 +2176,27 @@ function toggleSidebar(show) {
       ctx.fillText(text, badgeX + badgeWidth / 2, badgeY + badgeHeight / 2 + 0.5);
     });
 
-    requestAnimationFrame(animate);
+    if (!document.hidden && isCanvasVisible) {
+      requestAnimationFrame(animate);
+    }
   }
+
+  let isCanvasVisible = true;
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      isCanvasVisible = entries[0].isIntersecting;
+      if (isCanvasVisible && !document.hidden) {
+        animate();
+      }
+    });
+    observer.observe(canvas);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && isCanvasVisible) {
+      animate();
+    }
+  });
 
   animate();
 })();
