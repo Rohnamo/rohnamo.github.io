@@ -4,23 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<title>Остановка ЦУМ Душанбе — Список автобусов и маршруток (Rohnamo)</title>
+<title>Остановка «Цум» Душанбе — Истгоҳи «Цум» — Цум Bus Stop (Rohnamo)</title>
 <link rel="canonical" href="https://rohnamo.github.io/stops/tsum.html">
 
-<!-- Multi-language Hreflang SEO -->
-<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/stops/tsum.html">
-<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/stops/tsum.html">
-<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/stops/tsum.html">
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/stops/tsum.html?lang=ru">
+<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/stops/tsum.html?lang=tg">
+<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/stops/tsum.html?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/stops/tsum.html">
 
-<meta name="description" content="Остановка ЦУМ в Душанбе: какие автобусы, троллейбусы и маршрутки проходят. Автобусы №2, 7, 18, 20; Троллейбус №2. Схема в Rohnamo.">
-<meta name="keywords" content="остановка цум душанбе, истгоҳи цум душанбе, транспорт цум душанбе, tsum stop dushanbe bus">
+<meta name="description" content="Остановка / Истгоҳи «Цум» (Цум) в Душанбе. Проходящие автобусы: 1, 3a, 8, 17, 33, 37, 51, маршрутки: 8, 16, троллейбусы: 1, 2, 10, 11, 12.">
+<meta name="keywords" content="остановка цум душанбе, истгоҳи цум душанбе, bus stop цум dushanbe">
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://rohnamo.github.io/stops/tsum.html">
-<meta property="og:title" content="Остановка ЦУМ Душанбе — Проходящие маршруты">
-<meta property="og:description" content="Все маршруты через остановку ЦУМ в Душанбе. Схема и карта в Rohnamo.">
+<meta property="og:title" content="Остановка «Цум» (Цум) Душанбе">
+<meta property="og:description" content="Все проходящие маршруты через «Цум» (Цум) в Душанбе. Rohnamo App.">
 <meta property="og:image" content="https://rohnamo.github.io/img/icon.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://rohnamo.github.io/stops/tsum.html">
+<meta name="twitter:title" content="Остановка «Цум» (Цум) Душанбе">
+<meta name="twitter:description" content="Все проходящие маршруты транспорта через «Цум» (Цум) в Душанбе.">
+<meta name="twitter:image" content="https://rohnamo.github.io/img/icon.png">
 
 <meta name="theme-color" content="#FF6D00">
 <link rel="icon" type="image/png" href="../img/icon.png">
@@ -37,7 +42,7 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rohnamo.github.io/" },
     { "@type": "ListItem", "position": 2, "name": "Stops", "item": "https://rohnamo.github.io/stops/" },
-    { "@type": "ListItem", "position": 3, "name": "TSUM Stop", "item": "https://rohnamo.github.io/stops/tsum.html" }
+    { "@type": "ListItem", "position": 3, "name": "Цум Stop", "item": "https://rohnamo.github.io/stops/tsum.html" }
   ]
 }
 </script>
@@ -109,16 +114,30 @@ main {
   border-radius: 24px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
+.tag-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.tag-type.official { background: #E3F2FD; color: #1565C0; }
+.tag-type.folk { background: #FFF3E0; color: #E65100; }
+
 h1 {
   font-family: 'Noto Sans Display', sans-serif;
   font-size: 28px;
   font-weight: 900;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
+.sub-name { color: var(--on-surf-v); font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+
 h2 { font-size: 20px; font-weight: 700; margin: 24px 0 12px; color: var(--pri); }
-.routes-box { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
-.chip { padding: 6px 14px; border-radius: 10px; font-weight: 700; font-size: 14px; text-decoration: none; }
+.routes-box { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 24px; }
+.chip { padding: 8px 16px; border-radius: 12px; font-weight: 700; font-size: 14px; text-decoration: none; }
 .chip.bus { background: #FFEBEE; color: #B71C1C; }
+.chip.min { background: #FFF3E0; color: #E65100; }
 .chip.trl { background: #E8F5E9; color: #2E7D32; }
 
 .dl-box {
@@ -163,36 +182,40 @@ footer { text-align: center; padding: 24px 0 40px; color: var(--out); font-size:
 </header>
 
 <main>
+  <div class="tag-type folk">
+    <span class="t-ru">📍 Народный ориентир / Остановка</span><span class="t-tj">📍 Нишонаи мардумӣ / Истгоҳ</span><span class="t-en">📍 Local Landmark / Stop</span>
+  </div>
+
   <h1>
-    <span class="t-en">TSUM Bus Stop (Dushanbe Center)</span>
-    <span class="t-ru">Остановка ЦУМ (Центр Душанбе)</span>
-    <span class="t-tj">Истгоҳи ЦУМ (Маркази Душанбе)</span>
+    <span class="t-ru">Остановка «Цум» (Душанбе)</span>
+    <span class="t-tj">Истгоҳи «Цум» (Душанбе)</span>
+    <span class="t-en">Bus Stop "Цум" (Dushanbe)</span>
   </h1>
 
-  <p class="t-en">TSUM bus stop is one of the central transport hubs on Rudaki Avenue in Dushanbe.</p>
-  <p class="t-ru">Остановка ЦУМ — один из главных транспортных узлов в самом центре Душанбе на проспекте Рудаки.</p>
-  <p class="t-tj">Истгоҳи ЦУМ яке аз марказҳои асосии нақлиётии Душанбе дар хиёбони Рӯдакӣ мебошад.</p>
+  <div class="sub-name">
+    <span class="t-ru">Таджикское название: <strong>Цум</strong> | Английское название: <strong>Цум</strong></span>
+    <span class="t-tj">Номи тоҷикӣ: <strong>Цум</strong> | Номи англисӣ: <strong>Цум</strong></span>
+    <span class="t-en">Tajik name: <strong>Цум</strong> | English name: <strong>Цум</strong></span>
+    <br><span class="t-ru">Официальная остановка: <strong>ТЦ "Таджикистан" (ЦУМ)</strong> (Маркази савдои «Тоҷикистон» (ЦУМ))</span><span class="t-tj">Истгоҳи расмӣ: <strong>Маркази савдои «Тоҷикистон» (ЦУМ)</strong></span><span class="t-en">Official Stop: <strong>Shopping Center "Tajikistan" (TSUM)</strong></span>
+  </div>
 
   <h2>
-    <span class="t-en">Passing Transport Routes</span>
-    <span class="t-ru">Проходящие маршруты транспорта</span>
-    <span class="t-tj">Хатсайрҳои мегузашта</span>
+    <span class="t-en">Passing Transport Routes (14)</span>
+    <span class="t-ru">Проходящие маршруты транспорта (14)</span>
+    <span class="t-tj">Хатсайрҳои мегузашта (14)</span>
   </h2>
 
   <div class="routes-box">
-    <a href="../routes/bus-18.html" class="chip bus">🚌 Автобус №18</a>
-    <a href="../routes/bus-1.html" class="chip bus">🚌 Автобус №1</a>
-    <span class="chip bus">🚌 Автобус №2</span>
-    <span class="chip bus">🚌 Автобус №7</span>
-    <span class="chip bus">🚌 Автобус №20</span>
-    <a href="../routes/trolleybus-2.html" class="chip trl">🚎 Троллейбус №2</a>
+    <a href="../routes/bus-1.html" class="chip bus">🚌 <span class="t-ru">Автобус №1</span><span class="t-tj">Автобуси №1</span><span class="t-en">Bus #1</span></a> <a href="../routes/bus-3a.html" class="chip bus">🚌 <span class="t-ru">Автобус №3a</span><span class="t-tj">Автобуси №3a</span><span class="t-en">Bus #3a</span></a> <a href="../routes/bus-8.html" class="chip bus">🚌 <span class="t-ru">Автобус №8</span><span class="t-tj">Автобуси №8</span><span class="t-en">Bus #8</span></a> <a href="../routes/bus-17.html" class="chip bus">🚌 <span class="t-ru">Автобус №17</span><span class="t-tj">Автобуси №17</span><span class="t-en">Bus #17</span></a> <a href="../routes/bus-33.html" class="chip bus">🚌 <span class="t-ru">Автобус №33</span><span class="t-tj">Автобуси №33</span><span class="t-en">Bus #33</span></a> <a href="../routes/bus-37.html" class="chip bus">🚌 <span class="t-ru">Автобус №37</span><span class="t-tj">Автобуси №37</span><span class="t-en">Bus #37</span></a> <a href="../routes/bus-51.html" class="chip bus">🚌 <span class="t-ru">Автобус №51</span><span class="t-tj">Автобуси №51</span><span class="t-en">Bus #51</span></a>
+    <a href="../routes/marshrutka-8.html" class="chip min">🚐 <span class="t-ru">Маршрутка №8</span><span class="t-tj">Маршруткаи №8</span><span class="t-en">Minibus #8</span></a> <a href="../routes/marshrutka-16.html" class="chip min">🚐 <span class="t-ru">Маршрутка №16</span><span class="t-tj">Маршруткаи №16</span><span class="t-en">Minibus #16</span></a>
+    <a href="../routes/trolleybus-1.html" class="chip trl">🚎 <span class="t-ru">Троллейбус №1</span><span class="t-tj">Троллейбуси №1</span><span class="t-en">Trolleybus #1</span></a> <a href="../routes/trolleybus-2.html" class="chip trl">🚎 <span class="t-ru">Троллейбус №2</span><span class="t-tj">Троллейбуси №2</span><span class="t-en">Trolleybus #2</span></a> <a href="../routes/trolleybus-10.html" class="chip trl">🚎 <span class="t-ru">Троллейбус №10</span><span class="t-tj">Троллейбуси №10</span><span class="t-en">Trolleybus #10</span></a> <a href="../routes/trolleybus-11.html" class="chip trl">🚎 <span class="t-ru">Троллейбус №11</span><span class="t-tj">Троллейбуси №11</span><span class="t-en">Trolleybus #11</span></a> <a href="../routes/trolleybus-12.html" class="chip trl">🚎 <span class="t-ru">Троллейбус №12</span><span class="t-tj">Троллейбуси №12</span><span class="t-en">Trolleybus #12</span></a>
   </div>
 
   <div class="dl-box">
     <h3>
-      <span class="t-en">View TSUM Stop Routes Offline in Rohnamo</span>
-      <span class="t-ru">Смотреть все маршруты ЦУМ офлайн в Rohnamo</span>
-      <span class="t-tj">Ҳамаи хатҳои ЦУМ-ро офлайн бинед</span>
+      <span class="t-ru">Построить маршрут от «Цум» (Цум) офлайн в Rohnamo</span>
+      <span class="t-tj">Ҷустуҷӯи роҳ аз «Цум» офлайн</span>
+      <span class="t-en">Find Transport to Цум Offline in Rohnamo</span>
     </h3>
     <a href="https://play.google.com/store/apps/details?id=tj.rohnamo.app" class="dl-btn" target="_blank" rel="noopener">Google Play</a>
     <a href="https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965" class="dl-btn" style="background:#1565C0;margin-left:8px;" target="_blank" rel="noopener">App Store</a>
@@ -200,7 +223,7 @@ footer { text-align: center; padding: 24px 0 40px; color: var(--out); font-size:
 </main>
 
 <footer>
-  <p>© 2024–2026 Rohnamo. Dushanbe TSUM Stop Info.</p>
+  <p>© 2024–2026 Rohnamo. Dushanbe Цум Stop Directory.</p>
 </footer>
 
 <script>
