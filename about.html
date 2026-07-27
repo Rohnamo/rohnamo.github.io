@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<title>О проекте Rohnamo — История, миссия и команда справочника транспорта Душанбе</title>
+<link rel="canonical" href="https://rohnamo.github.io/about.html">
+
+<!-- Multi-language Hreflang SEO -->
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/about.html">
+<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/about.html">
+<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/about.html">
+<link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/about.html">
+
+<meta name="description" content="История создания и миссия офлайн-навигатора Rohnamo (Роҳнамо). Создатель Сухайли Диловаршо, развитие транспорта Душанбе, статистика и ответы на вопросы.">
+<meta name="keywords" content="о проекте рохнамо, о роҳнамо, сухайли диловаршо, история рохнамо, транспорт душанбе разработчик, rohnamo about, rohnamo founder">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rohnamo.github.io/about.html">
+<meta property="og:title" content="О проекте Rohnamo — Справочник транспорта Душанбе">
+<meta property="og:description" content="История создания, миссия и показатели офлайн-навигатора Rohnamo. Разработчик Сухайли Диловаршо.">
+<meta property="og:image" content="https://rohnamo.github.io/img/icon.png">
+
+<meta name="theme-color" content="#FF6D00">
+<link rel="icon" type="image/png" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+<!-- JSON-LD AboutPage & Person Schema (E-E-A-T for Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "О проекте Rohnamo",
+  "url": "https://rohnamo.github.io/about.html",
+  "description": "История создания и развития офлайн-навигатора общественного транспорта Душанбе Rohnamo.",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Сухайли Диловаршо",
+    "jobTitle": "Основатель и ведущий разработчик Rohnamo",
+    "url": "https://github.com/Suhay1i",
+    "sameAs": [
+      "https://github.com/Suhay1i",
+      "https://www.instagram.com/rohnamoapp"
+    ]
+  }
+}
+</script>
+
+<style>
+:root {
+  --pri:#FF6D00; --on-pri:#fff;
+  --pri-con:#FFE0CC; --on-pri-con:#331200;
+  --sec:#1565C0; --sec-con:#D6E4FF;
+  --surf:#FFF8F5; --surf1:#FFF1EA;
+  --on-surf:#1C1B1F; --on-surf-v:#49454F;
+  --out:#857470;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--surf);
+  color: var(--on-surf);
+  line-height: 1.6;
+  padding: 0 16px;
+}
+header {
+  max-width: 800px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--on-surf);
+  font-weight: 800;
+  font-size: 20px;
+}
+.logo-btn img { width: 36px; height: 36px; border-radius: 8px; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.lang-switcher {
+  display: flex;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 2px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--on-surf-v);
+}
+.lang-btn.active {
+  background: var(--pri);
+  color: #fff;
+}
+.back-link {
+  color: var(--pri);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Multi-language Visibility Control */
+[data-lang="ru"] .t-tj, [data-lang="ru"] .t-en { display: none !important; }
+[data-lang="tj"] .t-ru, [data-lang="tj"] .t-en { display: none !important; }
+[data-lang="en"] .t-ru, [data-lang="en"] .t-tj { display: none !important; }
+
+main {
+  max-width: 800px;
+  margin: 32px auto 60px;
+  background: #fff;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+h1 {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: var(--on-surf);
+}
+.badge-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.badge {
+  background: var(--pri-con);
+  color: var(--on-pri-con);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+p { margin-bottom: 16px; font-size: 16px; color: var(--on-surf-v); }
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 28px 0 12px;
+  color: var(--pri);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.stat-card {
+  background: var(--surf1);
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+}
+.stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--pri);
+}
+.stat-txt {
+  font-size: 14px;
+  color: var(--on-surf-v);
+  font-weight: 600;
+}
+.author-box {
+  background: var(--sec-con);
+  padding: 24px;
+  border-radius: 20px;
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.author-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--sec);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+footer {
+  text-align: center;
+  padding: 24px 0 40px;
+  color: var(--out);
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo-btn">
+    <img src="img/icon.png" alt="Rohnamo Logo">
+    <span>Rohnamo</span>
+  </a>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('tj')">TJ</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="index.html" class="back-link">
+      <span class="t-ru">← На главную</span>
+      <span class="t-tj">← Ба асосӣ</span>
+      <span class="t-en">← Home</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <h1>
+    <span class="t-ru">О проекте Rohnamo (Роҳнамо)</span>
+    <span class="t-tj">Дар бораи лоиҳаи Rohnamo (Роҳнамо)</span>
+    <span class="t-en">About Rohnamo Project</span>
+  </h1>
+
+  <div class="badge-bar">
+    <span class="badge">🚀 <span class="t-ru">10 000+ Скачиваний</span><span class="t-tj">10 000+ Зеркашӣ</span><span class="t-en">10,000+ Downloads</span></span>
+    <span class="badge">⭐ <span class="t-ru">4.9 ★ В Google Play</span><span class="t-tj">4.9 ★ Дар Google Play</span><span class="t-en">4.9 ★ Google Play</span></span>
+    <span class="badge">📡 <span class="t-ru">100% Офлайн</span><span class="t-tj">100% Офлайн</span><span class="t-en">100% Offline</span></span>
+    <span class="badge">📍 <span class="t-ru">Душанбе, Таджикистан</span><span class="t-tj">Душанбе, Тоҷикистон</span><span class="t-en">Dushanbe, Tajikistan</span></span>
+  </div>
+
+  <p class="t-ru"><strong>Rohnamo (Роҳнамо)</strong> — это независимый офлайн-справочник и навигатор общественного транспорта города Душанбе. Проект создан с целью помочь жителям и гостям столицы быстро ориентироваться в маршрутной сети автобусов, троллейбусов и маршруток без необходимости подключения к интернету.</p>
+  <p class="t-tj"><strong>Rohnamo (Роҳнамо)</strong> — роҳнамои мустақили офлайнии нақлиёти ҷамъиятии шаҳри Душанбе мебошад. Лоиҳа бо мақсади кӯмак ба сокинон ва меҳмонони пойтахт барои пайдо кардани хатсайрҳо бидуни интернет эҷод шудааст.</p>
+  <p class="t-en"><strong>Rohnamo</strong> is an independent offline public transport guide for Dushanbe. It helps residents and visitors easily navigate bus, trolleybus, and minibus routes without any internet connection.</p>
+
+  <h2>
+    <span class="t-ru">Миссия и цель проекта</span>
+    <span class="t-tj">Мақсад ва вазифаи лоиҳа</span>
+    <span class="t-en">Project Mission</span>
+  </h2>
+  <p class="t-ru">Общественный транспорт Душанбе стремительно развивается, открываются новые маршруты и меняются схемы движения. Главная цель Rohnamo — предоставить удобный, быстрый и абсолютно бесплатный инструмент, который всегда под рукой, даже при отсутствии мобильной связи или баланса на телефоне.</p>
+  <p class="t-tj">Нақлиёти ҷамъиятии Душанбе босуръат рушд мекунад. Мақсади асосии Rohnamo — пешниҳоди воситаи қулай, тез ва ройгон, ки ҳамеша дар даст аст, ҳатто бидуни интернет.</p>
+  <p class="t-en">Dushanbe transport is growing rapidly. Rohnamo's mission is to provide a fast, convenient, and 100% free tool that always works offline directly on your phone.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">10 000+</div>
+      <div class="stat-txt"><span class="t-ru">Пользователей</span><span class="t-tj">Истифодабаранда</span><span class="t-en">Active Users</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">70+</div>
+      <div class="stat-txt"><span class="t-ru">Маршрутов</span><span class="t-tj">Хатсайрҳо</span><span class="t-en">Active Routes</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">200+</div>
+      <div class="stat-txt"><span class="t-ru">Остановок</span><span class="t-tj">Истгоҳҳо</span><span class="t-en">Bus Stops</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4.9 ★</div>
+      <div class="stat-txt"><span class="t-ru">Рейтинг приложения</span><span class="t-tj">Рейтинги барнома</span><span class="t-en">Google Rating</span></div>
+    </div>
+  </div>
+
+  <h2>
+    <span class="t-ru">Разработчик и основатель</span>
+    <span class="t-tj">Муаллиф ва созмондиҳанда</span>
+    <span class="t-en">Developer & Founder</span>
+  </h2>
+  <div class="author-box">
+    <div class="author-avatar">СД</div>
+    <div>
+      <h3 style="margin-bottom:4px;color:#001847;">Сухайли Диловаршо (Suhayli Dilovarsho)</h3>
+      <p class="t-ru" style="margin:0;font-size:14px;color:#001847;">Основатель и ведущий разработчик Rohnamo. Экосистема проекта постоянно развивается: актуализируются списки остановок, добавляются новые алгоритмы построения маршрутов от точки «А» до точки «Б».</p>
+      <p class="t-tj" style="margin:0;font-size:14px;color:#001847;">Муаллиф ва таҳиягари асосии Rohnamo. Экосистемаи лоиҳа доимо рушд мекунад: рӯйхати истгоҳҳо нав карда мешавад ва алгоритмҳои ҷустуҷӯ мукаммал мегарданд.</p>
+      <p class="t-en" style="margin:0;font-size:14px;color:#001847;">Founder and lead developer of Rohnamo. Constantly improving navigation algorithms and route databases for Dushanbe.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2024–2026 Rohnamo. <span class="t-ru">Автор: Сухайли Диловаршо</span><span class="t-tj">Муаллиф: Суҳайлӣ Диловаршо</span><span class="t-en">Created by Suhayli Dilovarsho</span>.</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  localStorage.setItem('rohnamo_lang', lang);
+}
+const saved = localStorage.getItem('rohnamo_lang') || 'en';
+setLang(saved);
+</script>
+</body>
+</html>

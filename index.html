@@ -332,6 +332,112 @@ html, body {
   align-items: center;
   gap: 5px;
 }
+.phone-navbar-android {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 38px;
+  background: rgba(18, 18, 24, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 20;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.phone-nav-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+}
+.phone-nav-btn:hover {
+  background: #FF6D00;
+  color: #fff;
+}
+.phone-home-indicator {
+  width: 80px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.phone-splash-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  overflow: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.phone-splash-overlay::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background: linear-gradient(to bottom, rgba(15, 14, 20, 0.65) 0%, rgba(15, 14, 20, 0.92) 100%), url('img/screen1.png') center/200% no-repeat;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transform: scale(1.2);
+  z-index: -1;
+}
+.phone-splash-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.splash-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(255, 109, 0, 0.35);
+  margin-bottom: 12px;
+}
+.splash-title {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.splash-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.splash-start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #FF6D00 0%, #E65100 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 109, 0, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.splash-start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(255, 109, 0, 0.6);
+}
 .screen-img-3d {
   width: 100%;
   height: 100%;
@@ -1309,6 +1415,30 @@ footer strong{color:var(--on-surf)}
       <span>💬</span>
       <span class="t-ru">Обсуждения Reddit</span><span class="t-tj">Муҳокимаҳои Reddit</span><span class="t-en">Reddit Discussions</span>
     </a>
+    <a href="routes/" class="sidebar-item">
+      <span>🚌</span>
+      <span class="t-ru">Каталог маршрутов</span><span class="t-tj">Каталоги хатсайрҳо</span><span class="t-en">Routes Catalog</span>
+    </a>
+    <a href="go/" class="sidebar-item">
+      <span>📍</span>
+      <span class="t-ru">Как доехать</span><span class="t-tj">Чӣ тавр расем</span><span class="t-en">Destinations</span>
+    </a>
+    <a href="stops/" class="sidebar-item">
+      <span>🚏</span>
+      <span class="t-ru">Остановки</span><span class="t-tj">Истгоҳҳо</span><span class="t-en">Bus Stops</span>
+    </a>
+    <a href="download.html" class="sidebar-item">
+      <span>📲</span>
+      <span class="t-ru">Скачать приложение</span><span class="t-tj">Зеркашии барнома</span><span class="t-en">Download App</span>
+    </a>
+    <a href="about.html" class="sidebar-item">
+      <span>📖</span>
+      <span class="t-ru">О проекте</span><span class="t-tj">Дар бораи лоиҳа</span><span class="t-en">About Project</span>
+    </a>
+    <a href="tourist.html" class="sidebar-item">
+      <span>🇬🇧</span>
+      <span class="t-ru">Гид для туристов</span><span class="t-tj">Роҳнамо барои сайёҳон</span><span class="t-en">Tourist Guide</span>
+    </a>
   </div>
   <div class="sidebar-foot">
     <strong>Rohnamo v1.6.0</strong><br>
@@ -1398,31 +1528,49 @@ footer strong{color:var(--on-surf)}
         <div class="phone-camera-android"></div>
         <div class="phone-screen-3d" id="phoneScreen3D">
           <div class="phone-status-android">
-            <span>09:41</span>
+            <div style="display:flex;align-items:center;gap:4px;">
+              <img src="img/icon.png" style="width:14px;height:14px;border-radius:3px;" alt="Rohnamo">
+              <span style="font-size:10px;font-weight:800;">Rohnamo</span>
+            </div>
             <div class="ps-icons">
               <span style="font-size:10px;margin-right:2px;">5G</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9.47 2.03-12.72 5.32l2.12 2.12c2.72-2.75 6.47-4.44 10.6-4.44s7.88 1.69 10.6 4.44l2.12-2.12c-3.25-3.29-7.75-5.32-12.72-5.32zm0 4.5c-3.73 0-7.1 1.52-9.54 3.98l2.12 2.12c1.9-1.91 4.52-3.1 7.42-3.1s5.52 1.19 7.42 3.1l2.12-2.12c-2.44-2.46-5.81-3.98-9.54-3.98zm0 4.5c-2.49 0-4.74 1.01-6.36 2.65l2.12 2.12c1.08-1.09 2.57-1.77 4.24-1.77s3.16.68 4.24 1.77l2.12-2.12c-1.62-1.64-3.87-2.65-6.36-2.65zm0 4.5c-1.24 0-2.37.5-3.18 1.32l3.18 3.18 3.18-3.18c-.81-.82-1.94-1.32-3.18-1.32z"/></svg>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
             </div>
           </div>
-          <iframe id="webAppIframe" class="phone-iframe-3d" src="https://rohnamo.vercel.app" title="Rohnamo Web App"></iframe>
+          <div id="phoneStartSplash" class="phone-splash-overlay">
+            <div class="splash-content">
+              <img src="img/icon.png" alt="Rohnamo Logo" class="splash-logo">
+              <div class="splash-title">Rohnamo</div>
+              <div class="splash-sub">
+                <span class="t-ru">Офлайн-навигатор транспорта Душанбе</span>
+                <span class="t-tj">Роҳнамои офлайнии нақлиёти Душанбе</span>
+                <span class="t-en">Dushanbe Interactive Transport App</span>
+              </div>
+              <div style="margin: 12px 0 18px; font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.4; padding: 0 8px;">
+                <span class="t-ru">💡 Нажмите на кнопку ниже, чтобы использовать приложение прямо тут!</span>
+                <span class="t-tj">💡 Тугмаи зерро пахш кунед, то барномаро рост дар ин ҷо истифода баред!</span>
+                <span class="t-en">💡 Click the button below to use the application right here!</span>
+              </div>
+              <button class="splash-start-btn" onclick="startAppIframe()">
+                <span style="font-size:16px;">▶</span>
+                <span class="t-ru">Начать</span>
+                <span class="t-tj">Оғоз кунед</span>
+                <span class="t-en">Start App</span>
+              </button>
+            </div>
+          </div>
+          <iframe id="webAppIframe" class="phone-iframe-3d" src="about:blank" data-src="https://rohnamo.vercel.app" title="Rohnamo Web App"></iframe>
+          <div class="phone-navbar-android">
+            <button class="phone-nav-btn" onclick="resetAppIframe()" title="Назад / Reset">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              <span class="t-ru">Назад</span><span class="t-tj">Бозгашт</span><span class="t-en">Back</span>
+            </button>
+            <div class="phone-home-indicator" onclick="resetAppIframe()" title="На главную"></div>
+          </div>
           <div class="phone-glare-3d"></div>
         </div>
       </div>
-    </div>
-  </div>
-  
-  <div class="mockup-interactive-hint">
-    <div class="hint-arrow-container">
-      <svg class="hint-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="12" y1="19" x2="12" y2="5"></line>
-        <polyline points="5 12 12 5 19 12"></polyline>
-      </svg>
-    </div>
-    <div class="hint-text">
-      <span class="t-ru">Вы можете использовать приложение прямо тут!</span>
-      <span class="t-tj">Шумо метавонед барномаро рост дар ин ҷо истифода баред!</span>
-      <span class="t-en">You can use the application right here!</span>
     </div>
   </div>
 </div>
@@ -2632,6 +2780,9 @@ footer strong{color:var(--on-surf)}
     <span class="t-tj">Роҳнамои нақлиёти ҷамъиятии Душанбе</span>
     <span class="t-en">Dushanbe Public Transport Guide</span>
     <br>
+    <a href="about.html" style="color:var(--pri);margin-right:12px;text-decoration:none;font-weight:600;">О проекте</a>
+    <a href="tourist.html" style="color:var(--pri);text-decoration:none;font-weight:600;">Tourist Guide (English)</a>
+    <br>
     <span style="color:var(--out)">© 2024–2026 Сухайли Диловаршо</span>
   </p>
 </footer>
@@ -3215,6 +3366,27 @@ function toggleSidebar(show) {
 
   animate();
 })();
+
+function startAppIframe() {
+  const iframe = document.getElementById('webAppIframe');
+  const splash = document.getElementById('phoneStartSplash');
+  if (iframe && iframe.getAttribute('data-src')) {
+    iframe.src = iframe.getAttribute('data-src');
+  }
+  if (splash) {
+    splash.classList.add('hidden');
+  }
+}
+function resetAppIframe() {
+  const iframe = document.getElementById('webAppIframe');
+  const splash = document.getElementById('phoneStartSplash');
+  if (splash) {
+    splash.classList.remove('hidden');
+  }
+  if (iframe) {
+    iframe.src = 'about:blank';
+  }
+}
 </script>
 </div>
 </body>

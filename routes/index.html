@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<title>Dushanbe Public Transport Routes Catalog — Buses, Marshrutkas, Trolleybuses (Rohnamo)</title>
+<link rel="canonical" href="https://rohnamo.github.io/routes/">
+
+<!-- Multi-language Hreflang SEO -->
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/routes/">
+<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/routes/">
+<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/routes/">
+<link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/routes/">
+
+<meta name="description" content="Полный каталог маршрутов общественного транспорта Душанбе: автобусы №1, 3а, 8, 18; маршрутки №8, 16, 33; троллейбусы №2, 4, 10. Схема остановок и расписание Rohnamo.">
+<meta name="keywords" content="маршруты душанбе, автобусы душанбе список, маршрутки душанбе хатсайрҳо, троллейбусы душанбе, dushanbe bus routes list">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rohnamo.github.io/routes/">
+<meta property="og:title" content="Dushanbe Public Transport Routes Catalog — Rohnamo">
+<meta property="og:description" content="All bus, marshrutka, and trolleybus routes in Dushanbe. Stop lists, schedules, and offline maps.">
+<meta property="og:image" content="https://rohnamo.github.io/img/icon.png">
+
+<meta name="theme-color" content="#FF6D00">
+<link rel="icon" type="image/png" href="../img/icon.png">
+<link rel="apple-touch-icon" href="../img/icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+<!-- JSON-LD BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rohnamo.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Routes Catalog",
+      "item": "https://rohnamo.github.io/routes/"
+    }
+  ]
+}
+</script>
+
+<style>
+:root {
+  --pri:#FF6D00; --on-pri:#fff;
+  --pri-con:#FFE0CC; --on-pri-con:#331200;
+  --sec:#1565C0; --sec-con:#D6E4FF;
+  --surf:#FFF8F5; --surf1:#FFF1EA;
+  --on-surf:#1C1B1F; --on-surf-v:#49454F;
+  --bus:#B71C1C; --bus-bg:#FFEBEE;
+  --min:#E65100; --min-bg:#FFF3E0;
+  --trl:#2E7D32; --trl-bg:#E8F5E9;
+  --out:#857470;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--surf);
+  color: var(--on-surf);
+  line-height: 1.6;
+  padding: 0 16px;
+}
+header {
+  max-width: 900px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--on-surf);
+  font-weight: 800;
+  font-size: 20px;
+}
+.logo-btn img { width: 36px; height: 36px; border-radius: 8px; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.lang-switcher {
+  display: flex;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 2px;
+}
+.lang-btn {
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--on-surf-v);
+}
+.lang-btn.active {
+  background: var(--pri);
+  color: #fff;
+}
+.back-link { color: var(--pri); text-decoration: none; font-weight: 600; }
+
+[data-lang="ru"] .t-tj, [data-lang="ru"] .t-en { display: none !important; }
+[data-lang="tj"] .t-ru, [data-lang="tj"] .t-en { display: none !important; }
+[data-lang="en"] .t-ru, [data-lang="en"] .t-tj { display: none !important; }
+
+main {
+  max-width: 900px;
+  margin: 32px auto 60px;
+  background: #fff;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+h1 {
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+.route-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 28px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.route-card {
+  padding: 16px 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.route-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.route-card.bus { background: var(--bus-bg); }
+.route-card.min { background: var(--min-bg); }
+.route-card.trl { background: var(--trl-bg); }
+
+.route-head { display: flex; justify-content: space-between; align-items: center; }
+.route-num { font-size: 20px; font-weight: 900; }
+.route-card.bus .route-num { color: var(--bus); }
+.route-card.min .route-num { color: var(--min); }
+.route-card.trl .route-num { color: var(--trl); }
+
+.route-path { font-size: 14px; font-weight: 600; color: var(--on-surf); }
+.route-stops { font-size: 13px; color: var(--on-surf-v); }
+
+footer { text-align: center; padding: 24px 0 40px; color: var(--out); font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="../index.html" class="logo-btn">
+    <img src="../img/icon.png" alt="Rohnamo Logo">
+    <span>Rohnamo</span>
+  </a>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('tj')">TJ</button>
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="../index.html" class="back-link">
+      <span class="t-ru">← На главную</span>
+      <span class="t-tj">← Ба асосӣ</span>
+      <span class="t-en">← Back to Main</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <h1>
+    <span class="t-en">Dushanbe Public Transport Routes</span>
+    <span class="t-ru">Маршруты общественного транспорта Душанбе</span>
+    <span class="t-tj">Хатсайрҳои нақлиёти ҷамъиятии Душанбе</span>
+  </h1>
+  <p>
+    <span class="t-en">Select a route below to view stops list, map, schedules, and transfer points.</span>
+    <span class="t-ru">Выберите маршрут ниже, чтобы посмотреть список остановок, схему, время работы и пересадки.</span>
+    <span class="t-tj">Хатсайрро интихоб кунед, то рӯйхати истгоҳҳо, харита ва ҷадвалро бинед.</span>
+  </p>
+
+  <!-- BUSES -->
+  <div class="route-section-title" style="color:var(--bus);">
+    🚌 <span class="t-en">Buses</span><span class="t-ru">Автобусы</span><span class="t-tj">Автобусҳо</span>
+  </div>
+  <div class="routes-grid">
+    <a href="bus-18.html" class="route-card bus">
+      <div class="route-head">
+        <span class="route-num">Автобус №18</span>
+        <span>🚌</span>
+      </div>
+      <div class="route-path">Пахтакор ⇄ Мкр Зарафшон</div>
+      <div class="route-stops">Остановки: Рудаки, Караболо, Сино, Зарафшон</div>
+    </a>
+    <a href="bus-8.html" class="route-card bus">
+      <div class="route-head">
+        <span class="route-num">Автобус №8</span>
+        <span>🚌</span>
+      </div>
+      <div class="route-path">Вокзал ⇄ Аэропорт ⇄ Пахтакор</div>
+      <div class="route-stops">Остановки: Аэропорт, Айни, Рудаки, Сомони</div>
+    </a>
+    <a href="bus-1.html" class="route-card bus">
+      <div class="route-head">
+        <span class="route-num">Автобус №1</span>
+        <span>🚌</span>
+      </div>
+      <div class="route-path">Вокзал ⇄ Азия Express</div>
+      <div class="route-stops">Остановки: Рудаки, Садбарг, Караболо, Политех</div>
+    </a>
+    <a href="bus-3a.html" class="route-card bus">
+      <div class="route-head">
+        <span class="route-num">Автобус №3а</span>
+        <span>🚌</span>
+      </div>
+      <div class="route-path">Аэропорт ⇄ Мкр Зарафшон</div>
+      <div class="route-stops">Остановки: Айни, Рудаки, Ватан, Сомони, Сино</div>
+    </a>
+  </div>
+
+  <!-- MINIBUSES (MARSHRUTKAS) -->
+  <div class="route-section-title" style="color:var(--min);">
+    🚐 <span class="t-en">Minibuses (Marshrutkas)</span><span class="t-ru">Маршрутки</span><span class="t-tj">Маршруткаҳо</span>
+  </div>
+  <div class="routes-grid">
+    <a href="marshrutka-8.html" class="route-card min">
+      <div class="route-head">
+        <span class="route-num">Маршрутка №8</span>
+        <span>🚐</span>
+      </div>
+      <div class="route-path">Аэропорт ⇄ Садбарг ⇄ Центр</div>
+      <div class="route-stops">Остановки: Аэропорт, Дониш, Айни, Садбарг</div>
+    </a>
+    <a href="marshrutka-16.html" class="route-card min">
+      <div class="route-head">
+        <span class="route-num">Маршрутка №16</span>
+        <span>🚐</span>
+      </div>
+      <div class="route-path">Рынок Корвон ⇄ Садбарг ⇄ Зарафшон</div>
+      <div class="route-stops">Остановки: Корвон, 103 мкр, Садбарг, Зарафшон</div>
+    </a>
+    <a href="marshrutka-33.html" class="route-card min">
+      <div class="route-head">
+        <span class="route-num">Маршрутка №33</span>
+        <span>🚐</span>
+      </div>
+      <div class="route-path">Мкр Пахтакор ⇄ 82 мкр</div>
+      <div class="route-stops">Остановки: Пахтакор, Гипрозем, 82 мкр, Ипек Йолы</div>
+    </a>
+  </div>
+
+  <!-- TROLLEYBUSES -->
+  <div class="route-section-title" style="color:var(--trl);">
+    🚎 <span class="t-en">Trolleybuses</span><span class="t-ru">Троллейбусы</span><span class="t-tj">Троллейбусҳо</span>
+  </div>
+  <div class="routes-grid">
+    <a href="trolleybus-2.html" class="route-card trl">
+      <div class="route-head">
+        <span class="route-num">Троллейбус №2</span>
+        <span>🚎</span>
+      </div>
+      <div class="route-path">Вокзал ⇄ 82 мкр</div>
+      <div class="route-stops">Остановки: Железнодорожный вокзал, Садбарг, Сомони</div>
+    </a>
+    <a href="trolleybus-4.html" class="route-card trl">
+      <div class="route-head">
+        <span class="route-num">Троллейбус №4</span>
+        <span>🚎</span>
+      </div>
+      <div class="route-path">Аэропорт ⇄ Терминал Пахтакор</div>
+      <div class="route-stops">Остановки: Аэропорт, Дружба народов, Рудаки</div>
+    </a>
+    <a href="trolleybus-10.html" class="route-card trl">
+      <div class="route-head">
+        <span class="route-num">Троллейбус №10</span>
+        <span>🚎</span>
+      </div>
+      <div class="route-path">Мкр 82 ⇄ Корвон</div>
+      <div class="route-stops">Остановки: 82 мкр, Гипрозем, Рынок Корвон</div>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2024–2026 Rohnamo. Dushanbe Route Directory.</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  localStorage.setItem('rohnamo_lang', lang);
+}
+const saved = localStorage.getItem('rohnamo_lang') || 'en';
+setLang(saved);
+</script>
+</body>
+</html>
