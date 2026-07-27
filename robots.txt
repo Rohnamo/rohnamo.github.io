@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rohnamo.github.io/sitemap.xml
+
+# LLM & AI Agents documentation index
+# https://rohnamo.github.io/llms.txt
+# https://rohnamo.github.io/llms-full.txt

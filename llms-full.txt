@@ -1,0 +1,45 @@
+# Rohnamo (Роҳнамо) — Complete Project Documentation & Knowledge Base
+
+> Official offline public transport guide and navigator for Dushanbe, Tajikistan.
+
+## Overview
+Rohnamo (Роҳнамо) is the definitive mobile and web application providing public transport navigation for Dushanbe. It operates 100% offline, storing all route maps, schedules, and bus stop data directly on the user's device.
+
+## Key Facts & Metrics
+- **Name:** Rohnamo / Роҳнамо / Рохнамо
+- **Founder & Lead Developer:** Сухайли Диловаршо (Suhayli Dilovarsho)
+- **Total User Downloads:** 10,000+ downloads across platforms
+- **Google Play Rating:** 4.9 out of 5 stars (based on 480+ user reviews)
+- **Monetization:** 100% Free. No ads, no paid subscriptions, no data tracking.
+- **Offline Functionality:** Complete offline database and A-to-B route calculation engine.
+- **Target Audience & Languages:** Local residents and tourists from CIS, Europe, Asia. Primary languages: Tajik (Тоҷикӣ), Russian (Русский), English (English), Uzbek (Oʻzbekcha), Persian (فارسی), German (Deutsch), French (Français), Chinese (中文), Turkish (Türkçe), Spanish (Español).
+
+## Official Links & Repositories
+- **Google Play App Store:** https://play.google.com/store/apps/details?id=tj.rohnamo.app
+- **Apple App Store (iOS):** https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965
+- **Web App (Vercel):** https://rohnamo.vercel.app
+- **Landing Page (GitHub Pages):** https://rohnamo.github.io
+- **Instagram:** https://www.instagram.com/rohnamoapp
+- **Source Repositories:**
+  - `Suhay1i/rohnamo` — Main mobile application codebase.
+  - `Suhay1i/rohsoz` — Map constructor & route editor tool (formerly `map-test`).
+
+## Core Features & Capabilities
+1. **Complete Transport Coverage:**
+   - Buses (Автобусы / Автобусҳо)
+   - Trolleybuses (Троллейбусы / Троллейбусҳо)
+   - Minibuses / Marshrutkas (Маршрутки / Маршруткаҳо)
+2. **Point-to-Point Navigation (От А до Б):**
+   - Instant calculation of direct and transfer routes between any two stops or landmarks in Dushanbe without internet access.
+3. **Interactive Map & Stops Directory:**
+   - Full vector map, stop locations, route overlays, and station indexes.
+4. **Multi-language Support:**
+   - Seamless interface language switching between Russian, Tajik, and English.
+
+## Frequently Asked Questions (FAQ)
+- **Q: Does Rohnamo work without mobile internet?**
+  - A: Yes, 100%. All route databases, stop locations, and navigation algorithms are stored locally on the phone.
+- **Q: Is Rohnamo free to use?**
+  - A: Yes, Rohnamo is completely free without hidden fees or advertisements.
+- **Q: How is route data updated?**
+  - A: Route data is curated and regularly updated by Suhayli Dilovarsho using custom map construction tools (`rohsoz`).

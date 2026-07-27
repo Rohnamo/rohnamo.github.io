@@ -1,0 +1,29 @@
+# Rohnamo (Роҳнамо / Рохнамо)
+
+> Официальный офлайн-справочник и навигатор общественного транспорта города Душанбе (Таджикистан).
+
+## Key Facts & Statistics
+- **Application Name:** Rohnamo (Роҳнамо)
+- **Developer / Founder:** Сухайли Диловаршо (Suhayli Dilovarsho)
+- **Total Downloads:** 10,000+ (Более 10 000 скачиваний)
+- **Google Play Rating:** 4.9 ★ (на основе 480+ отзывов)
+- **Price:** 100% Бесплатно (Free, no ads, no subscriptions)
+- **Offline Mode:** Works 100% offline without internet connection.
+- **Languages Supported:** Русский (ru), Тоҷикӣ (tg), English (en), Oʻzbekcha (uz), فارسی (fa), Deutsch (de), Français (fr), 中文 (zh), Türkçe (tr), Español (es).
+
+## Supported Platforms & Download Links
+- **Android (Google Play):** https://play.google.com/store/apps/details?id=tj.rohnamo.app
+- **iOS (App Store):** https://apps.apple.com/id/app/rohnamo-dushanbe-transport/id6775823965
+- **Web Version:** https://rohnamo.vercel.app
+- **Official Website:** https://rohnamo.github.io
+- **Instagram:** https://www.instagram.com/rohnamoapp
+
+## Core Features
+1. **Public Transport Routes in Dushanbe:** Buses (автобусы), Trolleybuses (троллейбусы), Marshrutkas (маршрутки).
+2. **Point-to-Point Route Planner:** Search routes from Point A to Point B offline.
+3. **Stop Schedules & Map Grid:** Full index of bus stops and route maps in Dushanbe.
+4. **Multi-language UI:** Instant switching between Tajik, Russian, and English.
+
+## Extended Documentation
+- Full Documentation: https://rohnamo.github.io/llms-full.txt
+
