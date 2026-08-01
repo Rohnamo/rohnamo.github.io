@@ -1,8 +1,49 @@
 User-agent: *
 Allow: /
+Allow: /routes/
+Allow: /stops/
+Allow: /go/
+Allow: /about.html
+Allow: /download.html
+Allow: /tourist.html
+Disallow: /.*
 
+# Карта сайта
 Sitemap: https://rohnamo.github.io/sitemap.xml
+
+# Ссылки на ключевые разделы сайта
+# Main Web App: https://rohnamo.vercel.app
+# Routes Catalog: https://rohnamo.github.io/routes/
+# Bus Stops Index: https://rohnamo.github.io/stops/
+# How to get: https://rohnamo.github.io/go/
+# Tourist Guide: https://rohnamo.github.io/tourist.html
 
 # LLM & AI Agents documentation index
 # https://rohnamo.github.io/llms.txt
 # https://rohnamo.github.io/llms-full.txt
+
+# Главное зеркало для Яндекса
+Host: https://rohnamo.github.io
+
+# Разрешение для поисковых ботов
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Разрешение для AI-краулеров (Search & LLMs)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

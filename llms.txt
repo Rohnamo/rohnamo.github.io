@@ -18,6 +18,15 @@
 - **Official Website:** https://rohnamo.github.io
 - **Instagram:** https://www.instagram.com/rohnamoapp
 
+## Key Pages & Site Structure
+- [Главная страница](https://rohnamo.github.io/): Презентация и веб-версия приложения
+- [Каталог маршрутов](https://rohnamo.github.io/routes/): Полный список автобусов, троллейбусов и маршруток Душанбе
+- [Каталог остановок](https://rohnamo.github.io/stops/): 706 остановок и ориентиров Душанбе
+- [Как доехать](https://rohnamo.github.io/go/): Маршруты до Аэропорта, рынка Корвон, ТЦ Садбарг и ключевых мест
+- [Гид для туристов](https://rohnamo.github.io/tourist.html): Руководство по транспорту Душанбе для гостей и туристов
+- [Скачать приложение](https://rohnamo.github.io/download.html): Страница загрузки для Android и iOS
+- [О проекте](https://rohnamo.github.io/about.html): История проекта и автор Сухайли Диловаршо
+
 ## Core Features
 1. **Public Transport Routes in Dushanbe:** Buses (автобусы), Trolleybuses (троллейбусы), Marshrutkas (маршрутки).
 2. **Point-to-Point Route Planner:** Search routes from Point A to Point B offline.
@@ -26,4 +35,3 @@
 
 ## Extended Documentation
 - Full Documentation: https://rohnamo.github.io/llms-full.txt
-
