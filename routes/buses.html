@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="geo.region" content="TJ-DU">
+<meta name="geo.placename" content="Dushanbe">
+<meta name="geo.position" content="38.5598;68.7870">
+<meta name="ICBM" content="38.5598, 68.7870">
+<meta name="theme-color" content="#FF6D00">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="512x512" href="/img/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="icon" type="image/png" sizes="120x120" href="/img/icon-120.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<title>Все Автобусы Душанбе — Каталог маршрутов (Rohnamo)</title>
+<link rel="canonical" href="https://rohnamo.github.io/routes/buses.html">
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/routes/buses.html">
+<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/routes/buses.html?lang=tg">
+<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/routes/buses.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/routes/buses.html">
+<meta name="description" content="Полный список всех городских автобусов Душанбе: маршруты №1, 2, 3а, 4, 8, 10, 18, 28, 51 и др. Остановки, схемы движения и расписание в Rohnamo.">
+<meta name="keywords" content="автобусы душанбе, автобусы душанбе список, автобус душанбе маршруты, dushanbe bus routes list, dushanbe bus map, اتوبوس های دوشنبه">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rohnamo.github.io/routes/buses.html">
+<meta property="og:title" content="Все Автобусы Душанбе — Каталог маршрутов (Rohnamo)">
+<meta property="og:description" content="Полный список всех городских автобусов Душанбе: маршруты №1, 2, 3а, 4, 8, 10, 18, 28, 51 и др. Остановки, схемы движения и расписание в Rohnamo.">
+<meta property="og:image" content="https://rohnamo.github.io/img/icon.png">
+<style>
+:root {
+  --pri:#FF6D00; --on-pri:#fff;
+  --pri-con:#FFE0CC; --on-pri-con:#331200;
+  --sec:#1565C0;
+  --surf:#FFF8F5; --surf1:#FFF1EA;
+  --on-surf:#1C1B1F; --on-surf-v:#49454F;
+  --out:#857470;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--surf);
+  color: var(--on-surf);
+  line-height: 1.6;
+  padding: 0 16px 40px;
+}
+header {
+  max-width: 800px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--on-surf);
+  font-weight: 800;
+  font-size: 20px;
+}
+.logo-btn img { width: 36px; height: 36px; border-radius: 8px; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pri);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 16px 0;
+}
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+h1 { font-size: 24px; font-weight: 800; margin-bottom: 12px; color: var(--on-surf); }
+p.desc { color: var(--on-surf-v); margin-bottom: 20px; font-size: 15px; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 16px;
+  background: var(--surf);
+  transition: transform 0.2s, border-color 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--pri); }
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.b-bus { background: #E53935; }
+.b-trolley { background: #43A047; }
+.b-marshrutka { background: #1E88E5; }
+.b-taxi { background: #FB8C00; }
+.card-title { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+.card-desc { font-size: 13px; color: var(--on-surf-v); }
+.app-banner {
+  background: linear-gradient(135deg, #FF6D00, #FF9100);
+  color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 30px;
+  text-align: center;
+}
+.app-banner h3 { font-size: 20px; margin-bottom: 8px; }
+.app-banner p { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.btn-dl {
+  display: inline-block;
+  background: #fff;
+  color: var(--pri);
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111214324', 'ym');
+
+    ym(111214324, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111214324" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<header>
+  <a href="/" class="logo-btn">
+    <img src="/img/icon.png" alt="Rohnamo">
+    <span>Rohnamo</span>
+  </a>
+</header>
+<div class="container">
+  <a href="/routes/" class="back-link">← Все маршруты Душанбе</a>
+  <h1>Все автобусы города Душанбе</h1>
+  <p class="desc">Полный каталог и схемы движения всех официальных городских автобусов столицы:</p>
+  <div class="card-grid">
+    <a href="/routes/bus-1.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №1 Душанбе</div>
+  <div class="card-desc">Автобус 1 Душанбе: 39 остановок от Улица Гагарина (Кӯчаи Гагарин) до Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&q...</div>
+</a><a href="/routes/bus-10.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №10 Душанбе</div>
+  <div class="card-desc">Автобус 10 Душанбе: 25 остановок от Институт физкультуры (Институти тарбияи чисмонӣ) до Жилмассив &quot;Пахтакор&quot; (...</div>
+</a><a href="/routes/bus-11.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №11 Душанбе</div>
+  <div class="card-desc">Автобус 11 Душанбе: 21 остановок от Школа № 61 (Мактаби № 61) до ТЦ &quot;Балх&quot; (Маркази савдои &quot;Балх&quot;). ...</div>
+</a><a href="/routes/bus-15.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №15 Душанбе</div>
+  <div class="card-desc">Автобус 15 Душанбе: 35 остановок от Квартал &quot;Ободкорон&quot; (Квартал &quot;Ободкорон&quot;) до Сельсовет &quot;Хов...</div>
+</a><a href="/routes/bus-17.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №17 Душанбе</div>
+  <div class="card-desc">Автобус 17 Душанбе: 20 остановок от Улица Гагарина (Кӯчаи Гагарин) до Квартал &quot;Ободкорон&quot; (Квартал &quot;Ободк...</div>
+</a><a href="/routes/bus-18.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №18 Душанбе</div>
+  <div class="card-desc">Автобус 18 Душанбе: 36 остановок от Улица Гагарина (Кӯчаи Гагарин) до Жилмассив &quot;Пахтакор&quot; (Шаҳраки &quot;Пахт...</div>
+</a><a href="/routes/bus-2.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №2 Душанбе</div>
+  <div class="card-desc">Автобус 2 Душанбе: 40 остановок от Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&quot;) до Терминал &quot;Восточный&...</div>
+</a><a href="/routes/bus-20.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №20 Душанбе</div>
+  <div class="card-desc">Автобус 20 Душанбе: 37 остановок от Жилмассив &quot;Пахтакор&quot; (Шаҳраки &quot;Пахтакор&quot;) до Сельсовет &quot;Бус...</div>
+</a><a href="/routes/bus-22.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №22 Душанбе</div>
+  <div class="card-desc">Автобус 22 Душанбе: 22 остановок от Терминал &quot;Западный&quot; (Терминали &quot;Ғарбӣ&quot;) до Улица Гагарина (Кӯчаи...</div>
+</a><a href="/routes/bus-25.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №25 Душанбе</div>
+  <div class="card-desc">Автобус 25 Душанбе: 32 остановок от Терминал &quot;Западный&quot; (Терминали &quot;Ғарбӣ&quot;) до Рынок &quot;Мехргон&q...</div>
+</a><a href="/routes/bus-27.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №27 Душанбе</div>
+  <div class="card-desc">Автобус 27 Душанбе: 16 остановок от Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&quot;) до Медицинский колледж (Кол...</div>
+</a><a href="/routes/bus-28.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №28 Душанбе</div>
+  <div class="card-desc">Автобус 28 Душанбе: 38 остановок от Терминал &quot;Западный&quot; (Терминали &quot;Ғарбӣ&quot;) до Терминал &quot;Южный&...</div>
+</a><a href="/routes/bus-29.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №29 Душанбе</div>
+  <div class="card-desc">Автобус 29 Душанбе: 47 остановок от Жилмассив &quot;Пахтакор&quot; (Шаҳраки &quot;Пахтакор&quot;) до Терминал &quot;Чорб...</div>
+</a><a href="/routes/bus-33.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №33 Душанбе</div>
+  <div class="card-desc">Автобус 33 Душанбе: 34 остановок от Старый аэропорт (Фурудгоҳи кӯҳна) до Рынок &quot;Кушониён&quot; (Бозор &quot;Кушониё...</div>
+</a><a href="/routes/bus-37.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №37 Душанбе</div>
+  <div class="card-desc">Автобус 37 Душанбе: 33 остановок от Жилмассив &quot;Бунёдкорон&quot; (Шаҳраки &quot;Бунёдкорон&quot;) до Сельсовет &quot...</div>
+</a><a href="/routes/bus-3a.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №3a Душанбе</div>
+  <div class="card-desc">Автобус 3a Душанбе: 20 остановок от Терминал &quot;Чорбог&quot; (Терминал &quot;Чорбоғ&quot;) до Железнодорожный вокзал ...</div>
+</a><a href="/routes/bus-4.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №4 Душанбе</div>
+  <div class="card-desc">Автобус 4 Душанбе: 43 остановок от Рынок &quot;Кушониён&quot; (Бозор &quot;Кушониён&quot;) до Терминал &quot;Восточный&q...</div>
+</a><a href="/routes/bus-41.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №41 Душанбе</div>
+  <div class="card-desc">Автобус 41 Душанбе: 35 остановок от Терминал &quot;Западный&quot; (Терминали &quot;Ғарбӣ&quot;) до Рынок &quot;Кушониён&...</div>
+</a><a href="/routes/bus-43.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №43 Душанбе</div>
+  <div class="card-desc">Автобус 43 Душанбе: 30 остановок от Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&quot;) до Улица Фучика (Кӯчаи Фучи...</div>
+</a><a href="/routes/bus-51.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №51 Душанбе</div>
+  <div class="card-desc">Автобус 51 Душанбе: 39 остановок от Сельсовет &quot;Чоряккорон&quot; (Деҳоти &quot;Чоряккорон&quot;) до Терминал &quot;В...</div>
+</a><a href="/routes/bus-55.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №55 Душанбе</div>
+  <div class="card-desc">Автобус 55 Душанбе: 30 остановок от Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&quot;) до Улица Фучика (Кӯчаи Фучи...</div>
+</a><a href="/routes/bus-6.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №6 Душанбе</div>
+  <div class="card-desc">Автобус 6 Душанбе: 20 остановок от Село &quot;Чортут&quot; (Деҳоти &quot;Чортут&quot;) до Национальный банк (Бонки миллӣ...</div>
+</a><a href="/routes/bus-61.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №61 Душанбе</div>
+  <div class="card-desc">Автобус 61 Душанбе: 28 остановок от Терминал &quot;Западный&quot; (Терминали &quot;Ғарбӣ&quot;) до Рынок &quot;Ховарон&q...</div>
+</a><a href="/routes/bus-7.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №7 Душанбе</div>
+  <div class="card-desc">Автобус 7 Душанбе: 30 остановок от ТЦ &quot;Балх&quot; (Маркази савдои &quot;Балх&quot;) до Терминал &quot;Восточный&quo...</div>
+</a><a href="/routes/bus-8.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №8 Душанбе</div>
+  <div class="card-desc">Автобус 8 Душанбе: 27 остановок от Терминал &quot;Западный&quot; (Терминали &quot;Ғарбӣ&quot;) до Старый аэропорт (Фуруд...</div>
+</a><a href="/routes/bus-81.html" class="card">
+  <span class="badge b-bus">Автобус</span>
+  <div class="card-title">Автобус №81 Душанбе</div>
+  <div class="card-desc">Автобус 81 Душанбе: 22 остановок от ТЦ &quot;Балх&quot; (Маркази савдои &quot;Балх&quot;) до Терминал &quot;Южный&quot; ...</div>
+</a>
+  </div>
+  <div class="app-banner">
+    <h3>Смотрите схемы движения в мобильном приложении</h3>
+    <p>Все остановки, расписание и поиск маршрутов без интернета в Rohnamo.</p>
+    <a href="/download.html" class="btn-dl">📲 Скачать Rohnamo</a>
+  </div>
+</div>
+</body>
+</html>

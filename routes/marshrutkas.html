@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="geo.region" content="TJ-DU">
+<meta name="geo.placename" content="Dushanbe">
+<meta name="geo.position" content="38.5598;68.7870">
+<meta name="ICBM" content="38.5598, 68.7870">
+<meta name="theme-color" content="#FF6D00">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="512x512" href="/img/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="icon" type="image/png" sizes="120x120" href="/img/icon-120.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<title>Все Маршрутки Душанбе — Каталог хатсайрҳо (Rohnamo)</title>
+<link rel="canonical" href="https://rohnamo.github.io/routes/marshrutkas.html">
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/routes/marshrutkas.html">
+<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/routes/marshrutkas.html?lang=tg">
+<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/routes/marshrutkas.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/routes/marshrutkas.html">
+<meta name="description" content="Полный каталог маршрутных такси Душанбе: №1, 2, 5, 8, 16, 25, 42, 52, 56, 88, Қараболо и др. Схемы остановок в Rohnamo.">
+<meta name="keywords" content="маршрутки душанбе, маршрутка душанбе список, хатсайрҳои душанбе, dushanbe marshrutka routes, dushanbe minibus map">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rohnamo.github.io/routes/marshrutkas.html">
+<meta property="og:title" content="Все Маршрутки Душанбе — Каталог хатсайрҳо (Rohnamo)">
+<meta property="og:description" content="Полный каталог маршрутных такси Душанбе: №1, 2, 5, 8, 16, 25, 42, 52, 56, 88, Қараболо и др. Схемы остановок в Rohnamo.">
+<meta property="og:image" content="https://rohnamo.github.io/img/icon.png">
+<style>
+:root {
+  --pri:#FF6D00; --on-pri:#fff;
+  --pri-con:#FFE0CC; --on-pri-con:#331200;
+  --sec:#1565C0;
+  --surf:#FFF8F5; --surf1:#FFF1EA;
+  --on-surf:#1C1B1F; --on-surf-v:#49454F;
+  --out:#857470;
+}
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--surf);
+  color: var(--on-surf);
+  line-height: 1.6;
+  padding: 0 16px 40px;
+}
+header {
+  max-width: 800px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--on-surf);
+  font-weight: 800;
+  font-size: 20px;
+}
+.logo-btn img { width: 36px; height: 36px; border-radius: 8px; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pri);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 16px 0;
+}
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+h1 { font-size: 24px; font-weight: 800; margin-bottom: 12px; color: var(--on-surf); }
+p.desc { color: var(--on-surf-v); margin-bottom: 20px; font-size: 15px; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 16px;
+  background: var(--surf);
+  transition: transform 0.2s, border-color 0.2s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--pri); }
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.b-bus { background: #E53935; }
+.b-trolley { background: #43A047; }
+.b-marshrutka { background: #1E88E5; }
+.b-taxi { background: #FB8C00; }
+.card-title { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+.card-desc { font-size: 13px; color: var(--on-surf-v); }
+.app-banner {
+  background: linear-gradient(135deg, #FF6D00, #FF9100);
+  color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 30px;
+  text-align: center;
+}
+.app-banner h3 { font-size: 20px; margin-bottom: 8px; }
+.app-banner p { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.btn-dl {
+  display: inline-block;
+  background: #fff;
+  color: var(--pri);
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111214324', 'ym');
+
+    ym(111214324, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111214324" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<header>
+  <a href="/" class="logo-btn">
+    <img src="/img/icon.png" alt="Rohnamo">
+    <span>Rohnamo</span>
+  </a>
+</header>
+<div class="container">
+  <a href="/routes/" class="back-link">← Все маршруты Душанбе</a>
+  <h1>Все маршрутные такси (Маршрутки) Душанбе</h1>
+  <p class="desc">Каталог всех основных маршруток города Душанбе с промежуточными остановками:</p>
+  <div class="card-grid">
+    <a href="/routes/marshrutka-1.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №1 Душанбе</div>
+  <div class="card-desc">Маршрутка 1 Душанбе: 43 остановок от Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&quot;) до Поселок &quot;Южный&quo...</div>
+</a><a href="/routes/marshrutka-11.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №11 Душанбе</div>
+  <div class="card-desc">Маршрутка 11 Душанбе: 17 остановок от Село &quot;Арбобхотун&quot; (Деҳоти &quot;Арбобхотун&quot;) до Улица Истаравшан (К...</div>
+</a><a href="/routes/marshrutka-14.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №14 Душанбе</div>
+  <div class="card-desc">Маршрутка 14 Душанбе: 28 остановок от Жилмассив &quot;Пахтакор&quot; (Шаҳраки &quot;Пахтакор&quot;) до Сельсовет &quot;Ч...</div>
+</a><a href="/routes/marshrutka-15.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №15 Душанбе</div>
+  <div class="card-desc">Маршрутка 15 Душанбе: 34 остановок от Квартал &quot;Ободкорон&quot; (Квартал &quot;Ободкорон&quot;) до Сельсовет &quot;Х...</div>
+</a><a href="/routes/marshrutka-16.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №16 Душанбе</div>
+  <div class="card-desc">Маршрутка 16 Душанбе: 26 остановок от Село &quot;Чортеппа&quot; (Деҳоти &quot;Чортеппа&quot;) до Сельсовет &quot;Чаноро&...</div>
+</a><a href="/routes/marshrutka-17.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №17 Душанбе</div>
+  <div class="card-desc">Маршрутка 17 Душанбе: 24 остановок от Улица Гагарина (Кӯчаи Гагарин) до Квартал &quot;Ободкорон&quot; (Квартал &quot;Обо...</div>
+</a><a href="/routes/marshrutka-19.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №19 Душанбе</div>
+  <div class="card-desc">Маршрутка 19 Душанбе: 38 остановок от Жилмассив &quot;Пахтакор&quot; (Шаҳраки &quot;Пахтакор&quot;) до Терминал &quot;Чо...</div>
+</a><a href="/routes/marshrutka-2.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №2 Душанбе</div>
+  <div class="card-desc">Маршрутка 2 Душанбе: 30 остановок от Жилмассив &quot;Пахтакор&quot; (Шаҳраки &quot;Пахтакор&quot;) до Рынок &quot;Мехрго...</div>
+</a><a href="/routes/marshrutka-25.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №25 Душанбе</div>
+  <div class="card-desc">Маршрутка 25 Душанбе: 35 остановок от Сельсовет &quot;Чоряккорон&quot; (Деҳоти &quot;Чоряккорон&quot;) до Рынок &quot;Ме...</div>
+</a><a href="/routes/marshrutka-279.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №279 Душанбе</div>
+  <div class="card-desc">Маршрутка 279 Душанбе: 13 остановок от Завод холодильников (Заводи яхдон) до Шарора (Шарора). Время работы 06:00 - 22:00...</div>
+</a><a href="/routes/marshrutka-42.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №42 Душанбе</div>
+  <div class="card-desc">Маршрутка 42 Душанбе: 43 остановок от Терминал &quot;Южный&quot; (Терминал &quot;Ҷанубӣ&quot;) до Сельсовет &quot;Чорякк...</div>
+</a><a href="/routes/marshrutka-46.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №46 Душанбе</div>
+  <div class="card-desc">Маршрутка 46 Душанбе: 36 остановок от Сельсовет &quot;Чоряккорон&quot; (Деҳоти &quot;Чоряккорон&quot;) до Колхоз &quot;Р...</div>
+</a><a href="/routes/marshrutka-5.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №5 Душанбе</div>
+  <div class="card-desc">Маршрутка 5 Душанбе: 40 остановок от Терминал &quot;Восточный&quot; (Терминали &quot;Шарқи&quot;) до Терминал &quot;Южны...</div>
+</a><a href="/routes/marshrutka-52.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №52 Душанбе</div>
+  <div class="card-desc">Маршрутка 52 Душанбе: 41 остановок от Терминал &quot;Чорбог&quot; (Терминал &quot;Чорбоғ&quot;) до Терминал &quot;Южный&...</div>
+</a><a href="/routes/marshrutka-54.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №54 Душанбе</div>
+  <div class="card-desc">Маршрутка 54 Душанбе: 28 остановок от Сельсовет Дарёобод (Деҳоти Дарёобод) до Институт физкультуры (Институти тарбияи чи...</div>
+</a><a href="/routes/marshrutka-56.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №56 Душанбе</div>
+  <div class="card-desc">Маршрутка 56 Душанбе: 19 остановок от Сельсовет &quot;Шайнак&quot; (Деҳоти &quot;Шайнак&quot;) до Терминал &quot;Южный&q...</div>
+</a><a href="/routes/marshrutka-58.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №58 Душанбе</div>
+  <div class="card-desc">Маршрутка 58 Душанбе: 22 остановок от Рынок &quot;Варзоб&quot; (Водонасос) (Бозор &quot;Варзоб&quot;) до Улица Касимова ...</div>
+</a><a href="/routes/marshrutka-6.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №6 Душанбе</div>
+  <div class="card-desc">Маршрутка 6 Душанбе: 29 остановок от Жилмассив &quot;Зарафшон-2&quot; (Шаҳраки &quot;Зарафшон-2&quot;) до Жилмассив &quo...</div>
+</a><a href="/routes/marshrutka-7.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №7 Душанбе</div>
+  <div class="card-desc">Маршрутка 7 Душанбе: 19 остановок от Село &quot;Чортут&quot; (Деҳоти &quot;Чортут&quot;) до ТЦ &quot;Европа&quot; (Марка...</div>
+</a><a href="/routes/marshrutka-8.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №8 Душанбе</div>
+  <div class="card-desc">Маршрутка 8 Душанбе: 35 остановок от Сельсовет &quot;Чоряккорон&quot; (Деҳоти &quot;Чоряккорон&quot;) до Улица Фучика (К...</div>
+</a><a href="/routes/marshrutka-88.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №88 Душанбе</div>
+  <div class="card-desc">Маршрутка 88 Душанбе: 36 остановок от Поликлиника № 10 (Дармонгоҳи № 10) до Терминал &quot;Южный&quot; (Терминал &quot;Ҷ...</div>
+</a><a href="/routes/marshrutka-Қараболо.html" class="card">
+  <span class="badge b-marshrutka">Маршрутка</span>
+  <div class="card-title">Маршрутка №Қараболо Душанбе</div>
+  <div class="card-desc">Маршрутка Қараболо Душанбе: 19 остановок от Рынок &quot;Корвон&quot; (Бозор &quot;Корвон&quot;) до НМЦ &quot;Шифобахш&qu...</div>
+</a>
+  </div>
+  <div class="app-banner">
+    <h3>Смотрите схемы движения в мобильном приложении</h3>
+    <p>Все остановки, расписание и поиск маршрутов без интернета в Rohnamo.</p>
+    <a href="/download.html" class="btn-dl">📲 Скачать Rohnamo</a>
+  </div>
+</div>
+</body>
+</html>
