@@ -21,7 +21,7 @@
 ## Key Pages & Site Structure
 - [Главная страница](https://rohnamo.github.io/): Презентация и веб-версия приложения
 - [Каталог маршрутов](https://rohnamo.github.io/routes/): Полный список автобусов, троллейбусов и маршруток Душанбе
-- [Каталог остановок](https://rohnamo.github.io/stops/): 706 остановок и ориентиров Душанбе
+- [Каталог остановок](https://rohnamo.github.io/stops/): 704 остановки и ориентиров Душанбе
 - [Как доехать](https://rohnamo.github.io/go/): Маршруты до Аэропорта, рынка Корвон, ТЦ Садбарг и ключевых мест
 - [Гид для туристов](https://rohnamo.github.io/tourist.html): Руководство по транспорту Душанбе для гостей и туристов
 - [Скачать приложение](https://rohnamo.github.io/download.html): Страница загрузки для Android и iOS
