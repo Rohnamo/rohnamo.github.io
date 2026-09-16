@@ -6,6 +6,8 @@ Allow: /go/
 Allow: /about.html
 Allow: /download.html
 Allow: /tourist.html
+Allow: /privacy.html
+Allow: /terms.html
 Disallow: /.*
 
 # Карта сайта

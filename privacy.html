@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light" data-lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<!-- Geo / Region SEO — Dushanbe, Tajikistan -->
+<meta name="geo.region" content="TJ-DU">
+<meta name="geo.placename" content="Dushanbe">
+<meta name="geo.position" content="38.5598;68.7870">
+<meta name="ICBM" content="38.5598, 68.7870">
+
+<title>Политика конфиденциальности — Rohnamo</title>
+<link rel="canonical" href="https://rohnamo.github.io/privacy.html">
+
+<!-- Multi-language Hreflang SEO -->
+<link rel="alternate" hreflang="ru" href="https://rohnamo.github.io/privacy.html?lang=ru">
+<link rel="alternate" hreflang="tg" href="https://rohnamo.github.io/privacy.html?lang=tg">
+<link rel="alternate" hreflang="en" href="https://rohnamo.github.io/privacy.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://rohnamo.github.io/privacy.html">
+
+<meta name="description" content="Политика конфиденциальности мобильного приложения и сервиса Rohnamo (Роҳнамо). Сведения о защите персональных данных, геолокации, Firebase и правах пользователей.">
+<meta name="keywords" content="политика конфиденциальности рохнамо, сиёсати махфият rohnamo, privacy policy rohnamo, rohnamo privacy, защита данных душанбе">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rohnamo.github.io/privacy.html">
+<meta property="og:title" content="Политика конфиденциальности — Rohnamo">
+<meta property="og:description" content="Официальная политика конфиденциальности приложения Rohnamo. Защита персональных данных, безопасность и правила обработки.">
+<meta property="og:image" content="https://rohnamo.github.io/img/icon.png">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://rohnamo.github.io/privacy.html">
+<meta name="twitter:title" content="Политика конфиденциальности — Rohnamo">
+<meta name="twitter:description" content="Официальная политика конфиденциальности приложения Rohnamo. Защита персональных данных.">
+<meta name="twitter:image" content="https://rohnamo.github.io/img/icon.png">
+
+<meta name="theme-color" content="#FF6D00">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="512x512" href="/img/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/icon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pri:#FF6D00; --on-pri:#fff;
+  --pri-con:#FFE0CC; --on-pri-con:#331200;
+  --sec:#1565C0; --sec-con:#D6E4FF; --on-sec-con:#001847;
+  --ter:#2E7D32; --ter-con:#C8F0CA; --on-ter-con:#002106;
+  --surf:#FFF8F5; --surf1:#FFF1EA; --surf2:#FDEADF; --surf3:#FBDED0;
+  --on-surf:#1C1B1F; --on-surf-v:#49454F;
+  --out:#857470; --out-v:#E0CEC8;
+  --card-bg:#ffffff;
+  --r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:28px;--r-full:9999px;
+  --e1:0 1px 4px rgba(0,0,0,.08);
+  --e2:0 4px 16px rgba(0,0,0,.08);
+}
+[data-theme="dark"] {
+  --pri:#FFB74D; --on-pri:#1A0900;
+  --pri-con:#7A3800; --on-pri-con:#FFD8B8;
+  --sec:#90CAF9; --sec-con:#0D3A6B; --on-sec-con:#BBDEFB;
+  --ter:#81C784; --ter-con:#1B3D1C; --on-ter-con:#C8E6C9;
+  --surf:#120E0D; --surf1:#1E1513; --surf2:#281C19; --surf3:#32231F;
+  --on-surf:#EDE0DB; --on-surf-v:#BAB0AB;
+  --out:#9E8D88; --out-v:#4A3C38;
+  --card-bg:#1A1311;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  width: 100%; margin: 0; padding: 0;
+  background: var(--surf) !important; color: var(--on-surf);
+  font-family: 'Noto Sans', sans-serif; line-height: 1.65;
+  transition: background .25s, color .25s;
+}
+
+[data-lang="ru"] .t-tj, [data-lang="ru"] .t-en { display: none !important; }
+[data-lang="tj"] .t-ru, [data-lang="tj"] .t-en { display: none !important; }
+[data-lang="en"] .t-ru, [data-lang="en"] .t-tj { display: none !important; }
+
+.top-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--surf); border-bottom: 1px solid var(--out-v);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  height: 64px; padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: var(--e1);
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.brand-icon { width: 36px; height: 36px; border-radius: var(--r-md); }
+.brand-name { font-family: 'Noto Sans Display', sans-serif; font-weight: 900; font-size: 20px; color: var(--pri); }
+
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.lang-switch { display: flex; background: var(--surf2); border-radius: var(--r-full); padding: 2px; border: 1px solid var(--out-v); }
+.lang-btn {
+  border: none; background: transparent; padding: 6px 12px; border-radius: var(--r-full);
+  font-size: 12px; font-weight: 700; color: var(--on-surf-v); cursor: pointer; transition: all .2s;
+}
+.lang-btn.active { background: var(--pri); color: var(--on-pri); }
+.theme-btn {
+  background: var(--surf2); border: 1px solid var(--out-v); border-radius: var(--r-full);
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--on-surf);
+}
+
+.page-container {
+  max-width: 860px; margin: 0 auto; padding: 36px 20px 80px;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--pri-con); color: var(--on-pri-con);
+  padding: 6px 14px; border-radius: var(--r-full);
+  font-size: 12px; font-weight: 700; margin-bottom: 12px;
+}
+.page-title {
+  font-family: 'Noto Sans Display', sans-serif; font-weight: 900; font-size: 32px;
+  margin: 0 0 8px; line-height: 1.25; color: var(--on-surf);
+}
+.page-date { font-size: 13px; color: var(--on-surf-v); margin-bottom: 28px; }
+
+.legal-card {
+  background: var(--card-bg); border: 1px solid var(--out-v);
+  border-radius: var(--r-xl); padding: 28px 24px; margin-bottom: 24px;
+  box-shadow: var(--e1);
+}
+.legal-card h2 {
+  font-family: 'Noto Sans Display', sans-serif; font-size: 20px; font-weight: 800;
+  margin-top: 0; margin-bottom: 14px; color: var(--pri);
+  display: flex; align-items: center; gap: 10px;
+}
+.legal-card h3 {
+  font-size: 16px; font-weight: 700; margin: 18px 0 8px; color: var(--on-surf);
+}
+.legal-card p, .legal-card li {
+  font-size: 14.5px; color: var(--on-surf-v); margin-bottom: 10px;
+}
+.legal-card ul { padding-left: 20px; margin: 8px 0 16px; }
+.legal-card li { margin-bottom: 6px; }
+
+.badge-pill {
+  display: inline-block; padding: 2px 8px; border-radius: var(--r-sm);
+  background: var(--surf2); border: 1px solid var(--out-v);
+  font-size: 12px; font-weight: 600; color: var(--on-surf); font-family: monospace;
+}
+
+.alert-box {
+  background: var(--sec-con); color: var(--on-sec-con);
+  border-radius: var(--r-md); padding: 14px 18px; margin: 16px 0;
+  font-size: 13.5px; line-height: 1.5;
+}
+.alert-box strong { color: var(--sec); }
+
+.contact-box {
+  background: var(--surf1); border: 1px dashed var(--pri);
+  border-radius: var(--r-lg); padding: 20px; margin-top: 24px; text-align: center;
+}
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pri); color: var(--on-pri);
+  padding: 10px 22px; border-radius: var(--r-full);
+  text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 10px;
+  box-shadow: var(--e1);
+}
+
+footer {
+  border-top: 1px solid var(--out-v); padding: 24px 20px; text-align: center;
+  font-size: 13px; color: var(--on-surf-v); background: var(--surf1);
+}
+footer a { color: var(--pri); text-decoration: none; margin: 0 8px; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .page-title { font-size: 26px; }
+  .legal-card { padding: 20px 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <a href="/" class="brand">
+    <img src="/img/icon.svg" alt="Rohnamo Logo" class="brand-icon">
+    <span class="brand-name">Rohnamo</span>
+  </a>
+
+  <div class="nav-actions">
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('tj')">TJ</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="theme-btn" onclick="toggleTheme()" title="Тема">🌓</button>
+  </div>
+</header>
+
+<main class="page-container">
+  <div class="hero-badge">
+    <span class="t-ru">Юридический документ</span>
+    <span class="t-tj">Ҳуҷҷати ҳуқуқӣ</span>
+    <span class="t-en">Legal Compliance</span>
+  </div>
+
+  <h1 class="page-title">
+    <span class="t-ru">Политика конфиденциальности</span>
+    <span class="t-tj">Сиёсати махфият</span>
+    <span class="t-en">Privacy Policy</span>
+  </h1>
+
+  <div class="page-date">
+    <span class="t-ru">Редакция от: 16 сентября 2026 г. • Действует для приложения Rohnamo и сайта rohnamo.github.io</span>
+    <span class="t-tj">Таҳрири: 16 сентябри соли 2026 • Барои барномаи Rohnamo ва сомонаи rohnamo.github.io эътибор дорад</span>
+    <span class="t-en">Last updated: September 16, 2026 • Effective for Rohnamo App & rohnamo.github.io</span>
+  </div>
+
+  <!-- 1. General Provisions -->
+  <section class="legal-card">
+    <h2>
+      <span>1.</span>
+      <span class="t-ru">Общие положения</span>
+      <span class="t-tj">Муқаррароти умумӣ</span>
+      <span class="t-en">General Provisions</span>
+    </h2>
+
+    <p class="t-ru">Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок обработки и защиты информации о физических лицах, пользующихся мобильным приложением <strong>Rohnamo</strong> (далее — «Приложение») и веб-сайтом <strong>rohnamo.github.io</strong>. Мы уважаем ваше право на личную жизнь и стремимся обеспечить максимальную безопасность и прозрачность при использовании наших сервисов.</p>
+    <p class="t-tj">Ин Сиёсати махфият (минбаъд — «Сиёсат») тартиби коркард ва ҳифзи маълумотро дар бораи шахсони воқеӣ, ки аз барномаи мобилии <strong>Rohnamo</strong> (минбаъд — «Барнома») ва сомонаи <strong>rohnamo.github.io</strong> истифода мебаранд, муайян мекунад. Мо ҳуқуқи шуморо ба дахлнопазирии ҳаёти шахсӣ эҳтиром мекунем.</p>
+    <p class="t-en">This Privacy Policy governs the collection, processing, and protection of information regarding users of the <strong>Rohnamo</strong> mobile application ("App") and the <strong>rohnamo.github.io</strong> website. We are committed to transparency and safeguarding your personal privacy in full compliance with applicable laws.</p>
+
+    <div class="alert-box">
+      <span class="t-ru"><strong>Правовая основа:</strong> Настоящая политика разработана в соответствии с Законом Республики Таджикистан «О защите персональных данных» (№ 1533), Общим регламентом по защите данных ЕС (GDPR), Законом Калифорнии о конфиденциальности потребителей (CCPA) и Правилами Google Play для разработчиков.</span>
+      <span class="t-tj"><strong>Асоси ҳуқуқӣ:</strong> Ин сиёсат мутобиқи Қонуни Ҷумҳурии Тоҷикистон «Дар бораи ҳимояи маълумоти шахсӣ» (№ 1533), Низомномаи умумии ҳифзи маълумоти ИА (GDPR) ва талаботи Google Play таҳия шудааст.</span>
+      <span class="t-en"><strong>Legal Framework:</strong> This policy complies with the Law of the Republic of Tajikistan "On Personal Data Protection" (No. 1533), EU GDPR, California CCPA, and Google Play Developer Policies.</span>
+    </div>
+  </section>
+
+  <!-- 2. Data Collected & Purposes -->
+  <section class="legal-card">
+    <h2>
+      <span>2.</span>
+      <span class="t-ru">Какие данные мы обрабатываем</span>
+      <span class="t-tj">Кадом маълумотро коркард мекунем</span>
+      <span class="t-en">Data We Collect & Why</span>
+    </h2>
+
+    <h3>
+      <span class="t-ru">📍 Точная и примерная геолокация (GPS / Сеть)</span>
+      <span class="t-tj">📍 Мавқеъгирии ҷуғрофӣ (GPS)</span>
+      <span class="t-en">📍 Precise and Approximate Geolocation</span>
+    </h3>
+    <p class="t-ru">Приложение запрашивает доступ к геолокации (<span class="badge-pill">ACCESS_FINE_LOCATION</span>, <span class="badge-pill">ACCESS_COARSE_LOCATION</span>) <strong>исключительно</strong> во время использования приложения для:
+      <ul>
+        <li>Отображения вашего текущего положения на карте Душанбе.</li>
+        <li>Поиска ближайших остановок общественного транспорта и прокладки маршрута от точки, где вы находитесь.</li>
+      </ul>
+      <em>Геолокация обрабатывается строго на вашем устройстве в оперативной памяти и <strong>никогда не передаётся на наши серверы</strong> и не сохраняется в постоянной базе данных.</em>
+    </p>
+    <p class="t-tj">Барнома дастрасӣ ба макони ҷойгиршавии шуморо (GPS) <strong>танҳо</strong> ҳангоми кушода будани барнома барои нишон додани макони шумо дар харита ва дарёфти истгоҳҳои наздиктарин истифода мебарад. Маълумоти GPS ба сервер фиристода намешавад ва сабт намегардад.</p>
+    <p class="t-en">The App requests location permissions only when foregrounded to display your position on the map and calculate nearby stops. Your real-time coordinates are processed locally on your device and are <strong>never stored on or transmitted to external servers</strong>.</p>
+
+    <h3>
+      <span class="t-ru">🎙️ Микрофон и голосовой поиск (Audio)</span>
+      <span class="t-tj">🎙️ Микрофон ва ҷустуҷӯи овозӣ</span>
+      <span class="t-en">🎙️ Microphone and Voice Search</span>
+    </h3>
+    <p class="t-ru">При использовании функции голосового поиска в AI-ассистенте запрашивается разрешение <span class="badge-pill">RECORD_AUDIO</span>. Аудиофрагмент передаётся по защищённому протоколу TLS в сервис транскрипции (Whisper API) для перевода голоса в текст и сразу удаляется после распознавания. Постоянная аудиозапись или фоновое прослушивание не осуществляются.</p>
+    <p class="t-tj">Разрешениеи микрофон танҳо ҳангоми пахш кардани тугмаи овозии AI барои табдили овоз ба матн истифода мешавад. Сабти овозӣ пас аз шинохтан фавран нест карда мешавад.</p>
+    <p class="t-en">Audio permission is used solely when you tap the voice search button to transcribe your transit query. Audio clips are securely processed via Whisper API and immediately discarded without retention.</p>
+
+    <h3>
+      <span class="t-ru">👤 Учётная запись Google и профиль</span>
+      <span class="t-tj">👤 Ҳисоби Google ва профил</span>
+      <span class="t-en">👤 Google Account & Profile</span>
+    </h3>
+    <p class="t-ru">При добровольной авторизации через Google Sign-In через сервис Firebase Authentication сохраняются:
+      <ul>
+        <li>Идентификатор пользователя (<span class="badge-pill">UID</span>), адрес электронной почты и имя профиля.</li>
+        <li>Синхронизируемые закладки избранных маршрутов и история запросов к AI (по желанию пользователя).</li>
+      </ul>
+      Авторизация является необязательной: базовый справочник остановок и маршрутов работает на 100% анонимно без регистрации.
+    </p>
+    <p class="t-tj">Воридшавӣ тавассути Google ихтиёрӣ мебошад. Он танҳо барои нигоҳдории хатсайрҳои дӯстдошта ва таърихи дархостҳо дар абр хизмат мекунад. Барнома бе сабти ном ҳам 100% кор мекунад.</p>
+    <p class="t-en">Google Sign-In is strictly optional. It allows syncing your favorite routes and AI chat history across devices via secure Firebase Authentication.</p>
+
+    <h3>
+      <span class="t-ru">🔔 Push-уведомления (Firebase Cloud Messaging)</span>
+      <span class="t-tj">🔔 Огоҳиномаҳо (Push Notifications)</span>
+      <span class="t-en">🔔 Push Notifications</span>
+    </h3>
+    <p class="t-ru">Для доставки важных сервисных сообщений (изменение схем движения, перекрытие дорог, обновление приложения) используется токен FCM. Токен не содержит личных данных и используется только для рассылки уведомлений.</p>
+    <p class="t-tj">Барои фиристодани хабарҳои муҳим оид ба тағйирёбии хатсайрҳои нақлиёт ва навсозиҳои барнома токени FCM истифода мешавад.</p>
+    <p class="t-en">We use Firebase Cloud Messaging tokens solely to deliver critical transit advisories and app update announcements.</p>
+  </section>
+
+  <!-- 3. Third Parties -->
+  <section class="legal-card">
+    <h2>
+      <span>3.</span>
+      <span class="t-ru">Сторонние сервисы и безопасность</span>
+      <span class="t-tj">Хадамоти тарафи сеюм ва амният</span>
+      <span class="t-en">Third-Party Services & Security</span>
+    </h2>
+
+    <p class="t-ru">Для обеспечения стабильной работы приложения используются проверенные международные провайдеры инфраструктуры:</p>
+    <p class="t-tj">Барои кори боэътимоди барнома хадамотҳои зерини байналмилалӣ истифода мешаванд:</p>
+    <p class="t-en">We rely on industry-standard infrastructure providers:</p>
+
+    <ul>
+      <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Cloud Messaging) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Политика Google</a>.</li>
+      <li><strong>Groq / Cerebras / Gemini API</strong> — Высокоскоростные нейросетевые сервисы для обработки запросов AI-навигатора.</li>
+      <li><strong>OpenStreetMap / CARTO</strong> — Картографические подложки Душанбе.</li>
+    </ul>
+
+    <p class="t-ru"><strong>Мы НИКОГДА не продаём, не сдаем в аренду и не передаем ваши персональные данные третьим лицам или рекламным брокерам.</strong> Все данные передаются по зашифрованным каналам HTTPS / TLS 1.3, а локальная база данных приложения защищена криптографическим алгоритмом AES-256.</p>
+    <p class="t-tj"><strong>Мо ҳеҷ гоҳ маълумоти шуморо ба шахсони сеюм намефурӯшем ва барои таблиғот истифода намебарем.</strong> Ҳама маълумот тавассути каналҳои рамзгузоришудаи TLS 1.3 интиқол меёбад.</p>
+    <p class="t-en"><strong>We NEVER sell, rent, or monetize your personal data.</strong> All network communication is strictly encrypted via TLS 1.3, and offline local cache is AES-256 protected.</p>
+  </section>
+
+  <!-- 4. User Rights & Data Deletion -->
+  <section class="legal-card">
+    <h2>
+      <span>4.</span>
+      <span class="t-ru">Права пользователя и удаление данных</span>
+      <span class="t-tj">Ҳуқуқҳои корбар ва несткунии маълумот</span>
+      <span class="t-en">User Rights & Account Deletion</span>
+    </h2>
+
+    <p class="t-ru">В соответствии с законодательством Республики Таджикистан и международными нормами вы имеете право:</p>
+    <p class="t-tj">Мутобиқи қонунгузории ҶТ ва меъёрҳои байналмилалӣ шумо ҳуқуқ доред:</p>
+    <p class="t-en">Under applicable data protection laws, you retain full rights to:</p>
+
+    <ul>
+      <li class="t-ru">Отозвать согласие на использование геолокации или микрофона в любой момент в настройках телефона.</li>
+      <li class="t-tj">Дар дилхоҳ лаҳза дастрасӣ ба GPS ё микрофонро дар танзимоти телефон хомӯш намоед.</li>
+      <li class="t-en">Revoke location or microphone permissions anytime in your device settings.</li>
+
+      <li class="t-ru">Получить выгрузку ваших сохранённых данных или удалить историю поиска.</li>
+      <li class="t-tj">Таърихи ҷустуҷӯ ва хатсайрҳои захирашударо пок созед.</li>
+      <li class="t-en">Access or clear your search history and local offline bookmarks.</li>
+
+      <li class="t-ru"><strong>Полностью удалить свой аккаунт и все связанные облачные данные</strong>.</li>
+      <li class="t-tj"><strong>Ҳисоби худро ва тамоми маълумоти абриро пурра нест кунед</strong>.</li>
+      <li class="t-en"><strong>Request complete deletion of your account and cloud data</strong>.</li>
+    </ul>
+
+    <div class="alert-box">
+      <span class="t-ru"><strong>Инструкция по удалению данных:</strong><br>
+      1. Внутри приложения: перейдите в <em>Боковое меню → Настройки → Удалить аккаунт</em>.<br>
+      2. Либо отправьте запрос на электронную почту <a href="mailto:suhaylitaj@gmail.com">suhaylitaj@gmail.com</a> с темой «Удаление данных Rohnamo». Все ваши данные (профиль Firebase, сессии чата, токены) будут безвозвратно стёрты в течение 48 часов.</span>
+      
+      <span class="t-tj"><strong>Тарзи нест кардани маълумот:</strong><br>
+      1. Дар дохили барнома: <em>Меню → Танзимот → Нест кардани ҳисоб</em>.<br>
+      2. Ё ин ки ба почтаи <a href="mailto:suhaylitaj@gmail.com">suhaylitaj@gmail.com</a> бо мавзӯи «Delete Data» мактуб нависед. Маълумоти шумо давоми 48 соат пурра нест карда мешавад.</span>
+
+      <span class="t-en"><strong>Account & Data Deletion Instructions:</strong><br>
+      1. In-App: Navigate to <em>Sidebar → Settings → Delete Account</em>.<br>
+      2. Via Email: Send an email to <a href="mailto:suhaylitaj@gmail.com">suhaylitaj@gmail.com</a> with the subject "Delete Rohnamo Data". All profile records and tokens will be permanently erased within 48 hours.</span>
+    </div>
+  </section>
+
+  <!-- 5. Children's Privacy -->
+  <section class="legal-card">
+    <h2>
+      <span>5.</span>
+      <span class="t-ru">Конфиденциальность детей</span>
+      <span class="t-tj">Махфияти кӯдакон</span>
+      <span class="t-en">Children's Privacy (COPPA)</span>
+    </h2>
+
+    <p class="t-ru">Приложение Rohnamo является общедоступным городским справочником и безопасно для пользователей любого возраста. Мы сознательно не собираем персональные данные детей в возрасте до 13 лет. Если вы считаете, что ребенок предоставил нам данные без согласия родителей, свяжитесь с нами для их немедленного удаления.</p>
+    <p class="t-tj">Барнома барои истифодаи тамоми синну сол бехатар аст. Мо дидаю дониста маълумоти шахсии кӯдакони то 13-соларо ҷамъоварӣ намекунем.</p>
+    <p class="t-en">Rohnamo is a general-audience urban transit utility safe for all age groups. We do not knowingly collect personal information from children under 13.</p>
+  </section>
+
+  <!-- 6. Contacts -->
+  <section class="legal-card">
+    <h2>
+      <span>6.</span>
+      <span class="t-ru">Контакты и обратная связь</span>
+      <span class="t-tj">Тамос ва саволҳо</span>
+      <span class="t-en">Contact & Data Protection Officer</span>
+    </h2>
+
+    <p class="t-ru">По всем вопросам, связанным с настоящей Политикой конфиденциальности или защитой персональных данных, вы можете обращаться напрямую к разработчику:</p>
+    <p class="t-tj">Барои саволҳо оид ба ин Сиёсати махфият, метавонед бо таҳиягар тамос гиред:</p>
+    <p class="t-en">For any inquiries or privacy-related questions, please contact our team directly:</p>
+
+    <div class="contact-box">
+      <strong>Сухайли Диловаршо (Suhayli Dilovarsho)</strong><br>
+      <span style="font-size:13px;color:var(--on-surf-v);">Основатель и ведущий разработчик проекта Rohnamo • Душанбе, Таджикистан</span><br>
+      <a href="mailto:suhaylitaj@gmail.com" class="contact-btn">✉️ suhaylitaj@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024–2026 Rohnamo. <a href="/">Главная</a> • <a href="/terms.html">Пользовательское соглашение</a> • <a href="/privacy.html">Политика конфиденциальности</a> • <a href="/about.html">О проекте</a></p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  localStorage.setItem('rohnamo_lang', lang);
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = cur === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('rohnamo_theme', next);
+}
+
+// Init lang and theme
+const savedLang = localStorage.getItem('rohnamo_lang') || 'ru';
+setLang(savedLang);
+
+const savedTheme = localStorage.getItem('rohnamo_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', savedTheme);
+</script>
+</body>
+</html>
